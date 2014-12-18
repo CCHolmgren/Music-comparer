@@ -1,0 +1,23 @@
+//
+   Created by Chrille on 2014-12-18.
+extends layout
+
+block content
+   style.
+      table.sortable th:not(.sorttable_sorted):not(.sorttable_sorted_reverse):not(.sorttable_nosort):after {
+         content: " \25B4\25BE"
+      }
+   table(class="sortable")
+      thead
+         tr
+            th
+            th Album name
+            th Track name
+            th popularity
+
+      each track, index in result.tracks.items
+         tr
+            td= index+1
+            td= track.album.name
+            td= track.name
+            td= track.popularity

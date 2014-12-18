@@ -3,10 +3,7 @@
  */
 var request = require("request");
 
-
 var Spotify = {
-    client_id: "d879c5ab042e48b48e903324096473ae",
-    client_secret: "c843dada051648dfae377df0f453e464",
     artist: {
         search: function(query, callback){
             request("https://api.spotify.com/v1/search?q=" + query + "&type=artist", function(error, response, body){
@@ -42,8 +39,4 @@ var Spotify = {
     }
 };
 
-module.exports.api_keys = {
-    lastfm: lastfm,
-    spotify: spotify
-};
 module.exports.Spotify = Spotify;
