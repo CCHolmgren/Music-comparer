@@ -8,8 +8,21 @@ var bodyParser = require('body-parser');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var settings = require('./settings/settings');
+var artists = require('./routes/artists');
+var tracks = require('./routes/tracks');
+var albums = require('./routes/albums');
 
 var app = express();
+
+
+var spotify = settings.Spotify;
+
+/*spotify.artist.search("Muse", function(result){
+    console.log(result);
+});*/
+/*spotify.search("Muse", "artist", function(result){
+    console.log(result);
+});*/
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

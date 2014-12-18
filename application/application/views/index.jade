@@ -3,3 +3,16 @@ extends layout
 block content
   h1= title
   p Welcome to #{title}
+
+  form(method='post')
+    input(type='text' name='query' placeholder='Text')
+    input(type='text' name='type' placeholder='Type')
+    input(type='submit' value='Whatnow')
+
+  each val in result["artists"]["items"]
+    h3 #{val.name}
+    p Popularity, a value between 0 and 100: #{val.popularity}
+    if(val.images[0])
+      img(src=val.images[0]["url"])
+    else
+      p No images
