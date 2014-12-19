@@ -16,15 +16,15 @@ client.on("error", function (err) {
     console.log("Error " + err);
 });
 router.get('/:trackname', function (req, res, next) {
-
-    if (req.params["trackname"]) {
+    var trackname = req.params["trackname"];
+    if (trackname) {
         client.exists(req.params.trackname, function (err, result) {
             if (err) {
                 console.log("There was an error: ",err);
             } else {
                 console.log("Result: ", result);
                 if (result) {
-                    client.ttl(req.params["trackname"], redis.print);
+                    client.ttl(trackname, redis.print);
 
                     res.render("track", {
                         result: JSON.parse(result),
@@ -32,7 +32,7 @@ router.get('/:trackname', function (req, res, next) {
                     });
 
                 } else {
-                    spotify.search(req.params["trackname"], "track", function (result) {
+                    spotify.track.search(trackname, function (result) {
                         var stringresult = result;
 
                         result = JSON.parse(result);
@@ -40,8 +40,8 @@ router.get('/:trackname', function (req, res, next) {
 
                         console.log("Saving that shit to the server");
 
-                        client.set(req.params["trackname"], JSON.stringify(result), redis.print);
-                        client.expire(req.params["trackname"], 1000);
+                        client.set(trackname, JSON.stringify(result), redis.print);
+                        client.expire(trackname, 1000);
                     });
                 }
             }
