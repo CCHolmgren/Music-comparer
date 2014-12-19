@@ -4,22 +4,54 @@
 var express = require('express');
 var router = express.Router();
 var spotify = require('../settings/settings').Spotify;
+var redis = require('redis'),
+    client = redis.createClient();
+var Q = require('q');
 
 /* GET users listing. */
-
-router.get('/:trackname', function(req, res, next){
-   if(req.params.trackname){
-        spotify.search(req.params.artistname, "track", function(result){
-            var stringresult = result;
-            result = JSON.parse(result);
-            res.render("track", {result: result, stringresult: stringresult});
-        });
-   }
-    else {
-       next();
-   }
+client.on("connect", function () {
+    console.log("Connected!");
 });
-router.get('/', function(req, res) {
+client.on("error", function (err) {
+    console.log("Error " + err);
+});
+router.get('/:trackname', function (req, res, next) {
+
+    if (req.params["trackname"]) {
+        client.exists(req.params.trackname, function (err, result) {
+            if (err) {
+                console.log("There was an error: ",err);
+            } else {
+                console.log("Result: ", result);
+                if (result) {
+                    client.ttl(req.params["trackname"], redis.print);
+
+                    res.render("track", {
+                        result: JSON.parse(result),
+                        stringresult: result
+                    });
+
+                } else {
+                    spotify.search(req.params["trackname"], "track", function (result) {
+                        var stringresult = result;
+
+                        result = JSON.parse(result);
+                        res.render("track", {result: result, stringresult: stringresult});
+
+                        console.log("Saving that shit to the server");
+
+                        client.set(req.params["trackname"], JSON.stringify(result), redis.print);
+                        client.expire(req.params["trackname"], 1000);
+                    });
+                }
+            }
+        });
+    }
+    else {
+        next();
+    }
+});
+router.get('/', function (req, res) {
     res.render('track', {});
 });
 

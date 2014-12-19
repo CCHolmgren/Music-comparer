@@ -4,6 +4,12 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+/*var redis = require('redis'),
+    client = redis.createClient();
+
+client.on("error", function(err){
+    console.log("Error " + err);
+});*/
 
 var routes = require('./routes/index');
 var users = require('./routes/users');

@@ -1,8 +1,19 @@
 doctype html
-html
+html(lang='en')
   head
     title= title
+
+    meta(charset='utf-8')
+    meta(name='description' content='')
+    meta(name='author' content='Christoffer Holmgren, ch222kv')
+    meta(name='viewport' content='width=device-width, initial-scale=1')
+
+    link(href='//fonts.googleapis.com/css?family=Raleway:400,300,600' rel='stylesheet' type='text/css')
     link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='/stylesheets/normalize.css')
+    link(rel='stylesheet', href='stylesheets/skeleton.css')
   body
-    block content
-    script(src="../javascripts/sorttable.js")
+    div.container
+      div.row
+        div.one-half.column
+          block content
