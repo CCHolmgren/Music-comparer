@@ -6,7 +6,6 @@ var router = express.Router();
 var spotify = require('../settings/settings').Spotify;
 var redis = require('redis'),
     client = redis.createClient();
-var Q = require('q');
 
 /* GET users listing. */
 client.on("connect", function () {
@@ -18,13 +17,13 @@ client.on("error", function (err) {
 router.get('/:trackname', function (req, res, next) {
     var trackname = req.params["trackname"];
     if (trackname) {
-        client.exists(req.params.trackname, function (err, result) {
+        client.get("track:"+trackname, function (err, result) {
             if (err) {
                 console.log("There was an error: ",err);
             } else {
                 console.log("Result: ", result);
                 if (result) {
-                    client.ttl(trackname, redis.print);
+                    client.ttl("track:"+trackname, redis.print);
 
                     res.render("track", {
                         result: JSON.parse(result),
@@ -32,7 +31,7 @@ router.get('/:trackname', function (req, res, next) {
                     });
 
                 } else {
-                    spotify.track.search(trackname, function (result) {
+                    spotify.track.search("track:"+trackname, function (result) {
                         var stringresult = result;
 
                         result = JSON.parse(result);
@@ -40,8 +39,8 @@ router.get('/:trackname', function (req, res, next) {
 
                         console.log("Saving that shit to the server");
 
-                        client.set(trackname, JSON.stringify(result), redis.print);
-                        client.expire(trackname, 1000);
+                        client.set("track:"+trackname, JSON.stringify(result), redis.print);
+                        client.expire("track:"+trackname, 1000);
                     });
                 }
             }
