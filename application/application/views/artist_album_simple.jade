@@ -1,5 +1,5 @@
 //
-   Created by Chrille on 2014-12-18.
+                    Created by Chrille on 2014-12-19.
 extends layout
 block content
     pre
@@ -9,21 +9,19 @@ block content
             content: " \25B4\25BE"
         }
     //- Ugly checking
-    -if(result["artists"] && result["artists"]["items"])
+    -if(result["items"])
         p= result
         table(class="sortable")
             thead
                 tr
                     th
-                    th Artist name
-                    th Popularity
+                    th Album name
                     th URI
             tbody
-                each artist, index in result.artists.items
+                each album, index in result.items
                     tr
                         td= index + 1
-                        td= artist.name
-                        td= artist.popularity
+                        td= album.name
                         td
-                            a(href="#{artist.uri}") Link
-        script(src="../javascripts/sorttable.js")
+                            a(href="#{album.uri}") Link
+    script(src="../javascripts/sorttable.js")

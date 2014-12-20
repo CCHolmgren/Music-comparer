@@ -1,18 +1,46 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+	h1= title
+	p Welcome to #{title}
+	pre
+		code= JSON.stringify(result)
+	div.row
+		form
+			div.five.columns
+				input(type='text' name='query1' placeholder='Text')
+				//-if(result)
+					each val in result["artists"]["items"]
+						h3 #{val.name}
+						p Popularity, a value between 0 and 100: #{val.popularity}
+						if(val.images[0])
+							img(src=val.images[0]["url"])
+						else
+							p No images
+			div.two.columns
+				input.btn#compare(value="Compare!" type="submit")
 
-  form(method='post')
-    input(type='text' name='query' placeholder='Text')
-    input(type='text' name='type' placeholder='Type')
-    input(type='submit' value='Whatnow')
+			div.five.columns
+				input(type='text' name='query2' placeholder='Text').u-pull-right
+	div.row
+		div.twelve.columns
+			div#result
+	script.
+		window.onload = function () {
+			console.log("Adding eventlistener");
+			document.getElementById("compare").addEventListener("click", function(e){
+				e.preventDefault();
+				$.ajax({
+					method: "post",
+					url: "http://localhost:3000/search",
+					data: {query1: $("[name=query1]")[0].value, query2:$("[name=query2]")[0].value, type: "artist"}
+				}).done(function (data) {
+					handleData(data);
+				});
+			});
 
-  each val in result["artists"]["items"]
-    h3 #{val.name}
-    p Popularity, a value between 0 and 100: #{val.popularity}
-    if(val.images[0])
-      img(src=val.images[0]["url"])
-    else
-      p No images
+		}
+		function handleData(data){
+			$("#result").html(data);
+		}
+	script(src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js")

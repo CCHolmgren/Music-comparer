@@ -1,0 +1,27 @@
+//
+	Created by Chrille on 2014-12-19.
+extends layout
+block content
+	pre
+		code= JSON.stringify(result)
+	style.
+		table.sortable th:not(.sorttable_sorted):not(.sorttable_sorted_reverse):not(.sorttable_nosort):after {
+			content: " \25B4\25BE"
+		}
+	//- Ugly checking
+	-if(result["items"])
+		p= result
+		table(class="sortable")
+			thead
+				tr
+					th
+					th Album name
+					th URI
+			tbody
+				each album, index in result.items
+					tr
+						td= index + 1
+						td= album.name
+						td
+							a(href="#{album.uri}") Link
+	script(src="../javascripts/sorttable.js")
