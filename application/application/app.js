@@ -7,6 +7,7 @@ var bodyParser = require('body-parser');
 var redis = require('redis'),
     client = redis.createClient();
 var Q = require("q");
+var swig = require("swig");
 
 client.on("error", function (err) {
     console.log("Error " + err);
@@ -33,8 +34,9 @@ var LastFM = settings.LastFM;
  });*/
 
 // view engine setup
+app.engine('html', swig.renderFile);
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
+app.set('view engine', 'html');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(__dirname + '/public/favicon.ico'));
@@ -47,26 +49,36 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', routes);
 
 app.post('/search', function (req, res) {
-    //Q.longStackSupport = true;
+    Q.longStackSupport = true;
     Q.all([Q.ninvoke(client, "get", "artist:" + req.body.query1), Q.ninvoke(client, "get", "artist:" + req.body.query2)])
-        .then(function (data) {
-            if (data) {
-                return [data, Q.all([LastFM.artist.get_info(req.body.query1),
-                    LastFM.artist.get_info(req.body.query2)])];
-            } else {
-                return [data, Q.all([spotify.artist.search(req.body.query1),
-                    spotify.artist.search(req.body.query2),
-                    LastFM.artist.get_info(req.body.query1),
-                    LastFM.artist.get_info(req.body.query2)])];
-            }
-        }).spread(function (data, data1) {
-            console.log("This is my other data:", data);
+        .then(function (cached_data) {
+            console.log(cached_data);
+            return [cached_data, Q.all([spotify.artist.search(req.body.query1),
+                spotify.artist.search(req.body.query2)])];
+        }).spread(function(cached_data, spotify_search_results){
+
+            console.log(spotify_search_results);
+            spotify_search_results = [JSON.parse(spotify_search_results[0]),JSON.parse(spotify_search_results[1])];
+            console.log(spotify_search_results);
+            console.log("Do we get here?");
+
+            return [cached_data, Q.all([spotify.artist.get_details(spotify_search_results[0].artists.items[0].id),
+                spotify.artist.get_details(spotify_search_results[1].artists.items[0].id),
+                LastFM.artist.get_info(req.body.query1),
+                LastFM.artist.get_info(req.body.query2)])]
+        }).spread(function (cached_data, data1) {
+            spotify_details1 = JSON.parse(data1[0]);
+            spotify_details2 = JSON.parse(data1[1]);
+            lastfminfo1 = JSON.parse(data1[2]);
+            lastfminfo2 = JSON.parse(data1[3]);
+            console.log(arguments);
+            console.log("This is my other data:", cached_data);
             console.log("Or maybe this:", data1);
             res.render("result", {
-                data1: JSON.parse(data[0] || data1[0]),
-                data2: JSON.parse(data[1] || data1[1]),
-                data3: data1[2],
-                data4: data1[3]
+                data1: cached_data[0] || spotify_details1,
+                data2: cached_data[1] || spotify_details2,
+                data3: lastfminfo1,
+                data4: lastfminfo2
             });
         }).fail(function (error) {
             throw new Error(error);

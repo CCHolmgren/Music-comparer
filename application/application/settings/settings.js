@@ -33,9 +33,16 @@ var Spotify = {
             get_details: function (artist_id, callback) {
                 console.log("Artist id: ", artist_id);
                 console.log(Spotify.artist.artist_details_url + artist_id);
-                request(Spotify.artist.artist_details_url + artist_id, function (error, repsonse, body) {
-                    callback(body, error, repsonse);
+                return Q.Promise(function(resolve, reject, notify){
+                    request(Spotify.artist.artist_details_url + artist_id, function (error, repsonse, body) {
+                        if(!error){
+                            resolve(body);
+                        } else {
+                            reject(error);
+                        }
+                    });
                 });
+
             }
         },
         track: {
