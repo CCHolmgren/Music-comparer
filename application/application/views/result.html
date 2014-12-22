@@ -1,0 +1,41 @@
+{% extends "" %}//-
+Created by Chrille on 2014-12-20.
+-function addCommas(nStr){ nStr += ''; x = nStr.split('.'); x1 = x[0]; x2 = x.length > 1 ? '.' + x[1] : ''; var rgx = /(\d+)(\d{3})/; while (rgx.test(x1)) { x1 = x1.replace(rgx, '$1' + ' ' + '$2'); } return x1 + x2; }
+<table>
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Popularity</th>
+    <th>URI</th>
+    <th>Followers</th>
+    <th>Listeners</th>
+    <th>Playcount</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>{{ data1.name }}</td>
+    <td>{{ data1.popularity }}</td>
+    <td>{{ data1.uri }}</td>
+    <td>{{ data1.followers.total }}</td>
+    <td>{{ data3.artist.stats.listeners }}</td>
+    <td>{{ data3.artist.stats.playcount }}</td>
+  </tr>
+  <tr>
+    <td>{{ data2.name}}</td>
+    <td>{{ data2.popularity}}</td>
+    <td>{{ data2.uri}}</td>
+    <td>{{ data2.followers.total}}</td>
+    <td>{{ data4.artist.stats.listeners}}</td>
+    <td>{{ data4.artist.stats.playcount }}</td>
+  </tr>
+  </tbody>
+</table>
+pre
+code=
+pre
+code.u-full-width= JSON.stringify(data2, undefined, 2)
+pre
+code= JSON.stringify(data3, undefined, 2)
+pre
+code= JSON.stringify(data4, undefined, 2)

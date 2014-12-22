@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+{% block content %}
+    <h1>{{ title }}</h1>
+    <p>Welcome to {{ title }}</p>
+    <pre>
+        <code>
+            {{ result }}
+        </code>
+    </pre>
+    <div class="row">
+            <div class="five cloumns">
+                <input type="text" name="query1" placeholder="Text" />
+            </div>
+            <div class="two cloumns">
+                <input class="btn" id="compare" type="submit" value="Compare!"/>
+            </div>
+            <div class="five columns">
+                <input class="u-pull-right" type="text" name="query2" placeholder="Text"/>
+            </div>
+    </div>
+    <div class="row">
+        <div class="twelve columns">
+            <div id="result"></div>
+        </div>
+    </div>
+    Test
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script>
+        window.onload = function () {
+            console.log("Adding eventlistener");
+            document.getElementById("compare").addEventListener("click", function(e){
+                e.preventDefault();
+                $.ajax({
+                    method: "post",
+                    url: "http://localhost:3000/search",
+                    data: {query1: $("[name=query1]")[0].value, query2:$("[name=query2]")[0].value, type: "artist"}
+                }).done(function (data) {
+                    handleData(data);
+                });
+            });
+
+        }
+        function handleData(data){
+            $("#result").html(data);
+        }
+    </script>
+{% endblock %}

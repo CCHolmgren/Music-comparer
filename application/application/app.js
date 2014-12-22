@@ -37,9 +37,15 @@ var LastFM = settings.LastFM;
 app.engine('html', swig.renderFile);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'html');
+app.set("view cache", false);
+
+swig.setDefaults({cache:false});
+swig.setFilter("eval", function(input){
+    return eval(input);
+});
 
 // uncomment after placing your favicon in /public
-//app.use(favicon(__dirname + '/public/favicon.ico'));
+app.use(favicon(__dirname + '/public/favicon.ico'));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
@@ -50,17 +56,16 @@ app.use('/', routes);
 
 app.post('/search', function (req, res) {
     Q.longStackSupport = true;
-    Q.all([Q.ninvoke(client, "get", "artist:" + req.body.query1), Q.ninvoke(client, "get", "artist:" + req.body.query2)])
-        .then(function (cached_data) {
-            console.log(cached_data);
-            return [cached_data, Q.all([spotify.artist.search(req.body.query1),
+    Q.spread([Q.ninvoke(client, "get", "artist:" + req.body.query1), Q.ninvoke(client, "get", "artist:" + req.body.query2)], function (query1, query2) {
+            //console.log(query1, query2);
+            return [[query1, query2], Q.all([spotify.artist.search(req.body.query1),
                 spotify.artist.search(req.body.query2)])];
         }).spread(function(cached_data, spotify_search_results){
 
-            console.log(spotify_search_results);
+            //console.log(spotify_search_results);
             spotify_search_results = [JSON.parse(spotify_search_results[0]),JSON.parse(spotify_search_results[1])];
-            console.log(spotify_search_results);
-            console.log("Do we get here?");
+            //console.log(spotify_search_results);
+            //console.log("Do we get here?");
 
             return [cached_data, Q.all([spotify.artist.get_details(spotify_search_results[0].artists.items[0].id),
                 spotify.artist.get_details(spotify_search_results[1].artists.items[0].id),
@@ -71,9 +76,10 @@ app.post('/search', function (req, res) {
             spotify_details2 = JSON.parse(data1[1]);
             lastfminfo1 = JSON.parse(data1[2]);
             lastfminfo2 = JSON.parse(data1[3]);
-            console.log(arguments);
-            console.log("This is my other data:", cached_data);
-            console.log("Or maybe this:", data1);
+            //console.log(arguments);
+            //console.log("This is my other data:", cached_data);
+            //console.log("Or maybe this:", data1);
+        console.log("Is this where it fails?");
             res.render("result", {
                 data1: cached_data[0] || spotify_details1,
                 data2: cached_data[1] || spotify_details2,
