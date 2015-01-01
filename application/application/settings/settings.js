@@ -28,8 +28,14 @@ var Spotify = {
                 request(Spotify.artist.album_url.join(artist_id), function (error, response, body) {
                     callback(body, error, response);
                 });
-            }
-            ,
+            },
+            get_details_without_artist_before: function(artist_name, callback){
+                return Spotify.artist.search(artist_name).then(function(data){
+                        console.log(data);
+                        return Spotify.artist.get_details(JSON.parse(data).artists.items[0].id);
+                    }
+                );
+            },
             get_details: function (artist_id, callback) {
                 console.log("Artist id: ", artist_id);
                 console.log(Spotify.artist.artist_details_url + artist_id);

@@ -12,7 +12,9 @@ var swig = require("swig");
 client.on("error", function (err) {
     console.log("Error " + err);
 });
-
+client.on("connect", function () {
+    console.log("Connected!");
+});
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var settings = require('./settings/settings');
@@ -53,9 +55,45 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
+app.post('/search2', function(req, res){
+    console.log("Going into the search2 function");
 
+    Q.longStackSupport = true;
+
+    console.log("body:", req.body.query);
+
+    Q.ninvoke(client, "get", "artist:" + req.body.query).
+        //then([].map.bind(JSON.parse)).
+        then(function(data){
+            data = JSON.parse(data);
+            console.log("data: ",data);
+            console.log(typeof data);
+            console.log(data instanceof Object);
+            if(data != Object){
+                console.log("Retrieved data from the cache");
+                console.log("data: ",data);
+                return [data, []];
+            } else {
+                return [[], Q.all([spotify.artist.get_details_without_artist_before(req.body.query), LastFM.artist.get_info(req.body.query)])]
+            }
+        }).spread(function(cached_data, retrieved_data) {
+            if(cached_data){
+                console.log("Do we get here?");
+                res.render("result2", {data:cached_data});
+            }
+             else{
+                retrieved_data_json = retrieved_data.map(JSON.parse);
+                res.render("result2", {data:retrieved_data_json});
+                client.set("artist:"+req.body.query, JSON.stringify(retrieved_data), redis.print);
+            }
+        });
+});
 app.post('/search', function (req, res) {
     Q.longStackSupport = true;
+    if(req.body.query1 == "" ||req.body.query2 == ""){
+        res.status(400).send({error: "400 Bad Request", message: "You provided only 1 or even 0 of the required 2 names. As such we can't go on with the query."});
+        return;
+    }
     Q.spread([Q.ninvoke(client, "get", "artist:" + req.body.query1), Q.ninvoke(client, "get", "artist:" + req.body.query2)], function (query1, query2) {
             //console.log(query1, query2);
             return [[query1, query2], Q.all([spotify.artist.search(req.body.query1),

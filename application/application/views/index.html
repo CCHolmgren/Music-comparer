@@ -8,10 +8,10 @@
         </code>
     </pre>
     <div class="row">
-            <div class="five cloumns">
+            <div class="five columns">
                 <input type="text" name="query1" placeholder="Text" />
             </div>
-            <div class="two cloumns">
+            <div class="two columns">
                 <input class="btn" id="compare" type="submit" value="Compare!"/>
             </div>
             <div class="five columns">
@@ -20,10 +20,19 @@
     </div>
     <div class="row">
         <div class="twelve columns">
+            <p id="loading"></p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="twelve columns">
             <div id="result"></div>
         </div>
     </div>
-    Test
+    <div class="row">
+        <div class="twelve columns">
+            <div id="result2"></div>
+        </div>
+    </div>
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script>
@@ -31,18 +40,42 @@
             console.log("Adding eventlistener");
             document.getElementById("compare").addEventListener("click", function(e){
                 e.preventDefault();
-                $.ajax({
-                    method: "post",
-                    url: "http://localhost:3000/search",
-                    data: {query1: $("[name=query1]")[0].value, query2:$("[name=query2]")[0].value, type: "artist"}
-                }).done(function (data) {
-                    handleData(data);
-                });
+                if($("[name=query1]")[0].value != ""){
+                    $.ajax({
+                        method: "post",
+                        url: "http://localhost:3000/search2",
+                        data: {query: $("[name=query1]")[0].value, type: "artist"},
+                        error: function(x,y,z){
+                            console.log(arguments);
+                            console.log(x);
+                            $("#loading").text(x.responseJSON.message);
+                        }
+                    }).done(function (data) {
+                        handleData(data);
+                    });
+                }
+                if($("[name=query2]")[0].value){
+                    $.ajax({
+                        method: "post",
+                        url: "http://localhost:3000/search2",
+                        data: {query: $("[name=query2]")[0].value, type: "artist"},
+                        error: function(x,y,z){
+                            console.log(x);
+                            console.log(arguments);
+                            $("#loading").text(x.responseJSON.message);
+                        }
+                    }).done(function (data) {
+                        handleData2(data);
+                    });
+                }
             });
 
         }
         function handleData(data){
             $("#result").html(data);
+        }
+        function handleData2(data){
+            $("#result2").html(data);
         }
     </script>
 {% endblock %}
