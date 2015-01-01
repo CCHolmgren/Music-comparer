@@ -62,30 +62,48 @@ app.post('/search2', function(req, res){
 
     console.log("body:", req.body.query);
 
-    Q.ninvoke(client, "get", "artist:" + req.body.query).
-        //then([].map.bind(JSON.parse)).
+    Q.ninvoke(client, "get", "artist:" + req.body.query.toLowerCase()).
         then(function(data){
-            data = JSON.parse(data);
-            console.log("data: ",data);
-            console.log(typeof data);
-            console.log(data instanceof Object);
-            if(data != Object){
+            //data = '[{"test":"Whatnow"},{"test":"Whatnow"}]';
+            console.log("Breaks on length?");
+            console.log(data);
+            if(data && data.length){
                 console.log("Retrieved data from the cache");
-                console.log("data: ",data);
+                //console.log("data: ",data);
                 return [data, []];
             } else {
-                return [[], Q.all([spotify.artist.get_details_without_artist_before(req.body.query), LastFM.artist.get_info(req.body.query)])]
+                console.log("Doing the promiserinos");
+                return [[], Q.all([spotify.artist.get_details_without_artist_before(req.body.query.toLowerCase()), LastFM.artist.get_info(req.body.query.toLowerCase())])]
             }
+        }, function(error){
+            console.log("Well shit: ",error);
         }).spread(function(cached_data, retrieved_data) {
-            if(cached_data){
+            if(cached_data.length){
+                cached_data = JSON.parse(cached_data);
+                console.log(typeof cached_data);
+                console.log(cached_data.length);
+                cached_data_json = cached_data.map(JSON.parse);
                 console.log("Do we get here?");
-                res.render("result2", {data:cached_data});
+                res.render("result2", {data: cached_data_json});
             }
              else{
+                console.log("Sending new data");
+                console.log(retrieved_data);
+
                 retrieved_data_json = retrieved_data.map(JSON.parse);
+
                 res.render("result2", {data:retrieved_data_json});
-                client.set("artist:"+req.body.query, JSON.stringify(retrieved_data), redis.print);
+
+                console.log("Saving the data to the cache");
+                console.log(typeof retrieved_data);
+                console.log(retrieved_data.length);
+                console.log(JSON.stringify(retrieved_data).substr(0,100));
+
+                client.set("artist:"+req.body.query.toLowerCase(), JSON.stringify(retrieved_data), redis.print);
+                client.expire("artist:"+req.body.query.toLowerCase(), 1000, redis.print);
             }
+        }).catch(function(error){
+            console.log(error.stack());
         });
 });
 app.post('/search', function (req, res) {
