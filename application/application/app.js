@@ -60,6 +60,7 @@ var render_json_data = function (res, data){
     res.render("result2", {data:data});
 };
 app.post('/search2', function(req, res){
+    var data_expiry_time = 1000;
     console.log("Going into the search2 function");
 
     Q.longStackSupport = true;
@@ -83,30 +84,18 @@ app.post('/search2', function(req, res){
             console.log("Well shit: ",error);
         }).spread(function(cached_data, retrieved_data) {
             if(cached_data.length){
-                cached_data = JSON.parse(cached_data);
-                console.log(typeof cached_data);
-                console.log(cached_data.length);
-                //cached_data_json = cached_data.map(JSON.parse);
-                console.log("Do we get here?");
-                //res.render("result2", {data: cached_data_json});
                 render_json_data(res, cached_data);
             }
              else{
                 console.log("Sending new data");
                 console.log(retrieved_data);
 
-                //retrieved_data_json = retrieved_data.map(JSON.parse);
-
-                //res.render("result2", {data:retrieved_data_json});
                 render_json_data(res, retrieved_data);
 
                 console.log("Saving the data to the cache");
-                console.log(typeof retrieved_data);
-                console.log(retrieved_data.length);
-                console.log(JSON.stringify(retrieved_data).substr(0,100));
 
                 client.set("artist:"+req.body.query.toLowerCase(), JSON.stringify(retrieved_data), redis.print);
-                client.expire("artist:"+req.body.query.toLowerCase(), 1000, redis.print);
+                client.expire("artist:"+req.body.query.toLowerCase(), data_expiry_time, redis.print);
             }
         }).catch(function(error){
             console.log(error.stack());
