@@ -9,12 +9,6 @@ var redis = require('redis'),
 var Q = require("q");
 var swig = require("swig");
 
-client.on("error", function (err) {
-    console.log("Error " + err);
-});
-client.on("connect", function () {
-    console.log("Connected!");
-});
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var settings = require('./settings/settings');
@@ -24,16 +18,15 @@ var albums = require('./routes/albums');
 
 var app = express();
 
-
 var spotify = settings.Spotify;
 var LastFM = settings.LastFM;
 
-/*spotify.artist.search("Muse", function(result){
- console.log(result);
- });*/
-/*spotify.search("Muse", "artist", function(result){
- console.log(result);
- });*/
+client.on("error", function (err) {
+    console.log("Error " + err);
+});
+client.on("connect", function () {
+    console.log("Connected!");
+});
 
 // view engine setup
 app.engine('html', swig.renderFile);
@@ -41,8 +34,8 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'html');
 app.set("view cache", false);
 
-swig.setDefaults({cache:false});
-swig.setFilter("eval", function(input){
+swig.setDefaults({cache: false});
+swig.setFilter("eval", function (input) {
     return eval(input);
 });
 
@@ -55,11 +48,11 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
-var render_json_data = function (res, data){
+var render_json_data = function (res, data) {
     data = data.map(JSON.parse);
-    res.render("result2", {data:data});
+    res.render("result2", {data: data});
 };
-app.post('/search2', function(req, res){
+app.post('/search2', function (req, res) {
     var query_string = req.body.query.toLowerCase().trim();
     var data_expiry_time = 1000;
     console.log("Going into the search2 function");
@@ -69,9 +62,9 @@ app.post('/search2', function(req, res){
     console.log("body:", query_string);
 
     Q.ninvoke(client, "get", "artist:" + query_string).
-        then(function(data){
+        then(function (data) {
             data = JSON.parse(data);
-            if(data && data.length){
+            if (data && data.length) {
                 console.log("Retrieved data from the cache");
                 //console.log("data: ",data);
                 return [data, []];
@@ -79,14 +72,14 @@ app.post('/search2', function(req, res){
                 console.log("Doing the promiserinos");
                 return [[], Q.all([spotify.artist.get_details_without_artist_before(query_string), LastFM.artist.get_info(query_string)])]
             }
-        }, function(error){
-            console.log("Well shit: ",error);
-        }).spread(function(cached_data, retrieved_data) {
-            if(cached_data.length){
-                res.render("result2", {data:cached_data});
+        }, function (error) {
+            console.log("Well shit: ", error);
+        }).spread(function (cached_data, retrieved_data) {
+            if (cached_data.length) {
+                res.render("result2", {data: cached_data});
                 //render_json_data(res, cached_data);
             }
-             else{
+            else {
                 console.log("Sending new data");
                 console.log(retrieved_data);
 
@@ -94,52 +87,55 @@ app.post('/search2', function(req, res){
 
                 console.log("Saving the data to the cache");
 
-                client.set("artist:"+query_string, "["+retrieved_data+"]", redis.print);
-                client.expire("artist:"+query_string, data_expiry_time, redis.print);
+                client.set("artist:" + query_string, "[" + retrieved_data + "]", redis.print);
+                client.expire("artist:" + query_string, data_expiry_time, redis.print);
             }
-        }).catch(function(error){
+        }).catch(function (error) {
             console.log(error.stack());
         });
 });
 app.post('/search', function (req, res) {
     Q.longStackSupport = true;
-    if(req.body.query1 == "" ||req.body.query2 == ""){
-        res.status(400).send({error: "400 Bad Request", message: "You provided only 1 or even 0 of the required 2 names. As such we can't go on with the query."});
+    if (req.body.query1 == "" || req.body.query2 == "") {
+        res.status(400).send({
+            error: "400 Bad Request",
+            message: "You provided only 1 or even 0 of the required 2 names. As such we can't go on with the query."
+        });
         return;
     }
     Q.spread([Q.ninvoke(client, "get", "artist:" + req.body.query1), Q.ninvoke(client, "get", "artist:" + req.body.query2)], function (query1, query2) {
-            //console.log(query1, query2);
-            return [[query1, query2], Q.all([spotify.artist.search(req.body.query1),
-                spotify.artist.search(req.body.query2)])];
-        }).spread(function(cached_data, spotify_search_results){
+        //console.log(query1, query2);
+        return [[query1, query2], Q.all([spotify.artist.search(req.body.query1),
+            spotify.artist.search(req.body.query2)])];
+    }).spread(function (cached_data, spotify_search_results) {
 
-            //console.log(spotify_search_results);
-            spotify_search_results = [JSON.parse(spotify_search_results[0]),JSON.parse(spotify_search_results[1])];
-            //console.log(spotify_search_results);
-            //console.log("Do we get here?");
+        //console.log(spotify_search_results);
+        spotify_search_results = [JSON.parse(spotify_search_results[0]), JSON.parse(spotify_search_results[1])];
+        //console.log(spotify_search_results);
+        //console.log("Do we get here?");
 
-            return [cached_data, Q.all([spotify.artist.get_details(spotify_search_results[0].artists.items[0].id),
-                spotify.artist.get_details(spotify_search_results[1].artists.items[0].id),
-                LastFM.artist.get_info(req.body.query1),
-                LastFM.artist.get_info(req.body.query2)])]
-        }).spread(function (cached_data, data1) {
-            spotify_details1 = JSON.parse(data1[0]);
-            spotify_details2 = JSON.parse(data1[1]);
-            lastfminfo1 = JSON.parse(data1[2]);
-            lastfminfo2 = JSON.parse(data1[3]);
-            //console.log(arguments);
-            //console.log("This is my other data:", cached_data);
-            //console.log("Or maybe this:", data1);
+        return [cached_data, Q.all([spotify.artist.get_details(spotify_search_results[0].artists.items[0].id),
+            spotify.artist.get_details(spotify_search_results[1].artists.items[0].id),
+            LastFM.artist.get_info(req.body.query1),
+            LastFM.artist.get_info(req.body.query2)])]
+    }).spread(function (cached_data, data1) {
+        spotify_details1 = JSON.parse(data1[0]);
+        spotify_details2 = JSON.parse(data1[1]);
+        lastfminfo1 = JSON.parse(data1[2]);
+        lastfminfo2 = JSON.parse(data1[3]);
+        //console.log(arguments);
+        //console.log("This is my other data:", cached_data);
+        //console.log("Or maybe this:", data1);
         console.log("Is this where it fails?");
-            res.render("result", {
-                data1: cached_data[0] || spotify_details1,
-                data2: cached_data[1] || spotify_details2,
-                data3: lastfminfo1,
-                data4: lastfminfo2
-            });
-        }).fail(function (error) {
-            throw new Error(error);
-        }).done();
+        res.render("result", {
+            data1: cached_data[0] || spotify_details1,
+            data2: cached_data[1] || spotify_details2,
+            data3: lastfminfo1,
+            data4: lastfminfo2
+        });
+    }).fail(function (error) {
+        throw new Error(error);
+    }).done();
     /*client.get("artist:" + req.body.query1, function (err, result) {
      if (result) {
      client.get("artist:" + req.body.query2, function (err2, result2) {
