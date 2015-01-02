@@ -2,6 +2,7 @@
 {% block content %}
     <h1>{{ title }}</h1>
     <p>Welcome to {{ title }}</p>
+    <p id="online">You are currently online</p>
     <pre>
         <code>
             {{ result }}
@@ -36,14 +37,25 @@
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script>
+        window.addEventListener("offline", function(e){
+            $("#online").text("You are currently offline");
+        });
+        window.addEventListener("online", function(e){
+            $("#online").text("You are currently online");
+        });
         window.onload = function () {
+            alert(navigator.onLine);
+            if(!navigator.onLine){
+                $("#online").text("You are currently offline");
+                $("#online").text(navigator.onLine);
+            }
             console.log("Adding eventlistener");
             document.getElementById("compare").addEventListener("click", function(e){
                 e.preventDefault();
                 if($("[name=query1]")[0].value != ""){
                     $.ajax({
                         method: "post",
-                        url: "http://localhost:3000/search2",
+                        url: "http://192.168.1.5:3000/search2",
                         data: {query: $("[name=query1]")[0].value, type: "artist"},
                         error: function(x,y,z){
                             console.log(arguments);
@@ -57,7 +69,7 @@
                 if($("[name=query2]")[0].value){
                     $.ajax({
                         method: "post",
-                        url: "http://localhost:3000/search2",
+                        url: "http://192.168.1.5:3000/search2",
                         data: {query: $("[name=query2]")[0].value, type: "artist"},
                         error: function(x,y,z){
                             console.log(x);

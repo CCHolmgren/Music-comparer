@@ -30,19 +30,24 @@ var Spotify = {
                 });
             },
             get_details_without_artist_before: function(artist_name, callback){
-                console.log("get_details_without_artist_before");
+                //console.log("get_details_without_artist_before");
                 return Spotify.artist.search(artist_name).then(function(data){
-                        console.log(data);
+                        //console.log(data);
+                        console.log(typeof data);
+                        console.log(JSON.parse(data).artists.items[0].id);
                         return Spotify.artist.get_details(JSON.parse(data).artists.items[0].id);
                     }
                 );
             },
             get_details: function (artist_id, callback) {
-                //console.log("Artist id: ", artist_id);
+                console.log("Artist id: ", artist_id);
                 //console.log(Spotify.artist.artist_details_url + artist_id);
+                console.log(Spotify.artist.artist_details_url + artist_id);
                 return Q.Promise(function(resolve, reject, notify){
                     request(Spotify.artist.artist_details_url + artist_id, function (error, repsonse, body) {
+                        console.log("We got to the callback!");
                         if(!error){
+                            console.log("Calling resolve for: ", body);
                             resolve(body);
                         } else {
                             reject(error);
@@ -88,7 +93,7 @@ var LastFM = {
         artist_info_url: ["http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=", "&api_key=", "&format=json"],
         get_info: function (artist_name) {
             console.log("get_info");
-            //console.log(LastFM.artist.artist_info_url[0] + artist_name + LastFM.artist.artist_info_url[1] + apikeys.api_keys.lastfm.api_key + LastFM.artist.artist_info_url[2]);
+            console.log(LastFM.artist.artist_info_url[0] + artist_name + LastFM.artist.artist_info_url[1] + apikeys.api_keys.lastfm.api_key + LastFM.artist.artist_info_url[2]);
 
             return Q.Promise(function (resolve, reject, notify) {
                 request(LastFM.artist.artist_info_url[0]
@@ -97,6 +102,7 @@ var LastFM = {
                     + apikeys.api_keys.lastfm.api_key
                     + LastFM.artist.artist_info_url[2],
                     function (error, response, body) {
+                        console.log("Inside get_info for lastfm");
                         if (!error) {
                             resolve(body);
                         }

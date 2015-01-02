@@ -38,9 +38,18 @@ swig.setDefaults({cache: false});
 swig.setFilter("eval", function (input) {
     return eval(input);
 });
-
+app.use(function(req, res, next){
+    res.header('Access-Control-Allow-Origin', '*');
+    next();
+});
 // uncomment after placing your favicon in /public
 app.use(favicon(__dirname + '/public/favicon.ico'));
+app.get("/manifest.manifest", function(req,res){
+    console.log("Do we get here?");
+    res.header("Content-type", "text/cache-manifest");
+    res.header("Cache-Control", "no-cache, no-store, must-revalidate");
+    res.sendFile(path.join(__dirname, "public", "manifest.manifest"));
+});
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
@@ -54,7 +63,7 @@ var render_json_data = function (res, data) {
 };
 app.post('/search2', function (req, res) {
     var query_string = req.body.query.toLowerCase().trim();
-    var data_expiry_time = 1000;
+    var data_expiry_time = 10000;
     console.log("Going into the search2 function");
 
     Q.longStackSupport = true;
@@ -63,34 +72,47 @@ app.post('/search2', function (req, res) {
 
     Q.ninvoke(client, "get", "artist:" + query_string).
         then(function (data) {
-            data = JSON.parse(data);
+            //data = JSON.parse(data);
+            console.log(data);
             if (data && data.length) {
                 console.log("Retrieved data from the cache");
                 //console.log("data: ",data);
                 return [data, []];
             } else {
-                console.log("Doing the promiserinos");
-                return [[], Q.all([spotify.artist.get_details_without_artist_before(query_string), LastFM.artist.get_info(query_string)])]
+                console.log("Doing the whatnod0sofdspofsdk");
+                return [[], Q.allSettled([spotify.artist.get_details_without_artist_before(query_string), LastFM.artist.get_info(query_string)])]
             }
         }, function (error) {
             console.log("Well shit: ", error);
         }).spread(function (cached_data, retrieved_data) {
             if (cached_data.length) {
-                res.render("result2", {data: cached_data});
+                console.log("Rendering the cached data");
+                res.render("result2", {data: JSON.parse(cached_data)});
                 //render_json_data(res, cached_data);
-            }
-            else {
+            } else {
                 console.log("Sending new data");
+                //console.log(retrieved_data);
+                console.log(typeof retrieved_data);
                 console.log(retrieved_data);
 
-                render_json_data(res, retrieved_data);
+                //The values in the fulfilled or rejected promises are stringified, so we need to parse them to
+                //get usable values
+                retrieved_data[0].value = JSON.parse(retrieved_data[0].value);
+                retrieved_data[1].value = JSON.parse(retrieved_data[1].value);
+
+                //render_json_data(res, retrieved_data);
+                res.render("result2", {data: retrieved_data});
 
                 console.log("Saving the data to the cache");
-
-                client.set("artist:" + query_string, "[" + retrieved_data + "]", redis.print);
-                client.expire("artist:" + query_string, data_expiry_time, redis.print);
+                //JSON.stringify will block, so we timeout to get better percieved performance
+                setTimeout(function(){
+                    client.set("artist:" + query_string, JSON.stringify(retrieved_data) , redis.print);
+                    client.expire("artist:" + query_string, data_expiry_time, redis.print);
+                },0);
             }
         }).catch(function (error) {
+            console.log("We got here?");
+            console.log(error);
             console.log(error.stack());
         });
 });
