@@ -60,31 +60,31 @@ var render_json_data = function (res, data){
     res.render("result2", {data:data});
 };
 app.post('/search2', function(req, res){
+    var query_string = req.body.query.toLowerCase().trim();
     var data_expiry_time = 1000;
     console.log("Going into the search2 function");
 
     Q.longStackSupport = true;
 
-    console.log("body:", req.body.query);
+    console.log("body:", query_string);
 
-    Q.ninvoke(client, "get", "artist:" + req.body.query.toLowerCase()).
+    Q.ninvoke(client, "get", "artist:" + query_string).
         then(function(data){
-            //data = '[{"test":"Whatnow"},{"test":"Whatnow"}]';
-            console.log("Breaks on length?");
-            console.log(data);
+            data = JSON.parse(data);
             if(data && data.length){
                 console.log("Retrieved data from the cache");
                 //console.log("data: ",data);
                 return [data, []];
             } else {
                 console.log("Doing the promiserinos");
-                return [[], Q.all([spotify.artist.get_details_without_artist_before(req.body.query.toLowerCase()), LastFM.artist.get_info(req.body.query.toLowerCase())])]
+                return [[], Q.all([spotify.artist.get_details_without_artist_before(query_string), LastFM.artist.get_info(query_string)])]
             }
         }, function(error){
             console.log("Well shit: ",error);
         }).spread(function(cached_data, retrieved_data) {
             if(cached_data.length){
-                render_json_data(res, cached_data);
+                res.render("result2", {data:cached_data});
+                //render_json_data(res, cached_data);
             }
              else{
                 console.log("Sending new data");
@@ -94,8 +94,8 @@ app.post('/search2', function(req, res){
 
                 console.log("Saving the data to the cache");
 
-                client.set("artist:"+req.body.query.toLowerCase(), JSON.stringify(retrieved_data), redis.print);
-                client.expire("artist:"+req.body.query.toLowerCase(), data_expiry_time, redis.print);
+                client.set("artist:"+query_string, "["+retrieved_data+"]", redis.print);
+                client.expire("artist:"+query_string, data_expiry_time, redis.print);
             }
         }).catch(function(error){
             console.log(error.stack());
