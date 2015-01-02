@@ -63,6 +63,15 @@ var render_json_data = function (res, data) {
 };
 app.post('/search2', function (req, res) {
     var query_string = req.body.query.toLowerCase().trim();
+
+    if(query_string == ""){
+        res.status(400).send({
+            error: "400 Bad Request",
+            message: "The query must contain something, it can't be empty"
+        });
+        return;
+    }
+
     var data_expiry_time = 10000;
     console.log("Going into the search2 function");
 
@@ -72,14 +81,14 @@ app.post('/search2', function (req, res) {
 
     Q.ninvoke(client, "get", "artist:" + query_string).
         then(function (data) {
-            //data = JSON.parse(data);
             console.log(data);
+
             if (data && data.length) {
                 console.log("Retrieved data from the cache");
-                //console.log("data: ",data);
+
                 return [data, []];
             } else {
-                console.log("Doing the whatnod0sofdspofsdk");
+                console.log("Doing the promiserinos");
                 return [[], Q.allSettled([spotify.artist.get_details_without_artist_before(query_string), LastFM.artist.get_info(query_string)])]
             }
         }, function (error) {
@@ -88,23 +97,22 @@ app.post('/search2', function (req, res) {
         spread(function (cached_data, retrieved_data) {
             if (cached_data.length) {
                 console.log("Rendering the cached data");
+
                 res.render("result2", {data: JSON.parse(cached_data)});
-                //render_json_data(res, cached_data);
             } else {
-                console.log("Sending new data");
-                //console.log(retrieved_data);
                 console.log(typeof retrieved_data);
                 console.log(retrieved_data);
 
-                //The values in the fulfilled or rejected promises are stringified, so we need to parse them to
-                //get usable values
+                //The values in the fulfilled or rejected promises are stringified
+                //so we need to parse them to get usable values
                 retrieved_data[0].value = JSON.parse(retrieved_data[0].value);
                 retrieved_data[1].value = JSON.parse(retrieved_data[1].value);
 
-                //render_json_data(res, retrieved_data);
+                console.log("Sending new data");
                 res.render("result2", {data: retrieved_data});
 
                 console.log("Saving the data to the cache");
+
                 //JSON.stringify will block, so we timeout to get better percieved performance
                 setTimeout(function () {
                     client.set("artist:" + query_string, JSON.stringify(retrieved_data), redis.print);
