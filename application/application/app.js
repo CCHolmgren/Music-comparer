@@ -38,13 +38,13 @@ swig.setDefaults({cache: false});
 swig.setFilter("eval", function (input) {
     return eval(input);
 });
-app.use(function(req, res, next){
+app.use(function (req, res, next) {
     res.header('Access-Control-Allow-Origin', '*');
     next();
 });
 // uncomment after placing your favicon in /public
 app.use(favicon(__dirname + '/public/favicon.ico'));
-app.get("/manifest.manifest", function(req,res){
+app.get("/manifest.manifest", function (req, res) {
     console.log("Do we get here?");
     res.header("Content-type", "text/cache-manifest");
     res.header("Cache-Control", "no-cache, no-store, must-revalidate");
@@ -84,7 +84,8 @@ app.post('/search2', function (req, res) {
             }
         }, function (error) {
             console.log("Well shit: ", error);
-        }).spread(function (cached_data, retrieved_data) {
+        }).
+        spread(function (cached_data, retrieved_data) {
             if (cached_data.length) {
                 console.log("Rendering the cached data");
                 res.render("result2", {data: JSON.parse(cached_data)});
@@ -105,12 +106,15 @@ app.post('/search2', function (req, res) {
 
                 console.log("Saving the data to the cache");
                 //JSON.stringify will block, so we timeout to get better percieved performance
-                setTimeout(function(){
-                    client.set("artist:" + query_string, JSON.stringify(retrieved_data) , redis.print);
+                setTimeout(function () {
+                    client.set("artist:" + query_string, JSON.stringify(retrieved_data), redis.print);
                     client.expire("artist:" + query_string, data_expiry_time, redis.print);
-                },0);
+                }, 0);
             }
-        }).catch(function (error) {
+        }, function (error) {
+            console.log("Error", error);
+        }).
+        catch(function (error) {
             console.log("We got here?");
             console.log(error);
             console.log(error.stack());
