@@ -3,6 +3,14 @@
     <h1>{{ title }}</h1>
     <p>Welcome to {{ title }}</p>
     <p id="online">You are currently online</p>
+    <div>
+        {% for search in latestsearches  %}
+            <div>
+                <span>{{ search }}</span>
+                <div><button onclick="$('#query1').val('{{ search }}')">Searchbox 1</button><button onclick="$('#query2').val('{{ search }}')">Searchbox 1</button></div>
+            </div>
+        {% endfor %}
+    </div>
     <pre>
         <code>
             {{ result }}
@@ -10,13 +18,15 @@
     </pre>
     <div class="row">
             <div class="five columns">
-                <input type="text" name="query1" placeholder="Text" />
+                <input type="text" name="query1" placeholder="Text" id="query1" />
+                <p>Test</p>
             </div>
             <div class="two columns">
                 <input class="btn" id="compare" type="submit" value="Compare!"/>
             </div>
             <div class="five columns">
-                <input class="u-pull-right" type="text" name="query2" placeholder="Text"/>
+                <input class="u-pull-right" type="text" name="query2" placeholder="Text" id="query2"/>
+                <p>Test</p>
             </div>
     </div>
     <div class="row">
@@ -44,7 +54,7 @@
             $("#online").text("You are currently online");
         });
         window.onload = function () {
-            alert(navigator.onLine);
+            //alert(navigator.onLine);
             if(!navigator.onLine){
                 $("#online").text("You are currently offline");
                 $("#online").text(navigator.onLine);

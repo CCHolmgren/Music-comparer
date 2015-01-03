@@ -14,7 +14,7 @@ var Spotify = {
 
             search: function (query) {
                 return Q.Promise(function (resolve, reject, notify) {
-                    request(Spotify.search_url + query + "&type=artist", function (error, response, body) {
+                    request(Spotify.search_url + query + "&type=artist" + "&client_id=" + apikeys.api_keys.spotify.client_id, function (error, response, body) {
                         if (!error) {
                             resolve(body);
                         }
@@ -44,7 +44,7 @@ var Spotify = {
                 //console.log(Spotify.artist.artist_details_url + artist_id);
                 console.log(Spotify.artist.artist_details_url + artist_id);
                 return Q.Promise(function(resolve, reject, notify){
-                    request(Spotify.artist.artist_details_url + artist_id, function (error, repsonse, body) {
+                    request(Spotify.artist.artist_details_url + artist_id  + "&client_id=" + apikeys.api_keys.spotify.client_id, function (error, repsonse, body) {
                         console.log("We got to the callback!");
                         if(!error){
                             console.log("Calling resolve for: ", body);
@@ -104,6 +104,7 @@ var LastFM = {
                     function (error, response, body) {
                         console.log("Inside get_info for lastfm");
                         if (!error) {
+                            console.log("Resolved for", body);
                             resolve(body);
                         }
                         else {

@@ -45,7 +45,6 @@ app.use(function (req, res, next) {
 // uncomment after placing your favicon in /public
 app.use(favicon(__dirname + '/public/favicon.ico'));
 app.get("/manifest.manifest", function (req, res) {
-    console.log("Do we get here?");
     res.header("Content-type", "text/cache-manifest");
     res.header("Cache-Control", "no-cache, no-store, must-revalidate");
     res.sendFile(path.join(__dirname, "public", "manifest.manifest"));
@@ -61,23 +60,30 @@ var render_json_data = function (res, data) {
     data = data.map(JSON.parse);
     res.render("result2", {data: data});
 };
+var send_bad_request_response = function(res, message){
+    res.status(400).send({
+        error: "400 Bad Request",
+        message: message
+    });
+}
 app.post('/search2', function (req, res) {
+    var data_expiry_time = 10000;
     var query_string = req.body.query.toLowerCase().trim();
 
     if(query_string == ""){
-        res.status(400).send({
-            error: "400 Bad Request",
-            message: "The query must contain something, it can't be empty"
-        });
+        send_bad_request_response("The query must contain something, it can't be empty");
         return;
     }
 
-    var data_expiry_time = 10000;
     console.log("Going into the search2 function");
 
     Q.longStackSupport = true;
 
     console.log("body:", query_string);
+
+    setTimeout(function(){
+        client.lpush("latestsearches", req.body.query, redis.print);
+    },0);
 
     Q.ninvoke(client, "get", "artist:" + query_string).
         then(function (data) {
@@ -95,6 +101,7 @@ app.post('/search2', function (req, res) {
             console.log("Well shit: ", error);
         }).
         spread(function (cached_data, retrieved_data) {
+            console.log("Inside the next step");
             if (cached_data.length) {
                 console.log("Rendering the cached data");
 
@@ -105,8 +112,15 @@ app.post('/search2', function (req, res) {
 
                 //The values in the fulfilled or rejected promises are stringified
                 //so we need to parse them to get usable values
-                retrieved_data[0].value = JSON.parse(retrieved_data[0].value);
-                retrieved_data[1].value = JSON.parse(retrieved_data[1].value);
+
+                if(retrieved_data[0].state === "fulfilled"){
+                    console.log("Did it throw here?");
+                    retrieved_data[0].value = JSON.parse(retrieved_data[0].value);
+                }
+                if(retrieved_data[1].state === "fulfilled"){
+                    console.log("Or here?");
+                    retrieved_data[1].value = JSON.parse(retrieved_data[1].value);
+                }
 
                 console.log("Sending new data");
                 res.render("result2", {data: retrieved_data});
@@ -123,7 +137,7 @@ app.post('/search2', function (req, res) {
             console.log("Error", error);
         }).
         catch(function (error) {
-            console.log("We got here?");
+            console.log("An error was thrown.");
             console.log(error);
             console.log(error.stack());
         });
