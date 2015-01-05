@@ -44,7 +44,7 @@ var Spotify = {
                 //console.log(Spotify.artist.artist_details_url + artist_id);
                 console.log(Spotify.artist.artist_details_url + artist_id);
                 return Q.Promise(function(resolve, reject, notify){
-                    request(Spotify.artist.artist_details_url + artist_id  + "&client_id=" + apikeys.api_keys.spotify.client_id, function (error, repsonse, body) {
+                    request(Spotify.artist.artist_details_url + artist_id  + "?client_id=" + apikeys.api_keys.spotify.client_id, function (error, repsonse, body) {
                         console.log("We got to the callback!");
                         if(!error){
                             console.log("Calling resolve for: ", body);

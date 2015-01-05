@@ -8,9 +8,9 @@ var redis = require('redis'),
 
 /* GET home page. */
 router.get('/', function (req, res) {
-    client.lrange("latestsearches", 0, -1, function(error, result){
+    client.lrange("latestsearches", -5, -1, function(error, result){
         console.log(arguments);
-        res.render('index', {title: 'Express', latestsearches: result});
+        res.render('index', {title: 'Music comparer', latestsearches: result});
     });
 });
 
@@ -19,7 +19,7 @@ router.post('/', function (req, res) {
     spotify.search(req.body.query, req.body.type, function (result) {
         result = JSON.parse(result);
         console.log(typeof result);
-        res.render('index', {title: 'Express', result: result});
+        res.render('index', {title: 'Music comparer', result: result});
     });
 });
 
