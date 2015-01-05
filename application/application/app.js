@@ -18,6 +18,9 @@ var tracks = require('./routes/tracks');
 var albums = require('./routes/albums');
 var api = require('./routes/api');
 
+var spotify = settings.Spotify;
+var LastFM = settings.LastFM;
+
 // view engine setup
 app.engine('html', swig.renderFile);
 app.set('views', path.join(__dirname, 'views'));
@@ -47,6 +50,16 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
+app.get('/callback', function(req, res){
+    var token = req.query.token || "";
+    if(!token){
+        res.send("Error, did not contain a token");
+    }
+    console.log("Going to get the token");
+    LastFM.auth.getSession(token).then(function(){
+        console.log(arguments);
+    });
+});
 app.use('/api', api);
 app.use('/users', users);
 app.use('/artists', artists);

@@ -1,9 +1,12 @@
 /**
  * Created by Chrille on 2014-12-18.
  */
+var crypto = require("crypto");
 var request = require("request");
 var apikeys = require("./api_keys");
 var Q = require("q");
+
+var md5sum = crypto.createHash("md5");
 
 var Spotify = {
         search_url: "https://api.spotify.com/v1/search?q=",
@@ -29,9 +32,9 @@ var Spotify = {
                     callback(body, error, response);
                 });
             },
-            get_details_without_artist_before: function(artist_name, callback){
+            get_details_without_artist_before: function (artist_name, callback) {
                 //console.log("get_details_without_artist_before");
-                return Spotify.artist.search(artist_name).then(function(data){
+                return Spotify.artist.search(artist_name).then(function (data) {
                         //console.log(data);
                         console.log(typeof data);
                         console.log(JSON.parse(data).artists.items[0].id);
@@ -43,10 +46,10 @@ var Spotify = {
                 console.log("Artist id: ", artist_id);
                 //console.log(Spotify.artist.artist_details_url + artist_id);
                 console.log(Spotify.artist.artist_details_url + artist_id);
-                return Q.Promise(function(resolve, reject, notify){
-                    request(Spotify.artist.artist_details_url + artist_id  + "?client_id=" + apikeys.api_keys.spotify.client_id, function (error, repsonse, body) {
+                return Q.Promise(function (resolve, reject, notify) {
+                    request(Spotify.artist.artist_details_url + artist_id + "?client_id=" + apikeys.api_keys.spotify.client_id, function (error, repsonse, body) {
                         console.log("We got to the callback!");
-                        if(!error){
+                        if (!error) {
                             console.log("Calling resolve for: ", body);
                             resolve(body);
                         } else {
@@ -89,6 +92,7 @@ var Spotify = {
     }
     ;
 var LastFM = {
+    base_url: "http://ws.audioscrobbler.com/2.0/",
     artist: {
         artist_info_url: ["http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=", "&api_key=", "&format=json"],
         get_info: function (artist_name) {
@@ -113,7 +117,62 @@ var LastFM = {
                     });
             });
         }
+    },
+    auth: {
+        get_session_url: ["http://ws.audioscrobbler.com/2.0/?token=", "&api_key=", "&method=auth.getSession&api_sig="],
+        getSession: function (token) {
+            console.log("Getting the session");
+            return Q.Promise(function (resolve, reject, notify) {
+                console.log("Do we get here?");
+                console.log(LastFM.auth.get_session_url[0]
+                + token
+                + LastFM.auth.get_session_url[1]
+                + apikeys.api_keys.lastfm.api_key
+                + LastFM.auth.get_session_url[2]
+                + getSignature(apikeys.api_keys.lastfm.api_key,
+                    "auth.getSession",
+                    token,
+                    apikeys.api_keys.lastfm.secret));
+                request(LastFM.auth.get_session_url[0]
+                    + token
+                    + LastFM.auth.get_session_url[1]
+                    + apikeys.api_keys.lastfm.api_key
+                    + LastFM.auth.get_session_url[2]
+                    + getSignature(apikeys.api_keys.lastfm.api_key,
+                        "auth.getSession",
+                        token,
+                        apikeys.api_keys.lastfm.secret),
+                    function (error, response, body) {
+                        if (!error) {
+                            resolve(body);
+                        }
+                        else {
+                            reject(error);
+                        }
+                    });
+            })
+        }
+    },
+    user: {
+        getRecentStations: function (user) {
+
+        }
     }
+};
+function getSignature(api_key, method, token, secret) {
+    console.log(arguments);
+    var sig = "";
+    sig += "api_key" + api_key;
+    sig += "method" + method;
+    sig += "token" + token;
+    sig += secret;
+    return crypto.createHash("md5").update(sig, "utf8").digest("hex");
+
+    console.log("Getting the md5sum");
+    console.log(arguments);
+    var md5 = md5sum.update(encodeURIComponent("apikey" + api_key + "method" + method + "token" + token + secret)).digest("hex");
+    console.log(md5);
+    return md5;
 }
 module.exports.LastFM = LastFM;
 module.exports.Spotify = Spotify;
