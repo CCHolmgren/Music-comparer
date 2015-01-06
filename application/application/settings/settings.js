@@ -8,6 +8,66 @@ var Q = require("q");
 
 var md5sum = crypto.createHash("md5");
 
+var _Spotify = function (api_key, secret) {
+    this.api_key = api_key;
+    this.secret = secret;
+    this.search_url = "https://api.spotify.com/v1/search?q=";
+    this.artist = {
+        album_url: ["https://api.spotify.com/v1/artists/", "/albums"],
+        artist_details_url: "https://api.spotify.com/v1/artists/",
+
+        search: function (query) {
+            return Q.Promise(function (resolve, reject, notify) {
+                request(this.search_url + query + "&type=artist" + "&client_id=" + apikeys.api_keys.spotify.client_id, function (error, response, body) {
+                    if (!error) {
+                        resolve(body);
+                    }
+                    else {
+                        reject(error);
+                    }
+                });
+            });
+        },
+        get_albums: function (artist_id, callback) {
+            request(this.artist.album_url.join(artist_id), function (error, response, body) {
+                callback(body, error, response);
+            });
+        },
+        get_details_without_artist_before: function (artist_name, callback) {
+            //console.log("get_details_without_artist_before");
+            return this.artist.search(artist_name).then(function (data) {
+                    //console.log(data);
+                    console.log(typeof data);
+                    console.log(JSON.parse(data).artists.items[0].id);
+                    return this.artist.get_details(JSON.parse(data).artists.items[0].id);
+                }
+            );
+        },
+        get_details: function (artist_id, callback) {
+            console.log("Artist id: ", artist_id);
+            //console.log(Spotify.artist.artist_details_url + artist_id);
+            console.log(this.artist.artist_details_url + artist_id);
+            return Q.Promise(function (resolve, reject, notify) {
+                request(this.artist.artist_details_url + artist_id + "?client_id=" + apikeys.api_keys.spotify.client_id, function (error, repsonse, body) {
+                    console.log("We got to the callback!");
+                    if (!error) {
+                        console.log("Calling resolve for: ", body);
+                        resolve(body);
+                    } else {
+                        reject(error);
+                    }
+                });
+            });
+
+        }
+    }
+};
+_Spotify.prototype.search = function (query, type, callback) {
+    request(this.search_url + query + "&type=" + type, function (error, response, body) {
+        callback(body, error, response);
+    });
+};
+
 var Spotify = {
         search_url: "https://api.spotify.com/v1/search?q=",
         // Meant to represents the artist endpoints.
@@ -159,6 +219,7 @@ var LastFM = {
         }
     }
 };
+
 function getSignature(api_key, method, token, secret) {
     console.log(arguments);
     var sig = "";
@@ -174,5 +235,7 @@ function getSignature(api_key, method, token, secret) {
     console.log(md5);
     return md5;
 }
+
 module.exports.LastFM = LastFM;
 module.exports.Spotify = Spotify;
+module.exports._Spotify = _Spotify;

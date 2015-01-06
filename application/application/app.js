@@ -22,6 +22,7 @@ var api = require('./routes/api');
 
 var spotify = settings.Spotify;
 var LastFM = settings.LastFM;
+var _spotify = settings._Spotify;
 
 // view engine setup
 app.engine('html', swig.renderFile);
