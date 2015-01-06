@@ -119,7 +119,7 @@ var LastFM = {
         }
     },
     auth: {
-        get_session_url: ["http://ws.audioscrobbler.com/2.0/?token=", "&api_key=", "&method=auth.getSession&api_sig="],
+        get_session_url: ["http://ws.audioscrobbler.com/2.0/?token=", "&api_key=", "&method=auth.getSession&format=json&api_sig="],
         getSession: function (token) {
             console.log("Getting the session");
             return Q.Promise(function (resolve, reject, notify) {

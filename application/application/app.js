@@ -56,9 +56,12 @@ app.get('/callback', function(req, res){
         res.send("Error, did not contain a token");
     }
     console.log("Going to get the token");
-    LastFM.auth.getSession(token).then(function(){
+    LastFM.auth.getSession(token).then(function(result){
         console.log(arguments);
+        var key = JSON.parse(result);
+        client.set(key.session.name, JSON.stringify(key), redis.print);
     });
+    res.send("Success!");
 });
 app.use('/api', api);
 app.use('/users', users);
