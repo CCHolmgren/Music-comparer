@@ -8,7 +8,7 @@ var Q = require('q');
 var redis = require('redis'),
     client = redis.createClient();
 
-function render_index_page(title, latestsearches, authenticated, username){
+function render_index_page(res, title, latestsearches, authenticated, username){
     res.render('index', {
         title: title,
         latestsearches: latestsearches,
@@ -36,7 +36,7 @@ router.get('/', function (req, res) {
                 }
             }
         ).then(function (result) {
-                render_index_page('Music comparer', result, true, req.cookies.username);
+                render_index_page(res, 'Music comparer', result, true, req.cookies.username);
                 /*res.render('index', {
                     title: 'Music comparer',
                     latestsearches: result,
@@ -52,7 +52,7 @@ router.get('/', function (req, res) {
     } else {
         client.lrange("latestsearches", -5, -1, function (error, result) {
             console.log(arguments);
-            render_index_page('Music comparer', result, false, null);
+            render_index_page(res, 'Music comparer', result, false, null);
             /*res.render('index', {
                 title: 'Music comparer',
                 latestsearches: result,
