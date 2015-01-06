@@ -9,6 +9,8 @@ var redis = require('redis'),
 var Q = require("q");
 var swig = require("swig");
 var app = express();
+var crypto = require("crypto");
+
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
@@ -60,8 +62,10 @@ app.get('/callback', function(req, res){
         console.log(arguments);
         var key = JSON.parse(result);
         client.set(key.session.name, JSON.stringify(key), redis.print);
+        res.cookie("username", key.session.name, {httpOnly: true});
+        res.cookie("hmac", crypto.createHash("md5").update(key.session.name+key.session.key, "utf8").digest("hex"), {httpOnly: true});
+        res.redirect("/");
     });
-    res.send("Success!");
 });
 app.use('/api', api);
 app.use('/users', users);

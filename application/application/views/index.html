@@ -19,7 +19,11 @@
         <h1>{{ title }}</h1>
         <p>Welcome to {{ title }}!</p>
         <p id="online">You are currently online. You may do any search that you like.</p>
+        {% if not authenticated %}
         <a href="http://www.last.fm/api/auth/?api_key=88608a3b670729c1f85fe44b231aff72">Login with Last.fm</a>
+            {% else %}
+            <p>You are authenticated as {{ username }}</p>
+        {% endif %}
     </section>
     <div class="box">
         <h6 class="docs-header">Latest searches</h6>
