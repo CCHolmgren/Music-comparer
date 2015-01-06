@@ -11,6 +11,12 @@
     <link rel='stylesheet' href='/stylesheets/style.css'>
     <link rel='stylesheet' href='/stylesheets/normalize.css'>
     <link rel='stylesheet' href='/stylesheets/skeleton.css'>
+    <style>
+        .footer{
+            border-top: 1px solid #E1E1E1;
+            padding-top: 10px;
+        }
+    </style>
 </head>
 <body>
 <div class="container">
@@ -19,6 +25,18 @@
             {% block content %}
             {% endblock %}
         </div>
+    </div>
+</div>
+<div class="footer">
+    <div class="row">
+        <span>© Christoffer Holmgren 2015</span>
+        <div class="u-pull-right">
+            <span><a>About</a></span>
+            <span><a>Contact</a></span>
+            <span><a>Privacy Policy</a></span>
+            <span><a>TOS</a></span>
+        </div>
+
     </div>
 </div>
 </body>
