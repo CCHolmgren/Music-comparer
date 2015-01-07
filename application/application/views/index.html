@@ -68,11 +68,28 @@
     <div class="row">
         <div class="twelve columns">
             <div id="charts">
-                <canvas id='follower_canvas' width='400' height='200'></canvas>
-                <canvas id='listeners_canvas' width='400' height='200'></canvas>
-                <canvas id='playcount_canvas' width='400' height='200'></canvas>
-                <canvas id='popularity_canvas' width='400' height='200'></canvas>
+                <canvas id='follower_canvas' width='400' height='400'></canvas>
+                <canvas id='listeners_canvas' width='400' height='400'></canvas>
+                <canvas id='playcount_canvas' width='400' height='400'></canvas>
+                <canvas id='popularity_canvas' width='400' height='400'></canvas>
             </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="twelve columns">
+            <table class="u-full-width">
+                <thead>
+                <tr>
+                    <th>Artist name</th>
+                    <th>Followers</th>
+                    <th>Playcount</th>
+                    <th>Listeners</th>
+                    <th>Popularity</th>
+                </tr>
+                </thead>
+                <tbody id="tbody_data">
+                </tbody>
+            </table>
         </div>
     </div>
     <div class="row">
@@ -99,7 +116,27 @@
     {% endif %}
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script>
+        var searchCount = 0;
+        function addCommas(nStr) {
+            nStr += '';
+            x = nStr.split('.');
+            x1 = x[0];
+            x2 = x.length > 1 ? '.' + x[1] : '';
+            var rgx = /(\d+)(\d{3})/;
+            while (rgx.test(x1)) {
+                x1 = x1.replace(rgx, '$1' + ' ' + '$2');
+            }
+            return x1 + x2;
+        }
         function search(query, type, callback) {
+            if(searchCount != 0){
+                console.log(popularity_chart);
+                popularity_chart.removeData(0);
+                popularity_chart.removeData(1);
+
+                console.log(popularity_chart);
+            }
+            searchCount+=1;
             console.log(query);
             if (localStorage.getItem(query)) {
                 console.log("Got item from storage");
@@ -181,7 +218,7 @@
                 }
             });
         };
-        function initializeCharts(){
+        function initializeCharts() {
             var follower_data = {
                 labels: [
                     "Followers"
@@ -233,8 +270,8 @@
                     }
                 ]
             };
-            var popularity_data = [
-            ];
+            var popularity_data = [];
+
             var follower_ctx = follower_canvas.getContext("2d");
             var listeners_ctx = listeners_canvas.getContext("2d");
             var playcount_ctx = playcount_canvas.getContext("2d");
@@ -243,9 +280,10 @@
             follower_chart = new Chart(follower_ctx).Bar(follower_data);
             listeners_chart = new Chart(listeners_ctx).Bar(listeners_data);
             playcount_chart = new Chart(playcount_ctx).Bar(playcount_data);
-            popularity_chart = new Chart(popularity_ctx).Doughnut(popularity_data);
+            popularity_chart = new Chart(popularity_ctx).Doughnut();
         }
         function handleData(target, offset, data) {
+
             $(target).html("<pre><code>" + JSON.stringify(data, undefined, 2) + "</code></pre>");
             var follower_canvas = document.getElementById("follower_canvas");
             var listeners_canvas = document.getElementById("listeners_canvas");
@@ -259,20 +297,19 @@
             var spotify = data.data[0].value;
             console.log("Error thrown here?");
             var lastfm = data.data[1].value;
-
+            $("#tbody_data").append("<tr><td>" + lastfm.artist.name + "</td><td>" + addCommas(spotify.followers.total) + "</td><td>" + addCommas(lastfm.artist.stats.playcount) + "</td><td>" + addCommas(lastfm.artist.stats.listeners) + "</td><td>" + spotify.popularity + "</td></tr>");
             console.log(offset);
             console.log(follower_chart);
             follower_chart.datasets[offset].bars[0].value = spotify.followers.total;
             listeners_chart.datasets[offset].bars[0].value = lastfm.artist.stats.listeners;
             playcount_chart.datasets[offset].bars[0].value = lastfm.artist.stats.playcount;
             popularity_chart.addData(
-            {
-                value: spotify.popularity,
-                        color: "#928432",
-                    highlight: "#AABBCC",
-                    label: "Popularity"
-            });
-
+                    {
+                        value: spotify.popularity,
+                        color: "#123456",
+                        highlight: "#AABBCC",
+                        label: "Popularity"
+                    });
             console.log("Or here?");
             follower_chart.update();
             listeners_chart.update();
