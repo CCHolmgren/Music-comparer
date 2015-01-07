@@ -1,0 +1,1192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="2cfafd9f-7b76-4276-a344-7ed42a435949" name="Default" comment="" />
+    <ignored path="Webbteknik_II_projekt.iws" />
+    <ignored path=".idea/workspace.xml" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="DaemonCodeAnalyzer">
+    <disable_hints />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FavoritesManager">
+    <favorites_list name="Webbteknik_II_projekt" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file leaf-file-name="index.jade" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/application/views/index.jade">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-8.84" vertical-offset="0" max-vertical-offset="867">
+              <caret line="13" column="38" selection-start-line="13" selection-start-column="38" selection-end-line="13" selection-end-column="38" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="layout.jade" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/application/views/layout.jade">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-12.24" vertical-offset="0" max-vertical-offset="408">
+              <caret line="18" column="23" selection-start-line="0" selection-start-column="0" selection-end-line="18" selection-end-column="23" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="result.jade" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/application/views/result.jade">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-1.36" vertical-offset="0" max-vertical-offset="816">
+              <caret line="2" column="217" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="217" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/application/application/views/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.5321101" vertical-offset="3042" max-vertical-offset="5746">
+              <caret line="196" column="37" selection-start-line="196" selection-start-column="37" selection-end-line="196" selection-end-column="37" />
+              <folding>
+                <element signature="e#502#543#0#HTML" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="settings.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/application/settings/settings.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="3101" max-vertical-offset="4675">
+              <caret line="200" column="35" selection-start-line="200" selection-start-column="35" selection-end-line="200" selection-end-column="35" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="please.min.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/application/public/javascripts/please.min.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="119">
+              <caret line="1" column="7246" selection-start-line="1" selection-start-column="7246" selection-end-line="1" selection-end-column="7246" />
+              <folding>
+                <marker date="1420634628567" expanded="true" signature="0:73" placeholder="/*...*/" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="album.jade" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/application/views/album.jade">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-12.92" vertical-offset="0" max-vertical-offset="544">
+              <caret line="19" column="17" selection-start-line="19" selection-start-column="17" selection-end-line="19" selection-end-column="17" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="artist.jade" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/application/views/artist.jade">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-8.16" vertical-offset="0" max-vertical-offset="578">
+              <caret line="12" column="17" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="17" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="artist_album_simple.jade" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/application/views/artist_album_simple.jade">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-6.12" vertical-offset="0" max-vertical-offset="544">
+              <caret line="9" column="9" selection-start-line="9" selection-start-column="9" selection-end-line="9" selection-end-column="9" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="error.jade" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/application/views/error.jade">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-4.08" vertical-offset="0" max-vertical-offset="204">
+              <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/application/application/routes/artist.js" />
+        <option value="$PROJECT_DIR$/application/application/routes/album.js" />
+        <option value="$PROJECT_DIR$/application/application/routes/track.js" />
+        <option value="$PROJECT_DIR$/application/application/routes/albums.js" />
+        <option value="$PROJECT_DIR$/application/application/views/track.jade" />
+        <option value="$PROJECT_DIR$/application/application/routes/tracks.js" />
+        <option value="$PROJECT_DIR$/application/application/routes/artists.js" />
+        <option value="$PROJECT_DIR$/application/application/views/artist.jade" />
+        <option value="$PROJECT_DIR$/application/application/views/artist_album_simple.jade" />
+        <option value="$PROJECT_DIR$/application/application/views/album.jade" />
+        <option value="$PROJECT_DIR$/application/application/views/layout.jade" />
+        <option value="$PROJECT_DIR$/application/application/views/index.jade" />
+        <option value="$PROJECT_DIR$/application/application/views/result.jade" />
+        <option value="$PROJECT_DIR$/application/application/views/error.html" />
+        <option value="$PROJECT_DIR$/application/application/views/result.html" />
+        <option value="$PROJECT_DIR$/application/application/views/result2.html" />
+        <option value="$PROJECT_DIR$/application/application/public/manifest.manifest" />
+        <option value="$PROJECT_DIR$/application/application/routes/api.js" />
+        <option value="$PROJECT_DIR$/application/application/settings/api_keys.js" />
+        <option value="$PROJECT_DIR$/application/application/routes/index.js" />
+        <option value="$PROJECT_DIR$/application/application/public/javascripts/chart.js" />
+        <option value="$PROJECT_DIR$/application/application/views/layout.html" />
+        <option value="$PROJECT_DIR$/application/application/app.js" />
+        <option value="$PROJECT_DIR$/application/application/public/javascripts/please.min.js" />
+        <option value="$PROJECT_DIR$/application/application/settings/settings.js" />
+        <option value="$PROJECT_DIR$/application/application/views/index.html" />
+      </list>
+    </option>
+  </component>
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1936" />
+    <option name="height" value="1056" />
+  </component>
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State>
+            <id />
+          </State>
+          <State>
+            <id>Jade</id>
+          </State>
+          <State>
+            <id>JavaScript</id>
+          </State>
+          <State>
+            <id>Node.jsJavaScript</id>
+          </State>
+        </expanded-state>
+        <selected-state>
+          <State>
+            <id>JadeTabsAndSpaces</id>
+          </State>
+        </selected-state>
+      </profile-state>
+    </entry>
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+    <OptionsSetting value="true" id="Add" />
+    <OptionsSetting value="true" id="Remove" />
+    <OptionsSetting value="true" id="Checkout" />
+    <OptionsSetting value="true" id="Update" />
+    <OptionsSetting value="true" id="Status" />
+    <OptionsSetting value="true" id="Edit" />
+    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="0" id="Remove" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Webbteknik_II_projekt" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Webbteknik_II_projekt" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Webbteknik_II_projekt" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Webbteknik_II_projekt" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Webbteknik_II_projekt" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Webbteknik_II_projekt" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Webbteknik_II_projekt" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Webbteknik_II_projekt" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Webbteknik_II_projekt" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Webbteknik_II_projekt" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Webbteknik_II_projekt" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="settings" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Webbteknik_II_projekt" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Webbteknik_II_projekt" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="routes" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Webbteknik_II_projekt" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Webbteknik_II_projekt" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Webbteknik_II_projekt" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Webbteknik_II_projekt" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="stylesheets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Webbteknik_II_projekt" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Webbteknik_II_projekt" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="javascripts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Webbteknik_II_projekt" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Webbteknik_II_projekt" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="options.lastSelected" value="preferences.fileTypes" />
+    <property name="options.splitter.main.proportions" value="0.3" />
+    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="HbShouldOpenHtmlAsHb" value="" />
+    <property name="FullScreen" value="false" />
+    <property name="DefaultHtmlFileTemplate" value="Html5" />
+    <property name="LayoutCode.rearrangeEntriesHTML" value="false" />
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
+      <method />
+    </configuration>
+    <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
+      <method />
+    </configuration>
+    <configuration default="true" type="JSTestDriver:ConfigurationType" factoryName="JsTestDriver">
+      <setting name="configLocationType" value="CONFIG_FILE" />
+      <setting name="settingsFile" value="" />
+      <setting name="serverType" value="INTERNAL" />
+      <setting name="preferredDebugBrowser" value="Chrome" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma" config-file="">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
+      <method />
+    </configuration>
+    <configuration default="true" type="NodeJSConfigurationType" factoryName="Node.js" working-dir="">
+      <method />
+    </configuration>
+    <configuration default="true" type="cucumber.js" factoryName="Cucumber.js">
+      <option name="cucumberJsArguments" value="" />
+      <option name="executablePath" />
+      <option name="filePath" />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <pass-parent-envs>true</pass-parent-envs>
+      <envs />
+      <method />
+    </configuration>
+    <list size="0" />
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2cfafd9f-7b76-4276-a344-7ed42a435949" name="Default" comment="" />
+      <created>1418819686172</created>
+      <option name="number" value="Default" />
+      <updated>1418819686172</updated>
+    </task>
+    <task id="LOCAL-00001" summary="Seems that it didn't add the files that were added with the express-generator command. Oh well.&#10;Added a settings file that holds the api keys. Those are of course missing.">
+      <created>1418897879980</created>
+      <option name="number" value="00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1418897879980</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Seems that it didn't add the files that were added with the express-generator command. Oh well.&#10;Added a settings file that holds the api keys. Those are of course missing.">
+      <created>1418897897796</created>
+      <option name="number" value="00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1418897897796</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Adding routes and files to handle the different Spotify routes and methods for gathering data. I think I may be using localStore or something for cache, but we will see, it might not work as I intend. Now you can look up things, such as tracks, albums, artists and playlists, but you need to specify what you want to look up yourself. This might change in the future. Will look into adding more info about the things by the different routes that will be added in next commit.&#10;&#10;">
+      <created>1418911545594</created>
+      <option name="number" value="00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1418911545594</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Moved the api keys to a different file. Added code for the albums, artists and tracks files so that it doesn't crash on load.&#10;Regenerated a new client_id and client_secret since I failed with them and have them in my commits.&#10;&#10;- tracks.js searches for tracks of that name and displays them in a nice table with some javascript to make them sorted.&#10;- Added track.jade and artist.jade.&#10;- Added the routes to teh app.js file so that they are accessible.&#10;- Removed test file.">
+      <created>1418918580165</created>
+      <option name="number" value="00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1418918580165</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Working on caching with redis. It checks the server, and if it doesn't exist then get it from the spotify server instead.&#10;- Resolved string dependency.&#10;- Changed layout page.&#10; - Do some ugly checking to make sure that we do not get an ugly error page.&#10;">
+      <created>1418985943201</created>
+      <option name="number" value="00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1418985943201</updated>
+    </task>
+    <task id="LOCAL-00006" summary="String dependency resolved.">
+      <created>1418986318532</created>
+      <option name="number" value="00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1418986318532</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Added the artist.js code to search for artists.&#10;Added &quot;namespaces&quot; to the gets so that tracks are stored under &quot;track:&quot;, &quot;artist:&quot; so that they do not collide. &#10;">
+      <created>1418987208738</created>
+      <option name="number" value="00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1418987208738</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Well. Where to begin. This is way to big, but I wanted to work on getting both the spotify api and the lastfm api working and retrieving that data from them. This meant that I had to either use promises or a huge callback pyramid, so I chose promise.&#10;AS such I meant to change a lot of stuff.&#10;I also added sorttable.ks so that I can sort tables based on their headers, which is nice.&#10;&#10;Things that I done:&#10;- Changed the jade files, but decided that index is the most appropriate file to do things in since that means that you get to the main functionality directly.&#10;- result.jade is used to return the reuslts nicely renedered to the client.&#10;- Huge amount of things done more.">
+      <created>1419085876050</created>
+      <option name="number" value="00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1419085876050</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Jade is annoying, and you know it. Why blow up when you got something that is undefined? That makes no sense, so I swapped it out for swig instead. It feels more like djangos templates, or maybe jinja2.&#10;Using more Promises to handle data. It isn't cached, but it sohuld be.">
+      <created>1419204072538</created>
+      <option name="number" value="00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1419204072538</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Migrating more to swig. It seems that it breaks if you do not extend a file for some reason, so {% extends &quot;&quot; %} works. Odd.">
+      <created>1419285622028</created>
+      <option name="number" value="00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1419285622028</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Added a ugly get_details_without_artist_before function that searches for the artist with the spotify search function and then does a get_details for the first result. Wont work that well if the artist doesn't exist, so we just hope that it does.&#10;&#10;- Changed so that it does two queries instead of just one, which means that it will be able to cache easier, we can change to a GET and it wont break horribly since POST's aren't allowed to be cached by the browser. It also makes the code easier on the server side since it makes it undependent on how many queries you do and we can just reuse the code.&#10;- Added a search2 route that is the new route for searching. It only allows a single query, but makes it so that we reuse the code instead of relying on there being two queries.">
+      <created>1420151170431</created>
+      <option name="number" value="00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1420151170431</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Made it case-insensitive so that it doesn't break when you do something like Muse at first and the muse, those would get cached differentely, which is just wasteful. Should probably do some trimming as well.&#10;- Fighting to get it to work properly, I was doing one thing when the data was retrieved as normal and another thing when it was retrieved from cache, which is should move to another function really. This meant that the data sent to the view wasn't the same always and ended up displaying oddly.">
+      <created>1420154997937</created>
+      <option name="number" value="00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1420154997937</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Moved the rendering and json parsing to another function. Should really name it better though.">
+      <created>1420155201951</created>
+      <option name="number" value="00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1420155201951</updated>
+    </task>
+    <task id="LOCAL-00014" summary="data_expiry_time will mostlikely be moved to settings or something.">
+      <created>1420155285227</created>
+      <option name="number" value="00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1420155285227</updated>
+    </task>
+    <task id="LOCAL-00015" summary="More problems with the caching and getting it to work. Since I'm getting an array back from the Q.all thingy, I though I needed to mess with that and parse and shit, but it doesn't seem to be necessary. What ever.&#10;&#10;- Removed some string dependencies to req.body.query. With the query_string it is much easier to just trim and get it to lowercase without having to do it in several spots.">
+      <created>1420156956394</created>
+      <option name="number" value="00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1420156956394</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Formatting and moved the client conection messages.">
+      <created>1420193546172</created>
+      <option name="number" value="00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1420193546172</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Added a cache manifest. However Chrome is acting like an ass and making it difficult for me so I switched to firefox who behaves better for now.&#10;&#10;- Added the manifest and some messages to see if you are online or offline. This will be used later to use for the client side caching.&#10;- Allow for CORS since it makes it easier.&#10;- Send manifest file and do not cache it at all.&#10;- Changed expiry time to 10000 seconds from 1000.&#10;- allSettled instead of all. This makes it so that it wont fail when one of the apis doesn't work, it will just result in an object of a rejected promise. Much easier to handle when, for example, the Last.FM API is down.&#10;- The values of the fulfilled or rejected promises are stringified so we must parse them before rendering them.&#10;">
+      <created>1420202063403</created>
+      <option name="number" value="00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1420202063404</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Formatting.&#10;">
+      <created>1420209797250</created>
+      <option name="number" value="00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1420209797250</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Error checking. If no arguments are provided, return a http 400 error.">
+      <created>1420209984589</created>
+      <option name="number" value="00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1420209984589</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Adding stuff to the manifest file, but then having to remove it because Chrome is caching hard and it isn't supposed to do that.&#10;&#10;- Display the latest searches on the index page.&#10;- Added API key for spotify since it seemed like it was throttling me.&#10;- Removed the manifest file.&#10;- Make sure that the parsing of the values only happens if the state of the retrieved_data is fulfilled, otherwise it was an error and it wont even contain a value attribute.&#10;">
+      <created>1420276413247</created>
+      <option name="number" value="00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1420276413247</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Moved the API stuff to another file called api.js. This helps separate the routes from the other files in a better way.&#10;&#10;- The indexpage will now get the latest searches, five of them, and render them on page load.&#10;- Changed the title to Music comparer.&#10;- Things didn't work out with the Last.FM api since it was using a &amp; instead of a ? so it gave a wrong id error.&#10;- Styling, rendering of searches, moved stuff to functions, added more text, and so on in the index.html view.&#10;">
+      <created>1420487822615</created>
+      <option name="number" value="00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1420487822615</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Working on the LastFM authentication.&#10;Got burned by having the getSignature api key name as apikey when it should be api_key. Damn.&#10;&#10;- getSession on the auth object allows us to get a session, but this needs to be stored somewhere. Will deal with that later. Also, need to get it to return json instead of XML.">
+      <created>1420494864482</created>
+      <option name="number" value="00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1420494864482</updated>
+    </task>
+    <task id="LOCAL-00023" summary="The LastFM api thingy now returns JSON instead of XML.&#10;&#10;- Send a &quot;Success!&quot; When we succeeded in getting data from the LastFM server, or not really.&#10;- Saved the result in the cache.">
+      <created>1420502744276</created>
+      <option name="number" value="00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1420502744276</updated>
+    </task>
+    <task id="LOCAL-00024" summary="Ugly checking if the user is authenticated properly. This should be extended later, but at this time it works as intended.&#10;&#10;- Displays the link to sign in, only if you aren't authenticated.&#10;- Set cookies of the username and hmac of username and key for later checking.">
+      <created>1420536290890</created>
+      <option name="number" value="00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1420536290890</updated>
+    </task>
+    <task id="LOCAL-00025" summary="Converted the router.get('/') route to a promise function instead. Makes it much more manageable, but it's a little difficult to create the actual promises. It's not nice when you get other errors, because they do not get reported as they should, they do not explode the stack.&#10;&#10;- Does all the functionality of the previous function, with way less code.&#10;">
+      <created>1420546582273</created>
+      <option name="number" value="00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1420546582273</updated>
+    </task>
+    <task id="LOCAL-00026" summary="Moved the rendering to another function to make it more DRY.&#10;">
+      <created>1420548152863</created>
+      <option name="number" value="00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1420548152863</updated>
+    </task>
+    <task id="LOCAL-00027" summary="Added chart.js. It allows us to produce nice looking charts without having the bulk of some other chart libraries out there, but it makes it difficult to do some stuff. Gotta work around it.&#10;&#10;- Since I moved it out to a different function render_index_page must have a reference to res, resolved a crash.&#10;- Doing lots of stuff with the charting and so on. index.html now contains a lot of canvases and data and so on. This should probably be moved out somewhere else, and create an initialization function for the charts, but not yet.">
+      <created>1420557957589</created>
+      <option name="number" value="00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1420557957589</updated>
+    </task>
+    <task id="LOCAL-00028" summary="Smaller canvases and a footer.">
+      <created>1420580578640</created>
+      <option name="number" value="00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1420580578640</updated>
+    </task>
+    <task id="LOCAL-00029" summary="Started on getting the API functions to a function based way instead of just objects, but it will have to wait until I can bother doing it correctly.&#10;&#10;- Now it updates the charts accordingly, so that it displays correctly.">
+      <created>1420584734039</created>
+      <option name="number" value="00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1420584734039</updated>
+    </task>
+    <task id="LOCAL-00030" summary="Added a table for easier overview of the data that is displayed in the charts. This should probably be hidden behind a tab or something similar.&#10;">
+      <created>1420589817600</created>
+      <option name="number" value="00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1420589817600</updated>
+    </task>
+    <task id="LOCAL-00031" summary="Added a color library for the index page. This is not strictly necessary, but it's quite nice to have and makes it easier to generate colors for the graph. Should probably add a legend for the graphs aswell, quite easy with Charts.js.&#10;&#10;- Added getTopTags function that gets the top tags for an artist, and also getTopAlbums that gets the top albums. This will probably be used to compare the different listeners of the different albums and comparison of tags for the artists.&#10;">
+      <created>1420640592930</created>
+      <option name="number" value="00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1420640592930</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
+    <servers />
+  </component>
+  <component name="TodoView" selected-index="0">
+    <todo-panel id="selected-file">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="false" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="false" />
+    </todo-panel>
+    <todo-panel id="default-changelist">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="false" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32900432" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32900432" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33766234" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32900432" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2528978" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33766234" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32900432" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32900432" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+    <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+      <collection />
+    </option>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="myTodoPanelSettings">
+      <TodoPanelSettings />
+    </option>
+    <option name="SHORT_DIFF_EXTRA_LINES" value="4" />
+    <MESSAGE value="Added the artist.js code to search for artists.&#10;Added &quot;namespaces&quot; to the gets so that tracks are stored under &quot;track:&quot;, &quot;artist:&quot; so that they do not collide. &#10;" />
+    <MESSAGE value="Well. Where to begin. This is way to big, but I wanted to work on getting both the spotify api and the lastfm api working and retrieving that data from them. This meant that I had to either use promises or a huge callback pyramid, so I chose promise.&#10;AS such I meant to change a lot of stuff.&#10;I also added sorttable.ks so that I can sort tables based on their headers, which is nice.&#10;&#10;Things that I done:&#10;- Changed the jade files, but decided that index is the most appropriate file to do things in since that means that you get to the main functionality directly.&#10;- result.jade is used to return the reuslts nicely renedered to the client.&#10;- Huge amount of things done more." />
+    <MESSAGE value="Jade is annoying, and you know it. Why blow up when you got something that is undefined? That makes no sense, so I swapped it out for swig instead. It feels more like djangos templates, or maybe jinja2.&#10;Using more Promises to handle data. It isn't cached, but it sohuld be." />
+    <MESSAGE value="Migrating more to swig. It seems that it breaks if you do not extend a file for some reason, so {% extends &quot;&quot; %} works. Odd." />
+    <MESSAGE value="Added a ugly get_details_without_artist_before function that searches for the artist with the spotify search function and then does a get_details for the first result. Wont work that well if the artist doesn't exist, so we just hope that it does.&#10;&#10;- Changed so that it does two queries instead of just one, which means that it will be able to cache easier, we can change to a GET and it wont break horribly since POST's aren't allowed to be cached by the browser. It also makes the code easier on the server side since it makes it undependent on how many queries you do and we can just reuse the code.&#10;- Added a search2 route that is the new route for searching. It only allows a single query, but makes it so that we reuse the code instead of relying on there being two queries." />
+    <MESSAGE value="Made it case-insensitive so that it doesn't break when you do something like Muse at first and the muse, those would get cached differentely, which is just wasteful. Should probably do some trimming as well.&#10;- Fighting to get it to work properly, I was doing one thing when the data was retrieved as normal and another thing when it was retrieved from cache, which is should move to another function really. This meant that the data sent to the view wasn't the same always and ended up displaying oddly." />
+    <MESSAGE value="Moved the rendering and json parsing to another function. Should really name it better though." />
+    <MESSAGE value="data_expiry_time will mostlikely be moved to settings or something." />
+    <MESSAGE value="More problems with the caching and getting it to work. Since I'm getting an array back from the Q.all thingy, I though I needed to mess with that and parse and shit, but it doesn't seem to be necessary. What ever.&#10;&#10;- Removed some string dependencies to req.body.query. With the query_string it is much easier to just trim and get it to lowercase without having to do it in several spots." />
+    <MESSAGE value="Formatting and moved the client conection messages." />
+    <MESSAGE value="Added a cache manifest. However Chrome is acting like an ass and making it difficult for me so I switched to firefox who behaves better for now.&#10;&#10;- Added the manifest and some messages to see if you are online or offline. This will be used later to use for the client side caching.&#10;- Allow for CORS since it makes it easier.&#10;- Send manifest file and do not cache it at all.&#10;- Changed expiry time to 10000 seconds from 1000.&#10;- allSettled instead of all. This makes it so that it wont fail when one of the apis doesn't work, it will just result in an object of a rejected promise. Much easier to handle when, for example, the Last.FM API is down.&#10;- The values of the fulfilled or rejected promises are stringified so we must parse them before rendering them.&#10;" />
+    <MESSAGE value="Formatting.&#10;" />
+    <MESSAGE value="Error checking. If no arguments are provided, return a http 400 error." />
+    <MESSAGE value="Adding stuff to the manifest file, but then having to remove it because Chrome is caching hard and it isn't supposed to do that.&#10;&#10;- Display the latest searches on the index page.&#10;- Added API key for spotify since it seemed like it was throttling me.&#10;- Removed the manifest file.&#10;- Make sure that the parsing of the values only happens if the state of the retrieved_data is fulfilled, otherwise it was an error and it wont even contain a value attribute.&#10;" />
+    <MESSAGE value="Moved the API stuff to another file called api.js. This helps separate the routes from the other files in a better way.&#10;&#10;- The indexpage will now get the latest searches, five of them, and render them on page load.&#10;- Changed the title to Music comparer.&#10;- Things didn't work out with the Last.FM api since it was using a &amp; instead of a ? so it gave a wrong id error.&#10;- Styling, rendering of searches, moved stuff to functions, added more text, and so on in the index.html view.&#10;" />
+    <MESSAGE value="Working on the LastFM authentication.&#10;Got burned by having the getSignature api key name as apikey when it should be api_key. Damn.&#10;&#10;- getSession on the auth object allows us to get a session, but this needs to be stored somewhere. Will deal with that later. Also, need to get it to return json instead of XML." />
+    <MESSAGE value="The LastFM api thingy now returns JSON instead of XML.&#10;&#10;- Send a &quot;Success!&quot; When we succeeded in getting data from the LastFM server, or not really.&#10;- Saved the result in the cache." />
+    <MESSAGE value="Ugly checking if the user is authenticated properly. This should be extended later, but at this time it works as intended.&#10;&#10;- Displays the link to sign in, only if you aren't authenticated.&#10;- Set cookies of the username and hmac of username and key for later checking." />
+    <MESSAGE value="Converted the router.get('/') route to a promise function instead. Makes it much more manageable, but it's a little difficult to create the actual promises. It's not nice when you get other errors, because they do not get reported as they should, they do not explode the stack.&#10;&#10;- Does all the functionality of the previous function, with way less code.&#10;" />
+    <MESSAGE value="Moved the rendering to another function to make it more DRY.&#10;" />
+    <MESSAGE value="Added chart.js. It allows us to produce nice looking charts without having the bulk of some other chart libraries out there, but it makes it difficult to do some stuff. Gotta work around it.&#10;&#10;- Since I moved it out to a different function render_index_page must have a reference to res, resolved a crash.&#10;- Doing lots of stuff with the charting and so on. index.html now contains a lot of canvases and data and so on. This should probably be moved out somewhere else, and create an initialization function for the charts, but not yet." />
+    <MESSAGE value="Smaller canvases and a footer." />
+    <MESSAGE value="Started on getting the API functions to a function based way instead of just objects, but it will have to wait until I can bother doing it correctly.&#10;&#10;- Now it updates the charts accordingly, so that it displays correctly." />
+    <MESSAGE value="Added a table for easier overview of the data that is displayed in the charts. This should probably be hidden behind a tab or something similar.&#10;" />
+    <MESSAGE value="Added a color library for the index page. This is not strictly necessary, but it's quite nice to have and makes it easier to generate colors for the graph. Should probably add a legend for the graphs aswell, quite easy with Charts.js.&#10;&#10;- Added getTopTags function that gets the top tags for an artist, and also getTopAlbums that gets the top albums. This will probably be used to compare the different listeners of the different albums and comparison of tags for the artists.&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added a color library for the index page. This is not strictly necessary, but it's quite nice to have and makes it easier to generate colors for the graph. Should probably add a legend for the graphs aswell, quite easy with Charts.js.&#10;&#10;- Added getTopTags function that gets the top tags for an artist, and also getTopAlbums that gets the top albums. This will probably be used to compare the different listeners of the different albums and comparison of tags for the artists.&#10;" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/application/application/routes/artists.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="272">
+          <caret line="8" column="27" selection-start-line="8" selection-start-column="27" selection-end-line="8" selection-end-column="27" />
+          <folding>
+            <element signature="e#0#44#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/application/routes/tracks.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="323" max-vertical-offset="510">
+          <caret line="21" column="36" selection-start-line="21" selection-start-column="36" selection-end-line="21" selection-end-column="36" />
+          <folding>
+            <element signature="e#0#44#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/application/views/track.jade">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="323" max-vertical-offset="493">
+          <caret line="19" column="23" selection-start-line="19" selection-start-column="23" selection-end-line="19" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/application/settings/settings.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="833">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/application/settings/api_keys.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="221" max-vertical-offset="442">
+          <caret line="15" column="50" selection-start-line="15" selection-start-column="50" selection-end-line="15" selection-end-column="50" />
+          <folding>
+            <element signature="e#0#44#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/application/views/layout.jade">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="119" max-vertical-offset="221">
+          <caret line="7" column="19" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/application/views/artist.jade">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="221">
+          <caret line="6" column="29" selection-start-line="6" selection-start-column="29" selection-end-line="6" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/application/views/error.jade">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="204">
+          <caret line="6" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/application/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1122">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/application/node_modules/express/lib/response.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1379" max-vertical-offset="16541">
+          <caret line="207" column="20" selection-start-line="207" selection-start-column="20" selection-end-line="207" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/application/node_modules/body-parser/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="85" max-vertical-offset="1462">
+          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/application/node_modules/body-parser/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1530">
+          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/application/node_modules/debug/debug.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3451">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/application/node_modules/debug/node.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2295">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/application/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="585">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/application/bin/www">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="255">
+          <caret line="4" column="30" selection-start-line="4" selection-start-column="30" selection-end-line="4" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/application/node_modules/express/lib/response.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="16541">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/application/routes/users.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="255">
+          <caret line="8" column="24" selection-start-line="0" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/application/node_modules/redis/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="16339" max-vertical-offset="21930">
+          <caret line="978" column="76" selection-start-line="978" selection-start-column="68" selection-end-line="978" selection-end-column="76" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/application/node_modules/request/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="2306" max-vertical-offset="2890">
+          <caret line="23" column="48" selection-start-line="23" selection-start-column="48" selection-end-line="23" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/application/public/stylesheets/skeleton.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="3468" max-vertical-offset="7225">
+          <caret line="222" column="26" selection-start-line="222" selection-start-column="26" selection-end-line="222" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/application/views/track.jade">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="11" max-vertical-offset="595">
+          <caret line="28" column="56" selection-start-line="28" selection-start-column="56" selection-end-line="28" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/application/public/favicon.ico">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/application/views/result.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.192307" vertical-offset="237" max-vertical-offset="782">
+          <caret line="28" column="46" selection-start-line="28" selection-start-column="46" selection-end-line="28" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="584">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/application/routes/artists.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1479">
+          <caret line="12" column="3" selection-start-line="12" selection-start-column="3" selection-end-line="12" selection-end-column="3" />
+          <folding>
+            <element signature="e#0#44#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/application/routes/tracks.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1037">
+          <caret line="7" column="34" selection-start-line="7" selection-start-column="34" selection-end-line="7" selection-end-column="34" />
+          <folding>
+            <element signature="e#0#44#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/application/views/result2.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="221" max-vertical-offset="510">
+          <caret line="13" column="10" selection-start-line="13" selection-start-column="10" selection-end-line="13" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/application/public/manifest.manifest">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="272">
+          <caret line="10" column="1" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/application/routes/albums.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="255">
+          <caret line="8" column="24" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavaScriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/EcmaScript5.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="3.9230769" vertical-offset="0" max-vertical-offset="3349">
+          <caret line="165" column="19" selection-start-line="165" selection-start-column="19" selection-end-line="165" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/application/settings/api_keys.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="442">
+          <caret line="15" column="22" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="22" />
+          <folding>
+            <element signature="e#0#44#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/NodeJS/lib/NodeJS.jar!/com/jetbrains/nodejs/library/node-globals-stub.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33333334" vertical-offset="744" max-vertical-offset="6239">
+          <caret line="51" column="4" selection-start-line="51" selection-start-column="4" selection-end-line="51" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.WebStorm9/system/extLibs/nodejs-v0.10.33-src/core-modules-sources/lib/crypto.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="3978" max-vertical-offset="10846">
+          <caret line="269" column="23" selection-start-line="269" selection-start-column="23" selection-end-line="269" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavaScriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/DHTML.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="23167" max-vertical-offset="81617">
+          <caret line="1370" column="0" selection-start-line="1370" selection-start-column="0" selection-end-line="1370" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/application/routes/api.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="51" max-vertical-offset="2771">
+          <caret line="24" column="26" selection-start-line="24" selection-start-column="26" selection-end-line="24" selection-end-column="26" />
+          <folding>
+            <element signature="e#0#44#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/application/views/error.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.2692308" vertical-offset="0" max-vertical-offset="204">
+          <caret line="5" column="26" selection-start-line="5" selection-start-column="26" selection-end-line="5" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/application/routes/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="453" max-vertical-offset="1224">
+          <caret line="52" column="62" selection-start-line="52" selection-start-column="62" selection-end-line="52" selection-end-column="62" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/application/public/javascripts/chart.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="153">
+          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/application/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="538" max-vertical-offset="1955">
+          <caret line="47" column="3" selection-start-line="47" selection-start-column="3" selection-end-line="47" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/application/views/layout.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.807693" vertical-offset="0" max-vertical-offset="850">
+          <caret line="15" column="42" selection-start-line="15" selection-start-column="42" selection-end-line="15" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/application/views/album.jade">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-12.92" vertical-offset="0" max-vertical-offset="544">
+          <caret line="19" column="17" selection-start-line="19" selection-start-column="17" selection-end-line="19" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/application/views/artist.jade">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.16" vertical-offset="0" max-vertical-offset="578">
+          <caret line="12" column="17" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/application/views/artist_album_simple.jade">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.12" vertical-offset="0" max-vertical-offset="544">
+          <caret line="9" column="9" selection-start-line="9" selection-start-column="9" selection-end-line="9" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/application/views/error.jade">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.08" vertical-offset="0" max-vertical-offset="204">
+          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/application/views/index.jade">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.84" vertical-offset="0" max-vertical-offset="867">
+          <caret line="13" column="38" selection-start-line="13" selection-start-column="38" selection-end-line="13" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/application/views/layout.jade">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-12.24" vertical-offset="0" max-vertical-offset="408">
+          <caret line="18" column="23" selection-start-line="0" selection-start-column="0" selection-end-line="18" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/application/views/result.jade">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.36" vertical-offset="0" max-vertical-offset="816">
+          <caret line="2" column="217" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="217" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/application/public/javascripts/please.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="119">
+          <caret line="1" column="7246" selection-start-line="1" selection-start-column="7246" selection-end-line="1" selection-end-column="7246" />
+          <folding>
+            <marker date="1420634628567" expanded="true" signature="0:73" placeholder="/*...*/" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/application/settings/settings.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="3101" max-vertical-offset="4675">
+          <caret line="200" column="35" selection-start-line="200" selection-start-column="35" selection-end-line="200" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/application/views/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5321101" vertical-offset="3042" max-vertical-offset="5746">
+          <caret line="196" column="37" selection-start-line="196" selection-start-column="37" selection-end-line="196" selection-end-column="37" />
+          <folding>
+            <element signature="e#502#543#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
