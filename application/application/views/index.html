@@ -71,7 +71,8 @@
                 <canvas id='follower_canvas' width='400' height='400'></canvas>
                 <canvas id='listeners_canvas' width='400' height='400'></canvas>
                 <canvas id='playcount_canvas' width='400' height='400'></canvas>
-                <canvas id='popularity_canvas' width='400' height='400'></canvas>
+                <span>Popularity</span>
+                <canvas id='popularity_canvas' width='100' height='100'></canvas>
             </div>
         </div>
     </div>
@@ -115,6 +116,7 @@
     </pre>
     {% endif %}
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="/javascripts/please.min.js"></script>
     <script>
         var searchCount = 0;
         function addCommas(nStr) {
@@ -129,13 +131,6 @@
             return x1 + x2;
         }
         function search(query, type, callback) {
-            if(searchCount != 0){
-                console.log(popularity_chart);
-                popularity_chart.removeData(0);
-                popularity_chart.removeData(1);
-
-                console.log(popularity_chart);
-            }
             searchCount+=1;
             console.log(query);
             if (localStorage.getItem(query)) {
@@ -210,6 +205,9 @@
             console.log("Adding eventlistener");
             document.getElementById("compare").addEventListener("click", function (e) {
                 e.preventDefault();
+
+                popularity_chart.segments = [];
+                $("#tbody_data").empty();
                 if ($("[name=query1]")[0].value != "") {
                     search($("[name=query1]")[0].value, "artist", handleData.bind(undefined, "#result", 0));
                 }
@@ -219,6 +217,16 @@
             });
         };
         function initializeCharts() {
+            first_color = Please.make_color({
+                base_color: "orangered",
+                saturation: 0.9,
+                value: 0.6
+            });
+            second_color = Please.make_color({
+                base_color: "cyan",
+                saturation: 0.9,
+                value: 0.6
+            });
             var follower_data = {
                 labels: [
                     "Followers"
@@ -226,12 +234,12 @@
                 datasets: [
                     {
                         label: "My first dataset",
-                        fillColor: "rgba(220,220,220,0.5)",
+                        fillColor: first_color,
                         data: [0]
                     },
                     {
                         label: "My second dataset",
-                        fillColor: "rgba(151,187,205,0.5)",
+                        fillColor: second_color,
                         data: [0]
                     }
                 ]
@@ -243,12 +251,12 @@
                 datasets: [
                     {
                         label: "My first dataset",
-                        fillColor: "rgba(220,220,220,0.5)",
+                        fillColor: first_color,
                         data: [0]
                     },
                     {
                         label: "My second dataset",
-                        fillColor: "rgba(151,187,205,0.5)",
+                        fillColor: second_color,
                         data: [0]
                     }
                 ]
@@ -260,12 +268,12 @@
                 datasets: [
                     {
                         label: "My first dataset",
-                        fillColor: "rgba(220,220,220,0.5)",
+                        fillColor: first_color,
                         data: [0]
                     },
                     {
                         label: "My second dataset",
-                        fillColor: "rgba(151,187,205,0.5)",
+                        fillColor: second_color,
                         data: [0]
                     }
                 ]
@@ -283,6 +291,7 @@
             popularity_chart = new Chart(popularity_ctx).Doughnut();
         }
         function handleData(target, offset, data) {
+            var colors = [first_color, second_color];
 
             $(target).html("<pre><code>" + JSON.stringify(data, undefined, 2) + "</code></pre>");
             var follower_canvas = document.getElementById("follower_canvas");
@@ -306,8 +315,12 @@
             popularity_chart.addData(
                     {
                         value: spotify.popularity,
-                        color: "#123456",
-                        highlight: "#AABBCC",
+                        color: colors[offset],
+                        highlight: Please.make_color({
+                            base_color: offset === 0 ? "orangered" : "cyan",
+                            saturation: 0.4,
+                            value: 0.6
+                        }),
                         label: "Popularity"
                     });
             console.log("Or here?");
