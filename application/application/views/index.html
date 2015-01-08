@@ -142,7 +142,7 @@
             type = type || "artist";
             $.ajax({
                 method: "post",
-                url: "http://192.168.1.5:3000/api/search2",
+                url: "/api/search2",
                 data: {query: query, type: type},
                 error: function (x, y, z) {
                     console.log(arguments);

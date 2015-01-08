@@ -162,10 +162,11 @@ var LastFM = {
         artist_top_tags_url: ["http://ws.audioscrobbler.com/2.0/?method=artist.gettoptags&artist=", "&api_key=", "&format=json"],
         artist_top_albums_url: ["http://ws.audioscrobbler.com/2.0/?method=artist.gettopalbums&artist=", "&api_key=", "&format=json"],
         get_info: function(){
-            return LastFM.artist.getInfo(arguments);
+            return LastFM.artist.getInfo.apply(undefined, arguments);
         },
         getInfo: function (artist_name) {
             console.log("get_info");
+            console.log(artist_name);
             console.log(LastFM.artist.artist_info_url[0] + artist_name + LastFM.artist.artist_info_url[1] + apikeys.api_keys.lastfm.api_key + LastFM.artist.artist_info_url[2]);
 
             return Q.Promise(function (resolve, reject, notify) {

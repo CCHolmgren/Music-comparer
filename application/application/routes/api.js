@@ -64,7 +64,8 @@ router.post('/search2', function (req, res) {
                 return [data, []];
             } else {
                 console.log("Doing the promiserinos");
-                return [[], Q.allSettled([spotify.artist.get_details_without_artist_before(query_string), LastFM.artist.get_info(query_string)])]
+                return [[], Q.allSettled([spotify.artist.get_details_without_artist_before(query_string), 
+                    LastFM.artist.get_info(query_string)])]; //TODO: Since LastFM got more data than Spotify got, use the Spotify data to search for LastFM artist. This would be made by searching only spotify data, and then use the returned data for the lastfm search
             }
         }, function (error) {
             console.log("Well shit: ", error);
