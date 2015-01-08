@@ -20,6 +20,9 @@
         .controllers {
             padding-top:30px;
         }
+        canvas {
+            width: 50%;
+        }
     </style>
     <div class="row controllers" id="search">
         <div class="five columns">
@@ -42,11 +45,11 @@
     <div class="row">
         <div class="twelve columns">
             <div id="charts">
-                <canvas id='follower_canvas' width='400' height='400'></canvas>
-                <canvas id='listeners_canvas' width='400' height='400'></canvas>
-                <canvas id='playcount_canvas' width='400' height='400'></canvas>
+                <canvas id='follower_canvas' height='400'></canvas>
+                <canvas id='listeners_canvas' height='400'></canvas>
+                <canvas id='playcount_canvas' height='400'></canvas>
                 <span>Popularity</span>
-                <canvas id='popularity_canvas' width='100' height='100'></canvas>
+                <canvas id='popularity_canvas' height='100'></canvas>
             </div>
         </div>
     </div>
@@ -60,6 +63,8 @@
                     <th>Playcount</th>
                     <th>Listeners</th>
                     <th>Popularity</th>
+                    <th>PPF</th>
+                    <th>PPL</th>
                 </tr>
                 </thead>
                 <tbody id="tbody_data">
@@ -298,9 +303,13 @@
                     + (addCommas(lastfm_data.artist.stats.playcount) || 0)
                     + "</td><td>" 
                     + (addCommas(lastfm_data.artist.stats.listeners) || 0)
-                    + "</td><td>" 
-                    + (spotify_data.popularity || 0)
-                    + "</td></tr>");
+                    + "</td><td>"
+                    +(lastfm_data.artist.ontour ? "No":"Yes")
+                    + "</td><td>"
+                    + ((lastfm_data.artist.stats.playcount / spotify_data.followers.total).toFixed(2) || 0)
+                    + "</td><td>"
+                    + ((lastfm_data.artist.stats.playcount / lastfm_data.artist.stats.listeners).toFixed(2) || 0)
+                    +"</td></tr>");
                 console.log(offset);
                 console.log(follower_chart);
                 follower_chart.datasets[offset].bars[0].value = spotify_data.followers.total || 0;
