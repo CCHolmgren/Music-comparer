@@ -23,6 +23,14 @@
         canvas {
             width: 50%;
         }
+        .bar-legend li span{
+            display:block;
+            width: 15px;
+            height:15px;
+        }
+        .search-data{
+            display:none;
+        }
     </style>
     <div class="row controllers" id="search">
         <div class="five columns">
@@ -38,55 +46,49 @@
         </div>
     </div>
     <div class="row">
-        <div class="twelve columns">
-            <p id="loading"></p>
+        <div class="five columns">
+            <div><p id="query1_loading"></p><p id="query2_loading"></p></div>
         </div>
+        <div class="seven columns" id="legend_location"></div>
     </div>
-    <div class="row">
-        <div class="twelve columns">
-            <div id="charts">
-                <canvas id='follower_canvas' height='400'></canvas>
-                <canvas id='listeners_canvas' height='400'></canvas>
-                <canvas id='playcount_canvas' height='400'></canvas>
-                <span>Popularity</span>
-                <canvas id='popularity_canvas' height='100'></canvas>
+    <div class="search-data">
+        <div class="row">
+            <div class="twelve columns">
+                <div id="charts">
+                    <canvas id='follower_canvas' height='400'></canvas>
+                    <canvas id='listeners_canvas' height='400'></canvas>
+                    <canvas id='playcount_canvas' height='400'></canvas>
+                    <span>Popularity</span>
+                    <canvas id='popularity_canvas' height='100'></canvas>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="twelve columns">
+                <table class="u-full-width">
+                    <thead>
+                    <tr>
+                        <th>Artist name</th>
+                        <th>Followers</th>
+                        <th>Playcount</th>
+                        <th>Listeners</th>
+                        <th>Popularity</th>
+                        <th>P/F <i class="fa fa-question-circle" title="Playcount per followers, based on data from Spotify"></i></th>
+                        <th>P/L <i class="fa fa-question-circle" title="Playcount per listeners, based on data from LastFM"></i></th>
+                    </tr>
+                    </thead>
+                    <tbody id="tbody_data">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="row">
+            <div class="twelve columns">
+                <div id="result">
+                </div>
             </div>
         </div>
     </div>
-    <div class="row">
-        <div class="twelve columns">
-            <table class="u-full-width">
-                <thead>
-                <tr>
-                    <th>Artist name</th>
-                    <th>Followers</th>
-                    <th>Playcount</th>
-                    <th>Listeners</th>
-                    <th>Popularity</th>
-                    <th>PPF</th>
-                    <th>PPL</th>
-                </tr>
-                </thead>
-                <tbody id="tbody_data">
-                </tbody>
-            </table>
-        </div>
-    </div>
-    <div class="row">
-        <div class="twelve columns">
-            <div id="result">
-
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="twelve columns">
-            <div id="result2">
-                <canvas id='result2_canvas' width='400' height='400'></canvas>
-            </div>
-        </div>
-    </div>
-
     {% if result %}
         <pre>
         <code>
@@ -109,7 +111,7 @@
             }
             return x1 + x2;
         }
-        function search(query, type, callback, spinner) {
+        function search(query, type, callback, spinner, target) {
             searchCount += 1;
             query = query.trim().toLowerCase();
             console.log(query);
@@ -117,10 +119,14 @@
                 console.log("Got item from storage");
                 console.log(JSON.parse(localStorage.getItem(query)));
                 callback(JSON.parse(localStorage.getItem(query)));
+                
+                console.log("Showing data");
+                $(".search-data").show();
                 return;
             }
             type = type || "artist";
             $(spinner).show();
+            $(target).text("Searching for " + query);
             $.ajax({
                 method: "post",
                 url: "/api/search2",
@@ -135,8 +141,12 @@
                 console.log(data);
 
                 $(spinner).hide();
-
+                $(target).text("");
+                
                 localStorage.setItem(query, JSON.stringify(data));
+                
+                console.log("Showing data");
+                $(".search-data").show();
 
                 callback(data);
             });
@@ -194,14 +204,15 @@
             console.log("Adding eventlistener");
             document.getElementById("compare").addEventListener("click", function (e) {
                 e.preventDefault();
-
+                
+                location.hash = "#spacer";
                 popularity_chart.segments = [];
                 $("#tbody_data").empty();
                 if ($("[name=query1]")[0].value != "") {
-                    search($("[name=query1]")[0].value, "artist", handleData.bind(undefined, "#result", 0), "#spinner1");
+                    search($("[name=query1]")[0].value, "artist", handleData.bind(undefined, "#result", 0), "#spinner1", "#query1_loading");
                 }
                 if ($("[name=query2]")[0].value) {
-                    search($("[name=query2]")[0].value, "artist", handleData.bind(undefined, "#result2", 1), "#spinner2");
+                    search($("[name=query2]")[0].value, "artist", handleData.bind(undefined, "#result2", 1), "#spinner2", "#query2_loading");
                 }
             });
         };
@@ -222,12 +233,12 @@
                 ],
                 datasets: [
                     {
-                        label: "My first dataset",
+                        label: "Missing data",
                         fillColor: first_color,
                         data: [0]
                     },
                     {
-                        label: "My second dataset",
+                        label: "Missing data",
                         fillColor: second_color,
                         data: [0]
                     }
@@ -239,12 +250,12 @@
                 ],
                 datasets: [
                     {
-                        label: "My first dataset",
+                        label: "Missing data",
                         fillColor: first_color,
                         data: [0]
                     },
                     {
-                        label: "My second dataset",
+                        label: "Missing data",
                         fillColor: second_color,
                         data: [0]
                     }
@@ -256,12 +267,12 @@
                 ],
                 datasets: [
                     {
-                        label: "My first dataset",
+                        label: "Missing data",
                         fillColor: first_color,
                         data: [0]
                     },
                     {
-                        label: "My second dataset",
+                        label: "Missing data",
                         fillColor: second_color,
                         data: [0]
                     }
@@ -304,14 +315,16 @@
                     + "</td><td>" 
                     + (addCommas(lastfm_data.artist.stats.listeners) || 0)
                     + "</td><td>"
-                    +(lastfm_data.artist.ontour ? "No":"Yes")
+                    +(spotify_data.popularity)
                     + "</td><td>"
-                    + ((lastfm_data.artist.stats.playcount / spotify_data.followers.total).toFixed(2) || 0)
+                    + ((lastfm_data.artist.stats.playcount / spotify_data.followers.total).toFixed(1) || 0)
                     + "</td><td>"
-                    + ((lastfm_data.artist.stats.playcount / lastfm_data.artist.stats.listeners).toFixed(2) || 0)
+                    + ((lastfm_data.artist.stats.playcount / lastfm_data.artist.stats.listeners).toFixed(1) || 0)
                     +"</td></tr>");
                 console.log(offset);
                 console.log(follower_chart);
+                follower_chart.datasets[offset].label = lastfm_data.artist.name;
+                $("#legend_location").html(follower_chart.generateLegend());
                 follower_chart.datasets[offset].bars[0].value = spotify_data.followers.total || 0;
                 listeners_chart.datasets[offset].bars[0].value = lastfm_data.artist.stats.listeners || 0;
                 playcount_chart.datasets[offset].bars[0].value = lastfm_data.artist.stats.playcount || 0;
