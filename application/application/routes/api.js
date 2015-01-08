@@ -85,7 +85,8 @@ router.post('/search2', function (req, res) {
         }, function(){
             console.log("Error");
             console.log(arguments);
-            return [[], [{state: "rejected", value: ""},{state: "fulfilled", value: LastFM.artist.get_info(query)}]]//.then(function(result){
+            console.log(LastFM.artist.get_info(query_string).inspect())
+            return [[], [{state: "rejected", value: ""},{state: "fulfilled", value: LastFM.artist.get_info(query_string)}]]//.then(function(result){
         }).
         spread(function (cached_data, retrieved_data) {
             //console.log("Inside the next step");
@@ -96,7 +97,7 @@ router.post('/search2', function (req, res) {
                 res.send({data: JSON.parse(cached_data)});
             } else {
                 if(!retrieved_data[0]["state"]){
-                    res.render("error", {error: "Damn"});
+                    res.send({error: "Damn", message: "Something happened that shouldn't have."});
                     return;
                 }
                 //console.log("typeof retrieved_data: ",typeof retrieved_data);
@@ -128,6 +129,8 @@ router.post('/search2', function (req, res) {
                     });
                 });
             }
+        }, function(error){
+            console.log("An error was thrown: ", error);
         }).
         catch(function (error) {
             console.log("An error was thrown.");

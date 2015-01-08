@@ -8,6 +8,7 @@
     <meta name='author' content='Christoffer Holmgren, ch222kv'>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link href='//fonts.googleapis.com/css?family=Raleway:400,300,600' rel='stylesheet' type='text/css'>
+    <link rel='stylesheet' href='/stylesheets/custom.css'>
     <link rel='stylesheet' href='/stylesheets/style.css'>
     <link rel='stylesheet' href='/stylesheets/normalize.css'>
     <link rel='stylesheet' href='/stylesheets/skeleton.css'>
@@ -16,9 +17,92 @@
             border-top: 1px solid #E1E1E1;
             padding-top: 10px;
         }
+        .header {
+            padding-bottom: 40px;
+        }
     </style>
 </head>
-<body>
+<body class="has-docked-nav">
+    <section class="header" style="border-bottom: 1px solid #E1E1E1;">
+        <h1 class="title">{{ title }}</h1>
+
+        <p>Welcome to {{ title }}!</p>
+
+        <p id="online">You are currently online. You may do any search that you like.</p>
+        {% if not authenticated %}
+            <a href="http://www.last.fm/api/auth/?api_key=88608a3b670729c1f85fe44b231aff72">Login with Last.fm</a>
+        {% else %}
+            <p>You are authenticated as {{ username }}</p>
+        {% endif %}
+    </section>
+    <div class="navbar-spacer" id="spacer"></div>
+    <nav class="navbar">
+        <div class="container">
+            <ul class="navbar-list">
+              <li class="navbar-item"><a class="navbar-link" href="#intro">Intro</a></li>
+              <li class="navbar-item">
+                <a class="navbar-link" href="#" data-popover="#codeNavPopover">Code</a>
+                <div id="codeNavPopover" class="popover">
+                  <ul class="popover-list">
+                    <li class="popover-item">
+                      <a class="popover-link" href="#grid">Grid</a>
+                    </li>
+                    <li class="popover-item">
+                      <a class="popover-link" href="#typography">Typography</a>
+                    </li>
+                    <li class="popover-item">
+                      <a class="popover-link" href="#buttons">Buttons</a>
+                    </li>
+                    <li class="popover-item">
+                      <a class="popover-link" href="#forms">Forms</a>
+                    </li>
+                    <li class="popover-item">
+                      <a class="popover-link" href="#lists">Lists</a>
+                    </li>
+                    <li class="popover-item">
+                      <a class="popover-link" href="#code">Code</a>
+                    </li>
+                    <li class="popover-item">
+                      <a class="popover-link" href="#tables">Tables</a>
+                    </li>
+                    <li class="popover-item">
+                      <a class="popover-link" href="#queries">Queries</a>
+                    </li>
+                    <li class="popover-item">
+                      <a class="popover-link" href="#utilities">Utilities</a>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <li class="navbar-item"><a class="navbar-link" href="#examples">Examples</a></li>
+              <li class="navbar-item">
+                <a class="navbar-link" href="#" data-popover="#moreNavPopover">More</a>
+                <div id="moreNavPopover" class="popover">
+                  <ul class="popover-list">
+                    <li class="popover-item">
+                      <a class="popover-link" href="https://github.com/dhg/Skeleton">On Github</a>
+                    </li>
+                    <li class="popover-item">
+                      <a class="popover-link" href="https://github.com/dhg/Skeleton#browser-support">Browsers</a>
+                    </li>
+                    <li class="popover-item">
+                      <a class="popover-link" href="https://github.com/dhg/Skeleton#license">License</a>
+                    </li>
+                    <li class="popover-item">
+                      <a class="popover-link" href="https://github.com/dhg/Skeleton#extensions">Extensions</a>
+                    </li>
+                    <li class="popover-item">
+                      <a class="popover-link" href="https://github.com/dhg/Skeleton/releases">Versions</a>
+                    </li>
+                    <li class="popover-item">
+                      <a class="popover-link" href="https://github.com/dhg/Skeleton#colophon">Colophon</a>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+        </div>
+    </nav>
 <div class="container">
     <div class="row">
         <div class="twelve columns">

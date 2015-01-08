@@ -17,40 +17,14 @@
             border-radius: 4px;
             margin-bottom: 1.5rem;
         }
+        .controllers {
+            padding-top:30px;
+        }
     </style>
-    <section style="border-bottom: 1px solid #E1E1E1;">
-        <h1>{{ title }}</h1>
-
-        <p>Welcome to {{ title }}!</p>
-
-        <p id="online">You are currently online. You may do any search that you like.</p>
-        {% if not authenticated %}
-            <a href="http://www.last.fm/api/auth/?api_key=88608a3b670729c1f85fe44b231aff72">Login with Last.fm</a>
-        {% else %}
-            <p>You are authenticated as {{ username }}</p>
-        {% endif %}
-    </section>
-    <div class="box">
-        <h6 class="docs-header">Latest searches</h6>
-
-        <div id="latestsearches">
-            {% for search in latestsearches %}
-                <div>
-                    <span>{{ search }}</span>
-
-                    <div>
-                        <button data-textbox="query1" onclick="putInSearchBox({{ search }})">Searchbox 1</button>
-                        <button data-textbox="query2" onclick="putInSearchBox2({{ search }})">Searchbox 2</button>
-                    </div>
-                </div>
-            {% endfor %}
-        </div>
-    </div>
-    <div class="row">
+    <div class="row controllers" id="search">
         <div class="five columns">
             <input type="text" name="query1" placeholder="Text" id="query1"/>
             <i class="fa fa-spinner fa-spin" style="display:none" id="spinner1"></i>
-            <p>Test</p>
         </div>
         <div class="two columns">
             <input class="btn" id="compare" type="submit" value="Compare!"/>
@@ -58,7 +32,6 @@
         <div class="five columns">
             <input class="u-pull-right" type="text" name="query2" placeholder="Text" id="query2"/>
             <i class="fa fa-spinner fa-spin" style="display:none" id="spinner2"></i>
-            <p>Test</p>
         </div>
     </div>
     <div class="row">
@@ -303,42 +276,53 @@
         }
         function handleData(target, offset, data) {
             var colors = [first_color, second_color];
-
-            $(target).html("<pre><code>" + JSON.stringify(data, undefined, 2) + "</code></pre>");
+            var spotify_data = data.data[0].value;
+            var spotify_state = data.data[0].state;
+            var lastfm_data = data.data[1].value;
+            var lastfm_state = data.data[1].state;
             var follower_canvas = document.getElementById("follower_canvas");
             var listeners_canvas = document.getElementById("listeners_canvas");
             var playcount_canvas = document.getElementById("playcount_canvas");
             var popularity_canvas = document.getElementById("popularity_canvas");
 
+            $(target).html("<pre><code>" + JSON.stringify(data, undefined, 2) + "</code></pre>");
             console.log("Target", target);
             console.log("Arguments", arguments);
             console.log("Got data", data);
-
-            var spotify = data.data[0].value;
-            console.log("Error thrown here?");
-            var lastfm = data.data[1].value;
-            $("#tbody_data").append("<tr><td>" + lastfm.artist.name + "</td><td>" + addCommas(spotify.followers.total) + "</td><td>" + addCommas(lastfm.artist.stats.playcount) + "</td><td>" + addCommas(lastfm.artist.stats.listeners) + "</td><td>" + spotify.popularity + "</td></tr>");
-            console.log(offset);
-            console.log(follower_chart);
-            follower_chart.datasets[offset].bars[0].value = spotify.followers.total;
-            listeners_chart.datasets[offset].bars[0].value = lastfm.artist.stats.listeners;
-            playcount_chart.datasets[offset].bars[0].value = lastfm.artist.stats.playcount;
-            popularity_chart.addData(
-                    {
-                        value: spotify.popularity,
-                        color: colors[offset],
-                        highlight: Please.make_color({
-                            base_color: offset === 0 ? "orangered" : "cyan",
-                            saturation: 0.4,
-                            value: 0.6
-                        }),
-                        label: "Popularity"
-                    });
-            console.log("Or here?");
-            follower_chart.update();
-            listeners_chart.update();
-            playcount_chart.update();
-            popularity_chart.update();
+            if(spotify_state == "fulfilled" && lastfm_state == "fulfilled"){
+                $("#tbody_data").append("<tr><td>" 
+                    + (lastfm_data.artist.name || spotify_data.name) 
+                    + "</td><td>" 
+                    + (addCommas(spotify_data.followers.total) || 0)
+                    + "</td><td>" 
+                    + (addCommas(lastfm_data.artist.stats.playcount) || 0)
+                    + "</td><td>" 
+                    + (addCommas(lastfm_data.artist.stats.listeners) || 0)
+                    + "</td><td>" 
+                    + (spotify_data.popularity || 0)
+                    + "</td></tr>");
+                console.log(offset);
+                console.log(follower_chart);
+                follower_chart.datasets[offset].bars[0].value = spotify_data.followers.total || 0;
+                listeners_chart.datasets[offset].bars[0].value = lastfm_data.artist.stats.listeners || 0;
+                playcount_chart.datasets[offset].bars[0].value = lastfm_data.artist.stats.playcount || 0;
+                popularity_chart.addData(
+                        {
+                            value: spotify_data.popularity || 0,
+                            color: colors[offset],
+                            highlight: Please.make_color({
+                                base_color: offset === 0 ? "orangered" : "cyan",
+                                saturation: 0.4,
+                                value: 0.6
+                            }),
+                            label: "Popularity"
+                        });
+                console.log("Or here?");
+                follower_chart.update();
+                listeners_chart.update();
+                playcount_chart.update();
+                popularity_chart.update();
+            }
         }
     </script>
 {% endblock %}
