@@ -68,8 +68,6 @@ router.post('/search2', function (req, res) {
                 //return [[], Q.allSettled([spotify.artist.get_details_without_artist_before(query_string),
                 //    LastFM.artist.get_info(query_string)])]; //TODO: Since LastFM got more data than Spotify got, use the Spotify data to search for LastFM artist. This would be made by searching only spotify data, and then use the returned data for the lastfm search
             }
-        }, function (error) {
-            console.log("Well shit: ", error);
         }).
         spread(function(cached_data, spotify_data){
             if(cached_data != ""){
@@ -84,6 +82,10 @@ router.post('/search2', function (req, res) {
                     //return [[], [, {state:"fulfilled", value: result}]];
                 //});
             }
+        }, function(){
+            console.log("Error");
+            console.log(arguments);
+            return [[], [{state: "rejected", value: ""},{state: "fulfilled", value: LastFM.artist.get_info(query)}]]//.then(function(result){
         }).
         spread(function (cached_data, retrieved_data) {
             //console.log("Inside the next step");

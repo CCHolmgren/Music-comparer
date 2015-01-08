@@ -96,9 +96,18 @@ var Spotify = {
                 //console.log("get_details_without_artist_before");
                 return Spotify.artist.search(artist_name).then(function (data) {
                         //console.log(data);
+                        var parsed_data = JSON.parse(data);
                         console.log("Typeof data: ", typeof data);
-                        console.log("ID of artist: ", JSON.parse(data).artists.items[0].id);
-                        return Spotify.artist.get_details(JSON.parse(data).artists.items[0].id);
+                        if(parsed_data && parsed_data.artists && parsed_data.artists.items[0] && parsed_data.artists.items[0].id){
+                            console.log("ID of artist: ", parsed_data.artists.items[0].id || "");
+                            return Spotify.artist.get_details(JSON.parse(data).artists.items[0].id || "");
+                        }
+                        else {
+                            throw new Error("The ID wasn't there");
+                            return Q.Promise(function(resolve, reject, notify){
+                                reject("The ID wasn't there");
+                            });
+                        }
                     }
                 );
             },
