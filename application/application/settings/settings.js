@@ -96,8 +96,8 @@ var Spotify = {
                 //console.log("get_details_without_artist_before");
                 return Spotify.artist.search(artist_name).then(function (data) {
                         //console.log(data);
-                        console.log(typeof data);
-                        console.log(JSON.parse(data).artists.items[0].id);
+                        console.log("Typeof data: ", typeof data);
+                        console.log("ID of artist: ", JSON.parse(data).artists.items[0].id);
                         return Spotify.artist.get_details(JSON.parse(data).artists.items[0].id);
                     }
                 );
@@ -151,30 +151,31 @@ var Spotify = {
         }
     }
     ;
-var getLastFMURL = function(method, artist, api_key, format){
+var getLastFMURL = function (method, artist, api_key, format) {
     format = format || "json";
     return "http://ws.audioscrobbler.com/2.0/?method=" + method + "&artist=" + artist + "&api_key=" + api_key + "&format=" + format;
-}
+};
 var LastFM = {
     base_url: "http://ws.audioscrobbler.com/2.0/",
     artist: {
         artist_info_url: ["http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=", "&api_key=", "&format=json"],
         artist_top_tags_url: ["http://ws.audioscrobbler.com/2.0/?method=artist.gettoptags&artist=", "&api_key=", "&format=json"],
         artist_top_albums_url: ["http://ws.audioscrobbler.com/2.0/?method=artist.gettopalbums&artist=", "&api_key=", "&format=json"],
-        get_info: function(){
+        get_info: function () {
             return LastFM.artist.getInfo.apply(undefined, arguments);
         },
         getInfo: function (artist_name) {
-            console.log("get_info");
-            console.log(artist_name);
-            console.log(LastFM.artist.artist_info_url[0] + artist_name + LastFM.artist.artist_info_url[1] + apikeys.api_keys.lastfm.api_key + LastFM.artist.artist_info_url[2]);
+            //console.log("get_info");
+            //console.log("artist_name: ", artist_name);
+            //console.log("URL: ", LastFM.artist.artist_info_url[0] + encodeURI(artist_name) + LastFM.artist.artist_info_url[1] + apikeys.api_keys.lastfm.api_key + LastFM.artist.artist_info_url[2]);
+            //console.log("Is the error called here?");
 
             return Q.Promise(function (resolve, reject, notify) {
                 request(getLastFMURL("artist.getinfo", artist_name, apikeys.api_keys.lastfm.api_key),
                     function (error, response, body) {
-                        console.log("Inside get_info for lastfm");
+                        //console.log("Inside get_info for lastfm");
                         if (!error) {
-                            console.log("Resolved for", body);
+                            //console.log("Resolved for", body.slice(0, 100));
                             resolve(body);
                         }
                         else {
@@ -183,23 +184,23 @@ var LastFM = {
                     });
             });
         },
-        getTopTags: function(artist_name){
-            return Q.Promise(function(resolve, reject, notify){
+        getTopTags: function (artist_name) {
+            return Q.Promise(function (resolve, reject, notify) {
                 request(getLastFMURL("artist.gettoptags", artist_name, apikeys.api_keys.lastfm.api_key),
-                function(error, reponse, body){
-                    if(!error){
-                        resolve(body);
-                    } else {
-                        reject(error);
-                    }
-                });
+                    function (error, reponse, body) {
+                        if (!error) {
+                            resolve(body);
+                        } else {
+                            reject(error);
+                        }
+                    });
             })
         },
-        getTopAlbums: function(artist_name){
-            return Q.Promise(function(resolve, reject, notify){
+        getTopAlbums: function (artist_name) {
+            return Q.Promise(function (resolve, reject, notify) {
                 request(getLastFMURL("artist.gettopalbums", artist_name, apikeys.api_keys.lastfm.api_key),
-                    function(error, reponse, body){
-                        if(!error){
+                    function (error, reponse, body) {
+                        if (!error) {
                             resolve(body);
                         } else {
                             reject(error);

@@ -1,6 +1,7 @@
 {% extends "layout.html" %}
 {% block content %}
     <script src="/javascripts/chart.js"></script>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <style>
         .docs-header {
             text-transform: uppercase;
@@ -38,8 +39,8 @@
                     <span>{{ search }}</span>
 
                     <div>
-                        <button onclick="putInSearchBox({{ search }})">Searchbox 1</button>
-                        <button onclick="putInSearchBox2({{ search }})">Searchbox 2</button>
+                        <button data-textbox="query1" onclick="putInSearchBox({{ search }})">Searchbox 1</button>
+                        <button data-textbox="query2" onclick="putInSearchBox2({{ search }})">Searchbox 2</button>
                     </div>
                 </div>
             {% endfor %}
@@ -48,7 +49,7 @@
     <div class="row">
         <div class="five columns">
             <input type="text" name="query1" placeholder="Text" id="query1"/>
-
+            <i class="fa fa-spinner fa-spin" style="display:none" id="spinner1"></i>
             <p>Test</p>
         </div>
         <div class="two columns">
@@ -56,7 +57,7 @@
         </div>
         <div class="five columns">
             <input class="u-pull-right" type="text" name="query2" placeholder="Text" id="query2"/>
-
+            <i class="fa fa-spinner fa-spin" style="display:none" id="spinner2"></i>
             <p>Test</p>
         </div>
     </div>
@@ -130,8 +131,9 @@
             }
             return x1 + x2;
         }
-        function search(query, type, callback) {
-            searchCount+=1;
+        function search(query, type, callback, spinner) {
+            searchCount += 1;
+            query = query.trim().toLowerCase();
             console.log(query);
             if (localStorage.getItem(query)) {
                 console.log("Got item from storage");
@@ -140,6 +142,7 @@
                 return;
             }
             type = type || "artist";
+            $(spinner).show();
             $.ajax({
                 method: "post",
                 url: "/api/search2",
@@ -152,8 +155,12 @@
             }).done(function (data, y, z) {
                 console.log(arguments);
                 console.log(data);
-                callback(data);
+
+                $(spinner).hide();
+
                 localStorage.setItem(query, JSON.stringify(data));
+
+                callback(data);
             });
         }
         window.addEventListener("offline", function (e) {
@@ -184,17 +191,21 @@
                     var item_uri = encodeURI(item);
                     div.append("<div><span>"
                     + item
-                    + "</span><div><button onclick=putInSearchBox('"
-                    + item_uri
-                    + "')>Searchbox 1</button><button onclick=putInSearchBox2('"
-                    + item_uri
-                    + "')>Searchbox 2</button></div>")
+                    + "</span><div><button data-textbox='query1' data-query='"+item_uri+"'"
+                    + ">Searchbox 1</button><button data-textbox='query2'  data-query='"+item_uri+"'>Searchbox 2</button></div>");
                 });
                 //setTimeout(getLatestSearches, 10000);
                 console.log(arguments);
             });
         }
         window.onload = function () {
+            $("#latestsearches").delegate("button", "click", function(event){
+                console.log(arguments);
+                var element = $(this);
+                console.log(element.data("textbox"));
+                console.log($("#"+element.data("textbox"))[0]);
+                $("#"+element.data("textbox"))[0].value = decodeURI(element.data("query"));
+            });
             initializeCharts();
             getLatestSearches();
             //alert(navigator.onLine);
@@ -209,10 +220,10 @@
                 popularity_chart.segments = [];
                 $("#tbody_data").empty();
                 if ($("[name=query1]")[0].value != "") {
-                    search($("[name=query1]")[0].value, "artist", handleData.bind(undefined, "#result", 0));
+                    search($("[name=query1]")[0].value, "artist", handleData.bind(undefined, "#result", 0), "#spinner1");
                 }
                 if ($("[name=query2]")[0].value) {
-                    search($("[name=query2]")[0].value, "artist", handleData.bind(undefined, "#result2", 1));
+                    search($("[name=query2]")[0].value, "artist", handleData.bind(undefined, "#result2", 1), "#spinner2");
                 }
             });
         };
