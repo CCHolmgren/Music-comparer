@@ -3,7 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="2cfafd9f-7b76-4276-a344-7ed42a435949" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/redis" afterPath="$PROJECT_DIR$/redis" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/application/routes/api.js" afterPath="$PROJECT_DIR$/application/application/routes/api.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/application/views/index.html" afterPath="$PROJECT_DIR$/application/application/views/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/application/routes/index.js" afterPath="$PROJECT_DIR$/application/application/routes/index.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Webbteknik_II_projekt.iws" />
@@ -48,15 +50,26 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/application/views/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.390681" vertical-offset="5613" max-vertical-offset="6324">
-              <caret line="376" column="105" selection-start-line="376" selection-start-column="105" selection-end-line="376" selection-end-column="105" />
+            <state vertical-scroll-proportion="-13.730769" vertical-offset="3961" max-vertical-offset="7072">
+              <caret line="254" column="17" selection-start-line="254" selection-start-column="17" selection-end-line="254" selection-end-column="17" />
               <folding>
-                <element signature="e#207#915#0#HTML" expanded="false" />
-                <element signature="e#1120#1140#0#HTML" expanded="true" />
                 <element signature="e#1480#1500#0#HTML" expanded="true" />
+                <element signature="e#1840#1860#0#HTML" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/application/routes/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="153" max-vertical-offset="1258">
+              <caret line="15" column="38" selection-start-line="15" selection-start-column="38" selection-end-line="15" selection-end-column="38" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -94,11 +107,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="api.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="api.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/application/routes/api.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1027" max-vertical-offset="3196">
-              <caret line="80" column="37" selection-start-line="80" selection-start-column="37" selection-end-line="80" selection-end-column="37" />
+            <state vertical-scroll-proportion="0.7022767" vertical-offset="1758" max-vertical-offset="3281">
+              <caret line="129" column="95" selection-start-line="129" selection-start-column="95" selection-end-line="129" selection-end-column="95" />
               <folding>
                 <element signature="e#0#44#0" expanded="false" />
               </folding>
@@ -154,14 +167,15 @@
         <option value="$PROJECT_DIR$/application/application/views/result2.html" />
         <option value="$PROJECT_DIR$/application/application/public/manifest.manifest" />
         <option value="$PROJECT_DIR$/application/application/settings/api_keys.js" />
-        <option value="$PROJECT_DIR$/application/application/routes/index.js" />
         <option value="$PROJECT_DIR$/application/application/public/javascripts/chart.js" />
         <option value="$PROJECT_DIR$/application/application/app.js" />
         <option value="$PROJECT_DIR$/application/application/public/javascripts/please.min.js" />
         <option value="$PROJECT_DIR$/application/application/settings/settings.js" />
-        <option value="$PROJECT_DIR$/application/application/routes/api.js" />
         <option value="$PROJECT_DIR$/application/application/views/layout.html" />
+        <option value="$PROJECT_DIR$/application/application/views/dsad.js" />
+        <option value="$PROJECT_DIR$/application/application/routes/index.js" />
         <option value="$PROJECT_DIR$/application/application/views/index.html" />
+        <option value="$PROJECT_DIR$/application/application/routes/api.js" />
       </list>
     </option>
   </component>
@@ -704,7 +718,13 @@
       <option name="project" value="LOCAL" />
       <updated>1420800015501</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="Formatting, &quot;use strict&quot; and linting.">
+      <created>1420803909975</created>
+      <option name="number" value="00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1420803909975</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -729,11 +749,11 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32900432" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32900432" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33766234" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33766234" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32900432" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -768,7 +788,6 @@
       <TodoPanelSettings />
     </option>
     <option name="SHORT_DIFF_EXTRA_LINES" value="4" />
-    <MESSAGE value="Migrating more to swig. It seems that it breaks if you do not extend a file for some reason, so {% extends &quot;&quot; %} works. Odd." />
     <MESSAGE value="Added a ugly get_details_without_artist_before function that searches for the artist with the spotify search function and then does a get_details for the first result. Wont work that well if the artist doesn't exist, so we just hope that it does.&#10;&#10;- Changed so that it does two queries instead of just one, which means that it will be able to cache easier, we can change to a GET and it wont break horribly since POST's aren't allowed to be cached by the browser. It also makes the code easier on the server side since it makes it undependent on how many queries you do and we can just reuse the code.&#10;- Added a search2 route that is the new route for searching. It only allows a single query, but makes it so that we reuse the code instead of relying on there being two queries." />
     <MESSAGE value="Made it case-insensitive so that it doesn't break when you do something like Muse at first and the muse, those would get cached differentely, which is just wasteful. Should probably do some trimming as well.&#10;- Fighting to get it to work properly, I was doing one thing when the data was retrieved as normal and another thing when it was retrieved from cache, which is should move to another function really. This meant that the data sent to the view wasn't the same always and ended up displaying oddly." />
     <MESSAGE value="Moved the rendering and json parsing to another function. Should really name it better though." />
@@ -793,20 +812,14 @@
     <MESSAGE value="Working on lots of stuff.&#10;Debugging with node-inspector instead of console.log, which is nice.&#10;&#10;- Formatting.&#10;- Changed the /api/search to depend on the spotify search result. Gotta handle the case where there isn't a spotify result, but that is at another time.&#10;- Added font awesome for the spinners, will probably use them more when I got them already loaded.&#10;- Changed to using data filed and jQuery delegate instead of ugly onclicks. This makes the site nicer looking and the code better.&#10;" />
     <MESSAGE value="Putting the error handling code in wrong place can really throw you off, but now I think I have the problem covered.&#10;&#10;- When the Spotify search can't find anything, reject the promise and instead just search for the query instead.&#10;-" />
     <MESSAGE value="Displaying if the query was retrieved from cache.&#10;&#10;-Removed unused HTML.&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="Displaying if the query was retrieved from cache.&#10;&#10;-Removed unused HTML.&#10;" />
+    <MESSAGE value="Formatting, &quot;use strict&quot; and linting." />
+    <option name="LAST_COMMIT_MESSAGE" value="Formatting, &quot;use strict&quot; and linting." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/application/application/views/track.jade">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="323" max-vertical-offset="493">
-          <caret line="19" column="23" selection-start-line="19" selection-start-column="23" selection-end-line="19" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/application/settings/settings.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="833">
@@ -1054,14 +1067,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/application/routes/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="453" max-vertical-offset="1224">
-          <caret line="52" column="62" selection-start-line="52" selection-start-column="62" selection-end-line="52" selection-end-column="62" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/application/public/javascripts/chart.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="153">
@@ -1149,16 +1154,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/application/routes/api.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1027" max-vertical-offset="3196">
-          <caret line="80" column="37" selection-start-line="80" selection-start-column="37" selection-end-line="80" selection-end-column="37" />
-          <folding>
-            <element signature="e#0#44#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/application/views/layout.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-12.307693" vertical-offset="292" max-vertical-offset="1258">
@@ -1185,12 +1180,31 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/application/views/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.390681" vertical-offset="5613" max-vertical-offset="6324">
-          <caret line="376" column="105" selection-start-line="376" selection-start-column="105" selection-end-line="376" selection-end-column="105" />
+        <state vertical-scroll-proportion="-13.730769" vertical-offset="3961" max-vertical-offset="7072">
+          <caret line="254" column="17" selection-start-line="254" selection-start-column="17" selection-end-line="254" selection-end-column="17" />
           <folding>
-            <element signature="e#207#915#0#HTML" expanded="false" />
-            <element signature="e#1120#1140#0#HTML" expanded="true" />
             <element signature="e#1480#1500#0#HTML" expanded="true" />
+            <element signature="e#1840#1860#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/application/routes/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="153" max-vertical-offset="1258">
+          <caret line="15" column="38" selection-start-line="15" selection-start-column="38" selection-end-line="15" selection-end-column="38" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/application/routes/api.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7022767" vertical-offset="1758" max-vertical-offset="3281">
+          <caret line="129" column="95" selection-start-line="129" selection-start-column="95" selection-end-line="129" selection-end-column="95" />
+          <folding>
+            <element signature="e#0#44#0" expanded="false" />
           </folding>
         </state>
       </provider>

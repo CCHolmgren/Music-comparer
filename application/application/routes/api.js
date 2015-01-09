@@ -69,24 +69,30 @@ router.post('/search2', function (req, res) {
                 //    LastFM.artist.get_info(query_string)])]; //TODO: Since LastFM got more data than Spotify got, use the Spotify data to search for LastFM artist. This would be made by searching only spotify data, and then use the returned data for the lastfm search
             }
         }).
-        spread(function(cached_data, spotify_data){
-            if(cached_data != ""){
+        spread(function (cached_data, spotify_data) {
+            if (cached_data != "") {
                 //console.log("Sending cached data");
                 //console.log(cached_data, cached_data.toString(), typeof cached_data);
                 return [cached_data, []];
             } else {
                 //console.log("Spotify_data: ",spotify_data);
                 //console.log("That was the spotify data", spotify_data, typeof spotify_data);
-                return [[], [{state: "fulfilled", value: spotify_data},{state: "fulfilled", value: LastFM.artist.get_info(JSON.parse(spotify_data).name)}]]//.then(function(result){
-                    //console.log("result: ",result.slice(0, 100));
-                    //return [[], [, {state:"fulfilled", value: result}]];
+                return [[], [{state: "fulfilled", value: spotify_data}, {
+                    state: "fulfilled",
+                    value: LastFM.artist.get_info(JSON.parse(spotify_data).name)
+                }]]//.then(function(result){
+                //console.log("result: ",result.slice(0, 100));
+                //return [[], [, {state:"fulfilled", value: result}]];
                 //});
             }
-        }, function(){
+        }, function () {
             console.log("Error");
             console.log(arguments);
             console.log(LastFM.artist.get_info(query_string).inspect())
-            return [[], [{state: "rejected", value: ""},{state: "fulfilled", value: LastFM.artist.get_info(query_string)}]]//.then(function(result){
+            return [[], [{state: "rejected", value: ""}, {
+                state: "fulfilled",
+                value: LastFM.artist.get_info(query_string)
+            }]]//.then(function(result){
         }).
         spread(function (cached_data, retrieved_data) {
             //console.log("Inside the next step");
@@ -96,7 +102,7 @@ router.post('/search2', function (req, res) {
                 //res.render("result2", {data: JSON.parse(cached_data)});
                 res.send({data: JSON.parse(cached_data)});
             } else {
-                if(!retrieved_data[0]["state"]){
+                if (!retrieved_data[0].state) {
                     res.send({error: "Damn", message: "Something happened that shouldn't have."});
                     return;
                 }
@@ -110,26 +116,25 @@ router.post('/search2', function (req, res) {
                     //console.log("Did it throw here?");
                     retrieved_data[0].value = JSON.parse(retrieved_data[0].value);
                 }
-                retrieved_data[1].value.then(function(result){
+                retrieved_data[1].value.then(function (result) {
                     if (retrieved_data[1].state === "fulfilled") {
                         //console.log("Or here?");
                         retrieved_data[1].value = JSON.parse(retrieved_data[1].value.valueOf());
                     }
 
-                    //console.log("Sending new data");
-                    //res.render("result2", {data: retrieved_data});
                     res.send({data: retrieved_data});
-
-                    //console.log("Saving the data to the cache");
 
                     //JSON.stringify will block, so we timeout to get better percieved performance
                     process.nextTick(function () {
                         client.set("artist:" + query_string, JSON.stringify(retrieved_data), redis.print);
                         client.expire("artist:" + query_string, data_expiry_time, redis.print);
+                        if ((+retrieved_data[1].value.artist.stats.playcount / +retrieved_data[1].value.artist.stats.listeners) > 60) {
+                            client.zadd("highpf", JSON.stringify(retrieved_data), redis.print);
+                        }
                     });
                 });
             }
-        }, function(error){
+        }, function (error) {
             console.log("An error was thrown: ", error);
         }).
         catch(function (error) {

@@ -1,6 +1,5 @@
 {% extends "layout.html" %}
 {% block content %}
-    <script src="/javascripts/chart.js"></script>
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <style>
         .docs-header {
@@ -35,7 +34,21 @@
         .search-data {
             display: none;
         }
+        #latestsearches div {
+            text-align:center;
+        }
     </style>
+    <div id="latestsearches">
+        {% for search in latestsearches %}
+            <div>
+                <span>{{ search }}</span>
+                <div>
+                    <button class="btn">Box 1</button>
+                    <button class="btn">Box 2</button>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
     <div class="row controllers" id="search">
         <div class="five columns">
             <input type="text" name="query1" placeholder="Text" id="query1"/>
@@ -107,17 +120,10 @@
             </div>
         </div>
     </div>
-    {% if result %}
-        <pre>
-        <code>
-            {{ result }}
-        </code>
-    </pre>
-    {% endif %}
+    <script src="/javascripts/chart.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="/javascripts/please.min.js"></script>
     <script>
-        "use strict";
         var searchCount = 0;
         function addCommas(nStr) {
             nStr += '';
@@ -188,16 +194,18 @@
         }
         function getLatestSearches() {
             $.ajax({method: 'GET', url: '/api/latestsearches'}).done(function (result) {
+                "use strict";
                 var div = $("#latestsearches");
 
                 div.empty();
 
                 result.forEach(function (item) {
+                    "use strict";
                     var item_uri = encodeURI(item);
                     div.append("<div><span>"
                     + item
                     + "</span><div><button data-textbox='query1' data-query='" + item_uri + "'"
-                    + ">Searchbox 1</button><button data-textbox='query2'  data-query='" + item_uri + "'>Searchbox 2</button></div>");
+                    + ">Box 1</button><button data-textbox='query2'  data-query='" + item_uri + "'>Box 2</button></div>");
                 });
                 //setTimeout(getLatestSearches, 10000);
                 console.log(arguments);
@@ -235,13 +243,15 @@
                 location.hash = "#spacer";
                 popularity_chart.segments = [];
                 $("#tbody_data").empty();
+
                 var query1_textbox = $("[name=query1]");
                 var query2_textbox = $("[name=query2]");
+
                 if (query1_textbox.val() != "") {
                     search(query1_textbox.val(), "artist", handleData.bind(undefined, "#result", 0), "#spinner1", "#query1_loading");
                 }
                 if (query2_textbox) {
-                    search(query2_textbox, "artist", handleData.bind(undefined, "#result2", 1), "#spinner2", "#query2_loading");
+                    search(query2_textbox.val(), "artist", handleData.bind(undefined, "#result2", 1), "#spinner2", "#query2_loading");
                 }
             });
             $("input[type=text]").keypress(function(e){
@@ -325,6 +335,7 @@
             popularity_chart = new Chart(popularity_ctx).Doughnut();
         }
         function handleData(target, offset, data, retrieved_from_cache) {
+            "use strict";
             var colors = [first_color, second_color];
             var spotify_data = data.data[0].value;
             var spotify_state = data.data[0].state;
