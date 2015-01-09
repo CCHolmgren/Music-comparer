@@ -17,19 +17,23 @@
             border-radius: 4px;
             margin-bottom: 1.5rem;
         }
+
         .controllers {
-            padding-top:30px;
+            padding-top: 30px;
         }
+
         canvas:not(#popularity_canvas) {
             width: 50%;
         }
-        .bar-legend li span{
-            display:block;
+
+        .bar-legend li span {
+            display: block;
             width: 15px;
-            height:15px;
+            height: 15px;
         }
-        .search-data{
-            display:none;
+
+        .search-data {
+            display: none;
         }
     </style>
     <div class="row controllers" id="search">
@@ -49,10 +53,12 @@
         <div class="five columns">
             <div>
                 <p id="query1_loading"></p>
+
                 <p id="query2_loading"></p>
             </div>
             <div>
                 <p id="query1_from"></p>
+
                 <p id="query2_from"></p>
             </div>
         </div>
@@ -83,8 +89,10 @@
                         <th>Playcount</th>
                         <th>Listeners</th>
                         <th>Popularity</th>
-                        <th>P/F <i class="fa fa-question-circle" title="Playcount per followers, based on data from Spotify"></i></th>
-                        <th>P/L <i class="fa fa-question-circle" title="Playcount per listeners, based on data from LastFM"></i></th>
+                        <th>P/F <i class="fa fa-question-circle"
+                                   title="Playcount per followers, based on data from Spotify"></i></th>
+                        <th>P/L <i class="fa fa-question-circle"
+                                   title="Playcount per listeners, based on data from LastFM"></i></th>
                     </tr>
                     </thead>
                     <tbody id="tbody_data">
@@ -109,12 +117,13 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="/javascripts/please.min.js"></script>
     <script>
+        "use strict";
         var searchCount = 0;
         function addCommas(nStr) {
             nStr += '';
-            x = nStr.split('.');
-            x1 = x[0];
-            x2 = x.length > 1 ? '.' + x[1] : '';
+            var x = nStr.split('.');
+            var x1 = x[0];
+            var x2 = x.length > 1 ? '.' + x[1] : '';
             var rgx = /(\d+)(\d{3})/;
             while (rgx.test(x1)) {
                 x1 = x1.replace(rgx, '$1' + ' ' + '$2');
@@ -129,7 +138,7 @@
                 console.log("Got item from storage");
                 console.log(JSON.parse(localStorage.getItem(query)));
                 callback(JSON.parse(localStorage.getItem(query)), true);
-                
+
                 console.log("Showing data");
                 $(".search-data").show();
                 return;
@@ -152,9 +161,9 @@
 
                 $(spinner).hide();
                 $(target).text("");
-                
+
                 localStorage.setItem(query, JSON.stringify(data));
-                
+
                 console.log("Showing data");
                 $(".search-data").show();
 
@@ -184,13 +193,11 @@
                 div.empty();
 
                 result.forEach(function (item) {
-                    var onclick = "$(\'#query1\').val(\'" + item + "\')";
-                    var onclick2 = "$(\'#query2\').val(\'" + item + "\')";
                     var item_uri = encodeURI(item);
                     div.append("<div><span>"
                     + item
-                    + "</span><div><button data-textbox='query1' data-query='"+item_uri+"'"
-                    + ">Searchbox 1</button><button data-textbox='query2'  data-query='"+item_uri+"'>Searchbox 2</button></div>");
+                    + "</span><div><button data-textbox='query1' data-query='" + item_uri + "'"
+                    + ">Searchbox 1</button><button data-textbox='query2'  data-query='" + item_uri + "'>Searchbox 2</button></div>");
                 });
                 //setTimeout(getLatestSearches, 10000);
                 console.log(arguments);
@@ -198,40 +205,48 @@
         }
         window.onload = function () {
             var button_state = 0;
-            $(".twelve.columns button").on("click", function(event){
+            $(".twelve.columns button").on("click", function (event) {
                 $($(this).data("target")).toggle();
-                if(button_state%2==0)
+                if (button_state % 2 == 0)
                     $(this).text("Show table");
                 else
                     $(this).text("Hide table");
-                button_state+=1;
-            })
-            $("#latestsearches").delegate("button", "click", function(event){
+                button_state += 1;
+            });
+            $("#latestsearches").delegate("button", "click", function (event) {
                 console.log(arguments);
                 var element = $(this);
+                var textbox_data = element.data("textbox");
                 console.log(element.data("textbox"));
-                console.log($("#"+element.data("textbox"))[0]);
-                $("#"+element.data("textbox"))[0].value = decodeURI(element.data("query"));
+                console.log($("#" + textbox_data)[0]);
+                $("#" + textbox_data)[0].value = decodeURI(element.data("query"));
             });
             initializeCharts();
             getLatestSearches();
             //alert(navigator.onLine);
             if (!navigator.onLine) {
                 $("#online").text("You are currently offline");
-                $("#online").text(navigator.onLine);
+                //$("#online").text(navigator.onLine);
             }
             console.log("Adding eventlistener");
             document.getElementById("compare").addEventListener("click", function (e) {
                 e.preventDefault();
-                
+
                 location.hash = "#spacer";
                 popularity_chart.segments = [];
                 $("#tbody_data").empty();
-                if ($("[name=query1]")[0].value != "") {
-                    search($("[name=query1]")[0].value, "artist", handleData.bind(undefined, "#result", 0), "#spinner1", "#query1_loading");
+                var query1_textbox = $("[name=query1]");
+                var query2_textbox = $("[name=query2]");
+                if (query1_textbox.val() != "") {
+                    search(query1_textbox.val(), "artist", handleData.bind(undefined, "#result", 0), "#spinner1", "#query1_loading");
                 }
-                if ($("[name=query2]")[0].value) {
-                    search($("[name=query2]")[0].value, "artist", handleData.bind(undefined, "#result2", 1), "#spinner2", "#query2_loading");
+                if (query2_textbox) {
+                    search(query2_textbox, "artist", handleData.bind(undefined, "#result2", 1), "#spinner2", "#query2_loading");
+                }
+            });
+            $("input[type=text]").keypress(function(e){
+                if(e.which == "13"){
+                    $("#compare").trigger("click");
                 }
             });
         };
@@ -326,33 +341,38 @@
             console.log("Arguments", arguments);
             console.log("Got data", data);
 
-            if(spotify_state == "fulfilled" && lastfm_state == "fulfilled"){
-                $("#tbody_data").append("<tr><td>" 
-                    + (lastfm_data.artist.name || spotify_data.name) 
-                    + "</td><td>" 
-                    + (addCommas(spotify_data.followers.total) || 0)
-                    + "</td><td>" 
-                    + (addCommas(lastfm_data.artist.stats.playcount) || 0)
-                    + "</td><td>" 
-                    + (addCommas(lastfm_data.artist.stats.listeners) || 0)
-                    + "</td><td>"
-                    +(spotify_data.popularity)
-                    + "</td><td>"
-                    + ((lastfm_data.artist.stats.playcount / spotify_data.followers.total).toFixed(1) || 0)
-                    + "</td><td>"
-                    + ((lastfm_data.artist.stats.playcount / lastfm_data.artist.stats.listeners).toFixed(1) || 0)
-                    +"</td></tr>");
+            if (spotify_state == "fulfilled" && lastfm_state == "fulfilled") {
+                $("#tbody_data").append("<tr><td>"
+                + (lastfm_data.artist.name || spotify_data.name)
+                + "</td><td>"
+                + (addCommas(spotify_data.followers.total) || 0)
+                + "</td><td>"
+                + (addCommas(lastfm_data.artist.stats.playcount) || 0)
+                + "</td><td>"
+                + (addCommas(lastfm_data.artist.stats.listeners) || 0)
+                + "</td><td>"
+                + (spotify_data.popularity)
+                + "</td><td>"
+                + ((lastfm_data.artist.stats.playcount / spotify_data.followers.total).toFixed(1) || 0)
+                + "</td><td>"
+                + ((lastfm_data.artist.stats.playcount / lastfm_data.artist.stats.listeners).toFixed(1) || 0)
+                + "</td></tr>");
                 console.log(offset);
                 console.log(follower_chart);
                 follower_chart.datasets[offset].label = lastfm_data.artist.name;
 
-                $("#legend_location").append(follower_chart.generateLegend());
+                $("#legend_location").html(follower_chart.generateLegend());
 
                 console.log(retrieved_from_cache);
-                if(retrieved_from_cache){
-                    console.log("Adding stuff to ", $("#query"+(offset+1)+"_from"));
-                    $("#query"+(offset+1)+"_from").text("Retrieved " + lastfm_data.artist.name + " from cache");
+                if (retrieved_from_cache) {
+                    var retrieved_from = $("#query" + (offset + 1) + "_from");
+                    console.log("Adding stuff to ", retrieved_from);
+                    retrieved_from.text("Retrieved " + lastfm_data.artist.name + " from cache");
                 }
+
+                //Set the charts datasets to the values that we got
+                //Charts.js doesn't really provide any easy way to add values without previously
+                //presetting the datasets and then change the bars in the datasets, which is really ugly, but it works
                 follower_chart.datasets[offset].bars[0].value = spotify_data.followers.total || 0;
                 listeners_chart.datasets[offset].bars[0].value = lastfm_data.artist.stats.listeners || 0;
                 playcount_chart.datasets[offset].bars[0].value = lastfm_data.artist.stats.playcount || 0;
@@ -367,7 +387,9 @@
                             }),
                             label: "Popularity"
                         });
-                console.log("Or here?");
+
+                //console.log("Or here?");
+                //Update the charts to display the changed values
                 follower_chart.update();
                 listeners_chart.update();
                 playcount_chart.update();

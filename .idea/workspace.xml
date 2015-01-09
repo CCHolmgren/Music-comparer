@@ -4,8 +4,6 @@
     <list default="true" id="2cfafd9f-7b76-4276-a344-7ed42a435949" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/redis" afterPath="$PROJECT_DIR$/redis" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/application/views/index.html" afterPath="$PROJECT_DIR$/application/application/views/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/application/views/layout.html" afterPath="$PROJECT_DIR$/application/application/views/layout.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/application/package.json" afterPath="$PROJECT_DIR$/application/application/package.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Webbteknik_II_projekt.iws" />
@@ -53,9 +51,13 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/application/views/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.609319" vertical-offset="5729" max-vertical-offset="6511">
-              <caret line="357" column="105" selection-start-line="357" selection-start-column="105" selection-end-line="357" selection-end-column="105" />
-              <folding />
+            <state vertical-scroll-proportion="0.390681" vertical-offset="5613" max-vertical-offset="6324">
+              <caret line="376" column="105" selection-start-line="376" selection-start-column="105" selection-end-line="376" selection-end-column="105" />
+              <folding>
+                <element signature="e#207#915#0#HTML" expanded="false" />
+                <element signature="e#1120#1140#0#HTML" expanded="true" />
+                <element signature="e#1480#1500#0#HTML" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -109,16 +111,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0" vertical-offset="14069" max-vertical-offset="33031">
               <caret line="791" column="10" selection-start-line="791" selection-start-column="10" selection-end-line="791" selection-end-column="10" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="EcmaScript.js" pinned="false" current-in-tab="false">
-        <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavaScriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/EcmaScript.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="6810" max-vertical-offset="15946">
-              <caret line="412" column="19" selection-start-line="412" selection-start-column="19" selection-end-line="412" selection-end-column="19" />
               <folding />
             </state>
           </provider>
@@ -449,7 +441,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="options.lastSelected" value="fileTemplates" />
+    <property name="options.lastSelected" value="Settings.JavaScript.Linters.JSHint" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
@@ -706,7 +698,13 @@
       <option name="project" value="LOCAL" />
       <updated>1420737629796</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="Displaying if the query was retrieved from cache.&#10;&#10;-Removed unused HTML.&#10;">
+      <created>1420800015501</created>
+      <option name="number" value="00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1420800015501</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -733,6 +731,7 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32900432" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32900432" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33766234" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32900432" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -748,7 +747,6 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32900432" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32900432" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -770,7 +768,6 @@
       <TodoPanelSettings />
     </option>
     <option name="SHORT_DIFF_EXTRA_LINES" value="4" />
-    <MESSAGE value="Jade is annoying, and you know it. Why blow up when you got something that is undefined? That makes no sense, so I swapped it out for swig instead. It feels more like djangos templates, or maybe jinja2.&#10;Using more Promises to handle data. It isn't cached, but it sohuld be." />
     <MESSAGE value="Migrating more to swig. It seems that it breaks if you do not extend a file for some reason, so {% extends &quot;&quot; %} works. Odd." />
     <MESSAGE value="Added a ugly get_details_without_artist_before function that searches for the artist with the spotify search function and then does a get_details for the first result. Wont work that well if the artist doesn't exist, so we just hope that it does.&#10;&#10;- Changed so that it does two queries instead of just one, which means that it will be able to cache easier, we can change to a GET and it wont break horribly since POST's aren't allowed to be cached by the browser. It also makes the code easier on the server side since it makes it undependent on how many queries you do and we can just reuse the code.&#10;- Added a search2 route that is the new route for searching. It only allows a single query, but makes it so that we reuse the code instead of relying on there being two queries." />
     <MESSAGE value="Made it case-insensitive so that it doesn't break when you do something like Muse at first and the muse, those would get cached differentely, which is just wasteful. Should probably do some trimming as well.&#10;- Fighting to get it to work properly, I was doing one thing when the data was retrieved as normal and another thing when it was retrieved from cache, which is should move to another function really. This meant that the data sent to the view wasn't the same always and ended up displaying oddly." />
@@ -795,7 +792,8 @@
     <MESSAGE value="Added a color library for the index page. This is not strictly necessary, but it's quite nice to have and makes it easier to generate colors for the graph. Should probably add a legend for the graphs aswell, quite easy with Charts.js.&#10;&#10;- Added getTopTags function that gets the top tags for an artist, and also getTopAlbums that gets the top albums. This will probably be used to compare the different listeners of the different albums and comparison of tags for the artists.&#10;" />
     <MESSAGE value="Working on lots of stuff.&#10;Debugging with node-inspector instead of console.log, which is nice.&#10;&#10;- Formatting.&#10;- Changed the /api/search to depend on the spotify search result. Gotta handle the case where there isn't a spotify result, but that is at another time.&#10;- Added font awesome for the spinners, will probably use them more when I got them already loaded.&#10;- Changed to using data filed and jQuery delegate instead of ugly onclicks. This makes the site nicer looking and the code better.&#10;" />
     <MESSAGE value="Putting the error handling code in wrong place can really throw you off, but now I think I have the problem covered.&#10;&#10;- When the Spotify search can't find anything, reject the promise and instead just search for the query instead.&#10;-" />
-    <option name="LAST_COMMIT_MESSAGE" value="Putting the error handling code in wrong place can really throw you off, but now I think I have the problem covered.&#10;&#10;- When the Spotify search can't find anything, reject the promise and instead just search for the query instead.&#10;-" />
+    <MESSAGE value="Displaying if the query was retrieved from cache.&#10;&#10;-Removed unused HTML.&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Displaying if the query was retrieved from cache.&#10;&#10;-Removed unused HTML.&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1037,6 +1035,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="3978" max-vertical-offset="10846">
           <caret line="269" column="23" selection-start-line="269" selection-start-column="23" selection-end-line="269" selection-end-column="23" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1134,22 +1133,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavaScriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/EcmaScript.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="6810" max-vertical-offset="15946">
-          <caret line="412" column="19" selection-start-line="412" selection-start-column="19" selection-end-line="412" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/application/node_modules/q/q.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="14069" max-vertical-offset="33031">
-          <caret line="791" column="10" selection-start-line="791" selection-start-column="10" selection-end-line="791" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/application/views/index.jade">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="221" max-vertical-offset="867">
@@ -1184,11 +1167,31 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavaScriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/EcmaScript.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3321918" vertical-offset="6810" max-vertical-offset="15946">
+          <caret line="412" column="19" selection-start-line="412" selection-start-column="19" selection-end-line="412" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/application/node_modules/q/q.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="14069" max-vertical-offset="33031">
+          <caret line="791" column="10" selection-start-line="791" selection-start-column="10" selection-end-line="791" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/application/application/views/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.609319" vertical-offset="5729" max-vertical-offset="6511">
-          <caret line="357" column="105" selection-start-line="357" selection-start-column="105" selection-end-line="357" selection-end-column="105" />
-          <folding />
+        <state vertical-scroll-proportion="0.390681" vertical-offset="5613" max-vertical-offset="6324">
+          <caret line="376" column="105" selection-start-line="376" selection-start-column="105" selection-end-line="376" selection-end-column="105" />
+          <folding>
+            <element signature="e#207#915#0#HTML" expanded="false" />
+            <element signature="e#1120#1140#0#HTML" expanded="true" />
+            <element signature="e#1480#1500#0#HTML" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
