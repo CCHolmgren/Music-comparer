@@ -4,10 +4,7 @@
     <list default="true" id="2cfafd9f-7b76-4276-a344-7ed42a435949" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/redis" afterPath="$PROJECT_DIR$/redis" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/application/routes/api.js" afterPath="$PROJECT_DIR$/application/application/routes/api.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/application/app.js" afterPath="$PROJECT_DIR$/application/application/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/application/routes/index.js" afterPath="$PROJECT_DIR$/application/application/routes/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/application/package.json" afterPath="$PROJECT_DIR$/application/application/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/application/settings/settings.js" afterPath="$PROJECT_DIR$/application/application/settings/settings.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/application/views/index.html" afterPath="$PROJECT_DIR$/application/application/views/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Webbteknik_II_projekt.iws" />
@@ -42,21 +39,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="result.jade" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/application/views/result.jade">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="34" max-vertical-offset="816">
-              <caret line="2" column="217" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="217" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/application/views/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-13.730769" vertical-offset="3961" max-vertical-offset="7072">
-              <caret line="254" column="17" selection-start-line="254" selection-start-column="17" selection-end-line="254" selection-end-column="17" />
+            <state vertical-scroll-proportion="0.6344086" vertical-offset="5800" max-vertical-offset="7225">
+              <caret line="362" column="42" selection-start-line="362" selection-start-column="42" selection-end-line="362" selection-end-column="42" />
               <folding>
                 <element signature="e#1480#1500#0#HTML" expanded="true" />
                 <element signature="e#1840#1860#0#HTML" expanded="true" />
@@ -72,6 +59,18 @@
               <caret line="55" column="48" selection-start-line="55" selection-start-column="48" selection-end-line="55" selection-end-column="48" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="artists.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/application/routes/artists.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="153" max-vertical-offset="1479">
+              <caret line="12" column="3" selection-start-line="12" selection-start-column="3" selection-end-line="12" selection-end-column="3" />
+              <folding>
+                <element signature="e#0#44#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -97,11 +96,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="app.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/application/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.65068495" vertical-offset="844" max-vertical-offset="2074">
-              <caret line="72" column="3" selection-start-line="72" selection-start-column="3" selection-end-line="72" selection-end-column="3" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="844" max-vertical-offset="2074">
+              <caret line="76" column="29" selection-start-line="76" selection-start-column="29" selection-end-line="76" selection-end-column="29" />
               <folding />
             </state>
           </provider>
@@ -110,8 +109,8 @@
       <file leaf-file-name="api.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/application/routes/api.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="918" max-vertical-offset="3519">
-              <caret line="74" column="0" selection-start-line="74" selection-start-column="0" selection-end-line="74" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="2040" max-vertical-offset="3587">
+              <caret line="146" column="37" selection-start-line="146" selection-start-column="37" selection-end-line="146" selection-end-column="37" />
               <folding>
                 <element signature="e#0#44#0" expanded="false" />
               </folding>
@@ -171,11 +170,11 @@
         <option value="$PROJECT_DIR$/application/application/public/javascripts/please.min.js" />
         <option value="$PROJECT_DIR$/application/application/views/layout.html" />
         <option value="$PROJECT_DIR$/application/application/views/dsad.js" />
-        <option value="$PROJECT_DIR$/application/application/views/index.html" />
-        <option value="$PROJECT_DIR$/application/application/routes/api.js" />
         <option value="$PROJECT_DIR$/application/application/settings/settings.js" />
         <option value="$PROJECT_DIR$/application/application/routes/index.js" />
         <option value="$PROJECT_DIR$/application/application/app.js" />
+        <option value="$PROJECT_DIR$/application/application/routes/api.js" />
+        <option value="$PROJECT_DIR$/application/application/views/index.html" />
       </list>
     </option>
   </component>
@@ -736,7 +735,13 @@
       <option name="project" value="LOCAL" />
       <updated>1420815254739</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="Added a rate limiter to limit quite request in a row. There is no real reason for you to request something from the /api more than a certain number of times, so this limits that.&#10;">
+      <created>1420820885877</created>
+      <option name="number" value="00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1420820885877</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -800,7 +805,6 @@
       <TodoPanelSettings />
     </option>
     <option name="SHORT_DIFF_EXTRA_LINES" value="4" />
-    <MESSAGE value="Moved the rendering and json parsing to another function. Should really name it better though." />
     <MESSAGE value="data_expiry_time will mostlikely be moved to settings or something." />
     <MESSAGE value="More problems with the caching and getting it to work. Since I'm getting an array back from the Q.all thingy, I though I needed to mess with that and parse and shit, but it doesn't seem to be necessary. What ever.&#10;&#10;- Removed some string dependencies to req.body.query. With the query_string it is much easier to just trim and get it to lowercase without having to do it in several spots." />
     <MESSAGE value="Formatting and moved the client conection messages." />
@@ -825,7 +829,8 @@
     <MESSAGE value="Formatting, &quot;use strict&quot; and linting." />
     <MESSAGE value="Formatting. Also trying to save interesting things into highpf things in a sorted set, but it doesn't seem to work just right yet.&#10;" />
     <MESSAGE value="Fixing some lints." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixing some lints." />
+    <MESSAGE value="Added a rate limiter to limit quite request in a row. There is no real reason for you to request something from the /api more than a certain number of times, so this limits that.&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added a rate limiter to limit quite request in a row. There is no real reason for you to request something from the /api more than a certain number of times, so this limits that.&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -987,16 +992,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="584">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/application/routes/artists.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1479">
-          <caret line="12" column="3" selection-start-line="12" selection-start-column="3" selection-end-line="12" selection-end-column="3" />
-          <folding>
-            <element signature="e#0#44#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1173,31 +1168,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/application/views/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-13.730769" vertical-offset="3961" max-vertical-offset="7072">
-          <caret line="254" column="17" selection-start-line="254" selection-start-column="17" selection-end-line="254" selection-end-column="17" />
-          <folding>
-            <element signature="e#1480#1500#0#HTML" expanded="true" />
-            <element signature="e#1840#1860#0#HTML" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/application/routes/api.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="918" max-vertical-offset="3519">
-          <caret line="74" column="0" selection-start-line="74" selection-start-column="0" selection-end-line="74" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#44#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/application/settings/settings.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="3890" max-vertical-offset="4862">
           <caret line="241" column="28" selection-start-line="241" selection-start-column="28" selection-end-line="241" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/application/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="844" max-vertical-offset="2074">
+          <caret line="76" column="29" selection-start-line="76" selection-start-column="29" selection-end-line="76" selection-end-column="29" />
           <folding />
         </state>
       </provider>
@@ -1212,11 +1194,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/application/app.js">
+    <entry file="file://$PROJECT_DIR$/application/application/routes/artists.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.65068495" vertical-offset="844" max-vertical-offset="2074">
-          <caret line="72" column="3" selection-start-line="72" selection-start-column="3" selection-end-line="72" selection-end-column="3" />
-          <folding />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1479">
+          <caret line="12" column="3" selection-start-line="12" selection-start-column="3" selection-end-line="12" selection-end-column="3" />
+          <folding>
+            <element signature="e#0#44#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/application/routes/api.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="2040" max-vertical-offset="3587">
+          <caret line="146" column="37" selection-start-line="146" selection-start-column="37" selection-end-line="146" selection-end-column="37" />
+          <folding>
+            <element signature="e#0#44#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/application/views/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6344086" vertical-offset="5800" max-vertical-offset="7225">
+          <caret line="362" column="42" selection-start-line="362" selection-start-column="42" selection-end-line="362" selection-end-column="42" />
+          <folding>
+            <element signature="e#1480#1500#0#HTML" expanded="true" />
+            <element signature="e#1840#1860#0#HTML" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

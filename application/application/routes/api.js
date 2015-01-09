@@ -141,9 +141,13 @@ router.post('/search2', function (req, res) {
                     process.nextTick(function () {
                         client.set("artist:" + query_string, JSON.stringify(retrieved_data), redis.print);
                         client.expire("artist:" + query_string, data_expiry_time, redis.print);
+                        if(retrieved_data[0].value && retrieved_data[0].value.followers  && retrieved_data[0].value.total && retrieved_data[1].value &&retrieved_data[1].value.artist && retrieved_data[1].value.artist.stats && retrieved_data[1].value.artist.stats.playcount){
+
                         var x = (+retrieved_data[1].value.artist.stats.playcount / +retrieved_data[0].value.followers.total);
                         if (x > 60) {
                             client.zadd("highpf", x, JSON.stringify(retrieved_data), redis.print);
+                        }
+
                         }
                     });
                 });
