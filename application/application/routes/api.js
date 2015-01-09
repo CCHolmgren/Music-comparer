@@ -36,10 +36,10 @@ router.get('/latestsearches', function (req, res) {
     }).done();
 });
 router.post('/search2', function (req, res) {
-    var data_expiry_time = 10000;
-    var query_string = req.body.query.toLowerCase().trim();
+    var data_expiry_time = 10000,
+        query_string = req.body.query.toLowerCase().trim();
 
-    if (query_string == "") {
+    if (query_string === "") {
         send_bad_request_response("The query must contain something, it can't be empty");
         return;
     }
@@ -62,29 +62,27 @@ router.post('/search2', function (req, res) {
                 console.log("Retrieved data from the cache");
 
                 return [data, []];
-            } else {
-                console.log("Doing the promiserinos");
-                return [[], spotify.artist.get_details_without_artist_before(query_string)];
-                //return [[], Q.allSettled([spotify.artist.get_details_without_artist_before(query_string),
-                //    LastFM.artist.get_info(query_string)])]; //TODO: Since LastFM got more data than Spotify got, use the Spotify data to search for LastFM artist. This would be made by searching only spotify data, and then use the returned data for the lastfm search
             }
+            console.log("Doing the promiserinos");
+            return [[], spotify.artist.get_details_without_artist_before(query_string)];
+            //return [[], Q.allSettled([spotify.artist.get_details_without_artist_before(query_string),
+            //    LastFM.artist.get_info(query_string)])]; //TODO: Since LastFM got more data than Spotify got, use the Spotify data to search for LastFM artist. This would be made by searching only spotify data, and then use the returned data for the lastfm search
         }).
         spread(function (cached_data, spotify_data) {
             if (cached_data != "") {
                 //console.log("Sending cached data");
                 //console.log(cached_data, cached_data.toString(), typeof cached_data);
                 return [cached_data, []];
-            } else {
-                //console.log("Spotify_data: ",spotify_data);
-                //console.log("That was the spotify data", spotify_data, typeof spotify_data);
-                return [[], [{state: "fulfilled", value: spotify_data}, {
-                    state: "fulfilled",
-                    value: LastFM.artist.get_info(JSON.parse(spotify_data).name)
-                }]]//.then(function(result){
-                //console.log("result: ",result.slice(0, 100));
-                //return [[], [, {state:"fulfilled", value: result}]];
-                //});
             }
+            //console.log("Spotify_data: ",spotify_data);
+            //console.log("That was the spotify data", spotify_data, typeof spotify_data);
+            return [[], [{state: "fulfilled", value: spotify_data}, {
+                state: "fulfilled",
+                value: LastFM.artist.get_info(JSON.parse(spotify_data).name)
+            }]];//.then(function(result){
+            //console.log("result: ",result.slice(0, 100));
+            //return [[], [, {state:"fulfilled", value: result}]];
+            //});
         }, function () {
             console.log("Error");
             console.log(arguments);
@@ -92,7 +90,7 @@ router.post('/search2', function (req, res) {
             return [[], [{state: "rejected", value: ""}, {
                 state: "fulfilled",
                 value: LastFM.artist.get_info(query_string)
-            }]]//.then(function(result){
+            }]];//.then(function(result){
         }).
         spread(function (cached_data, retrieved_data) {
             //console.log("Inside the next step");
@@ -128,8 +126,9 @@ router.post('/search2', function (req, res) {
                     process.nextTick(function () {
                         client.set("artist:" + query_string, JSON.stringify(retrieved_data), redis.print);
                         client.expire("artist:" + query_string, data_expiry_time, redis.print);
-                        if ((+retrieved_data[1].value.artist.stats.playcount / +retrieved_data[1].value.artist.stats.listeners) > 60) {
-                            client.zadd("highpf", JSON.stringify(retrieved_data), redis.print);
+                        var x = (+retrieved_data[1].value.artist.stats.playcount / +retrieved_data[0].value.followers.total);
+                        if (x > 60) {
+                            client.zadd("highpf", x, JSON.stringify(retrieved_data), redis.print);
                         }
                     });
                 });
@@ -145,7 +144,7 @@ router.post('/search2', function (req, res) {
 });
 router.post('/search', function (req, res) {
     Q.longStackSupport = true;
-    if (req.body.query1 == "" || req.body.query2 == "") {
+    if (req.body.query1 === "" || req.body.query2 === "") {
         res.status(400).send({
             error: "400 Bad Request",
             message: "You provided only 1 or even 0 of the required 2 names. As such we can't go on with the query."
