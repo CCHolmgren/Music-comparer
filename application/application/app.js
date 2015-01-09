@@ -10,7 +10,7 @@ var Q = require("q");
 var swig = require("swig");
 var app = express();
 var crypto = require("crypto");
-var compress = require('compression');
+var compress = require('compression')();
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
@@ -39,7 +39,7 @@ app.use(function (req, res, next) {
     next();
 });
 
-app.use(compress());  
+app.use(compress);  
 
 // uncomment after placing your favicon in /public
 app.use(favicon(__dirname + '/public/favicon.ico'));

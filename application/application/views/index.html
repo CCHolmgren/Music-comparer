@@ -65,6 +65,7 @@
         </div>
         <div class="row">
             <div class="twelve columns">
+                <button data-target=".twelve.columns table">Hide table</button>
                 <table class="u-full-width">
                     <thead>
                     <tr>
@@ -187,6 +188,15 @@
             });
         }
         window.onload = function () {
+            var button_state = 0;
+            $(".twelve.columns button").on("click", function(event){
+                $($(this).data("target")).toggle();
+                if(button_state%2==0)
+                    $(this).text("Show table");
+                else
+                    $(this).text("Hide table");
+                button_state+=1;
+            })
             $("#latestsearches").delegate("button", "click", function(event){
                 console.log(arguments);
                 var element = $(this);
