@@ -20,7 +20,7 @@
         .controllers {
             padding-top:30px;
         }
-        canvas {
+        canvas:not(#popularity_canvas) {
             width: 50%;
         }
         .bar-legend li span{
@@ -47,7 +47,14 @@
     </div>
     <div class="row">
         <div class="five columns">
-            <div><p id="query1_loading"></p><p id="query2_loading"></p></div>
+            <div>
+                <p id="query1_loading"></p>
+                <p id="query2_loading"></p>
+            </div>
+            <div>
+                <p id="query1_from"></p>
+                <p id="query2_from"></p>
+            </div>
         </div>
         <div class="seven columns" id="legend_location"></div>
     </div>
@@ -58,8 +65,10 @@
                     <canvas id='follower_canvas' height='400'></canvas>
                     <canvas id='listeners_canvas' height='400'></canvas>
                     <canvas id='playcount_canvas' height='400'></canvas>
-                    <span>Popularity</span>
-                    <canvas id='popularity_canvas' height='100'></canvas>
+                    <div>
+                        <span>Popularity</span>
+                        <canvas id='popularity_canvas' height='100' width="100"></canvas>
+                    </div>
                 </div>
             </div>
         </div>
@@ -119,7 +128,7 @@
             if (localStorage.getItem(query)) {
                 console.log("Got item from storage");
                 console.log(JSON.parse(localStorage.getItem(query)));
-                callback(JSON.parse(localStorage.getItem(query)));
+                callback(JSON.parse(localStorage.getItem(query)), true);
                 
                 console.log("Showing data");
                 $(".search-data").show();
@@ -149,7 +158,7 @@
                 console.log("Showing data");
                 $(".search-data").show();
 
-                callback(data);
+                callback(data, false);
             });
         }
         window.addEventListener("offline", function (e) {
@@ -300,7 +309,7 @@
             playcount_chart = new Chart(playcount_ctx).Bar(playcount_data);
             popularity_chart = new Chart(popularity_ctx).Doughnut();
         }
-        function handleData(target, offset, data) {
+        function handleData(target, offset, data, retrieved_from_cache) {
             var colors = [first_color, second_color];
             var spotify_data = data.data[0].value;
             var spotify_state = data.data[0].state;
@@ -312,9 +321,11 @@
             var popularity_canvas = document.getElementById("popularity_canvas");
 
             $(target).html("<pre><code>" + JSON.stringify(data, undefined, 2) + "</code></pre>");
+
             console.log("Target", target);
             console.log("Arguments", arguments);
             console.log("Got data", data);
+
             if(spotify_state == "fulfilled" && lastfm_state == "fulfilled"){
                 $("#tbody_data").append("<tr><td>" 
                     + (lastfm_data.artist.name || spotify_data.name) 
@@ -334,7 +345,14 @@
                 console.log(offset);
                 console.log(follower_chart);
                 follower_chart.datasets[offset].label = lastfm_data.artist.name;
-                $("#legend_location").html(follower_chart.generateLegend());
+
+                $("#legend_location").append(follower_chart.generateLegend());
+
+                console.log(retrieved_from_cache);
+                if(retrieved_from_cache){
+                    console.log("Adding stuff to ", $("#query"+(offset+1)+"_from"));
+                    $("#query"+(offset+1)+"_from").text("Retrieved " + lastfm_data.artist.name + " from cache");
+                }
                 follower_chart.datasets[offset].bars[0].value = spotify_data.followers.total || 0;
                 listeners_chart.datasets[offset].bars[0].value = lastfm_data.artist.stats.listeners || 0;
                 playcount_chart.datasets[offset].bars[0].value = lastfm_data.artist.stats.playcount || 0;
