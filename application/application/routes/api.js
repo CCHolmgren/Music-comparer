@@ -7,6 +7,18 @@ var settings = require('../settings/settings');
 var redis = require('redis'),
     client = redis.createClient();
 var Q = require('q');
+var ExpressBrute = require("express-brute");
+var RedisStore = require("express-brute-redis");
+
+var store = new RedisStore({
+    host: "127.0.0.1",
+    port: 6379
+});
+
+var bruteforce = new ExpressBrute(store, {
+    freeRetries: 100
+});
+
 
 var spotify = settings.Spotify;
 var LastFM = settings.LastFM;
@@ -17,16 +29,19 @@ client.on("error", function (err) {
 client.on("connect", function () {
     console.log("Connected!");
 });
+
 var render_json_data = function (res, data) {
     data = data.map(JSON.parse);
     res.render("result2", {data: data});
 };
 var send_bad_request_response = function (res, message) {
-    res.status(400).send({
+    res.status(400).json({
         error: "400 Bad Request",
         message: message
     });
 };
+router.use(bruteforce.prevent);
+
 router.get('/latestsearches', function (req, res) {
     console.log("Going into latestsearches");
     Q.ninvoke(client, 'lrange', ["latestsearches", -5, -1]).then(function (result) {

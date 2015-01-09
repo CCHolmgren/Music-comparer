@@ -39,7 +39,7 @@ app.use(function (req, res, next) {
     next();
 });
 
-app.use(compress);  
+app.use(compress);
 
 // uncomment after placing your favicon in /public
 app.use(favicon(__dirname + '/public/favicon.ico'));
@@ -54,28 +54,33 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', routes);
-app.get('/callback', function(req, res){
+
+app.get('/callback', function (req, res) {
     var token = req.query.token || "";
-    if(!token){
-        res.send("Error, did not contain a token");
+    if (!token) {
+        res.status("400");
+        res.render("error", {title: "Music Comparer", error: "400 Bad Request", message: "The request did not contain a token and as such cannot be handled."});
     }
     console.log("Going to get the token");
-    LastFM.auth.getSession(token).then(function(result){
+    LastFM.auth.getSession(token).then(function (result) {
         console.log(arguments);
         var key = JSON.parse(result);
         client.set(key.session.name, JSON.stringify(key), redis.print);
         res.cookie("username", key.session.name, {httpOnly: true});
-        res.cookie("hmac", crypto.createHash("md5").update(key.session.name+key.session.key, "utf8").digest("hex"), {httpOnly: true});
-        res.redirect("/");
+        res.cookie("hmac", crypto.createHash("md5").update(key.session.name + key.session.key, "utf8").digest("hex"), {httpOnly: true});
+        res.redirect("/application");
     });
 });
+app.use('/application', routes);
 app.use('/api', api);
 app.use('/users', users);
 app.use('/artists', artists);
 app.use('/tracks', tracks);
 app.use('/albums', albums);
 
+app.use("/", function(req, res){
+    res.render("layout", {title: "Music Comparer"});
+});
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
     var err = new Error('Not Found');

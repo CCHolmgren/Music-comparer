@@ -250,7 +250,7 @@ var LastFM = {
                             reject(error);
                         }
                     });
-            })
+            });
         }
     },
     user: {

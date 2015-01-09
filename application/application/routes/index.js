@@ -18,7 +18,6 @@ function render_index_page(res, title, latestsearches, authenticated, username) 
         username: username
     });
 }
-
 /* GET home page. */
 router.get('/', function (req, res) {
     console.log(req.cookies);
@@ -38,7 +37,7 @@ router.get('/', function (req, res) {
                 }
             }
         ).then(function (result) {
-            render_index_page(res, 'Music comparer', result, true, req.cookies.username);
+            render_index_page(res, 'Music Comparer', result, true, req.cookies.username);
             /*res.render('index', {
              title: 'Music comparer',
              latestsearches: result,
@@ -49,12 +48,12 @@ router.get('/', function (req, res) {
             console.log(error);
             res.cookie("username", "", {expires: new Date(1), httpOnly: true});
             res.cookie("hmac", "", {expires: new Date(1), httpOnly: true});
-            res.render("error", {error: new Error("Your cookies seems to be wrong, try to login again.")});
+            res.render("error", {title: "Music Comparer", error: new Error("Your cookies seems to be wrong, try to login again.")});
         });
     } else {
         client.lrange("latestsearches", -5, -1, function (error, result) {
             console.log(arguments);
-            render_index_page(res, 'Music comparer', result, false, null);
+            render_index_page(res, 'Music Comparer', result, false, null);
             /*res.render('index', {
              title: 'Music comparer',
              latestsearches: result,
