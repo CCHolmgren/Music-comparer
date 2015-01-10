@@ -11,6 +11,8 @@ var swig = require("swig");
 var app = express();
 var crypto = require("crypto");
 var compress = require('compression')();
+var session = require("express-session");
+var RedisStore = require("connect-redis")(session);
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
@@ -52,23 +54,54 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());
+app.use(session({
+    secret: "this_is_my_secret",
+    resave: false,
+    saveUninitialized: false,
+    cookie: {
+        maxAge: 3600000000
+    },
+    store: new RedisStore({client: client, host: "127.0.0.1", port: 6379})
+}));
 app.use(express.static(path.join(__dirname, 'public')));
 
-
+app.get("/logout", function (req, res) {
+    delete req.session.loggedin;
+    res.redirect("/");
+});
+app.get("/login", function (req, res) {
+    if (req.session.token && req.session.username) {
+        req.session.loggedin = true;
+        return res.redirect("/application");
+    } else {
+        return res.render("login", {title: "Music Comparer"});
+    }
+});
 app.get('/callback', function (req, res) {
     var token = req.query.token || "";
     if (!token) {
         res.status("400");
-        res.render("error", {title: "Music Comparer", error: "400 Bad Request", message: "The request did not contain a token and as such cannot be handled."});
+        res.render("error", {
+            title: "Music Comparer",
+            error: "400 Bad Request",
+            message: "The request did not contain a token and as such cannot be handled."
+        });
     }
     console.log("Going to get the token");
     LastFM.auth.getSession(token).then(function (result) {
         console.log(arguments);
         var key = JSON.parse(result);
+        console.log(key);
         client.set(key.session.name, JSON.stringify(key), redis.print);
-        res.cookie("username", key.session.name, {httpOnly: true});
-        res.cookie("hmac", crypto.createHash("md5").update(key.session.name + key.session.key, "utf8").digest("hex"), {httpOnly: true});
-        res.redirect("/application");
+        req.session.regenerate(function () {
+            req.session.loggedin = true;
+            req.session.username = key.session.name;
+            req.session.token = key.session.key;
+            //req.session.hmac = crypto.createHash("md5").update(key.session.name + key.session.key, "utf8").digest("hex");
+            //res.cookie("username", key.session.name, {httpOnly: true});
+            //res.cookie("hmac", crypto.createHash("md5").update(key.session.name + key.session.key, "utf8").digest("hex"), {httpOnly: true});
+            res.redirect("/application");
+        });
     });
 });
 app.use('/application', routes);
@@ -78,8 +111,13 @@ app.use('/artists', artists);
 app.use('/tracks', tracks);
 app.use('/albums', albums);
 
-app.use("/", function(req, res){
-    res.render("layout", {title: "Music Comparer"});
+app.use("/", function (req, res) {
+    console.log(req.session);
+    res.render("layout", {
+        title: "Music Comparer",
+        authenticated: req.session.loggedin,
+        username: req.session.username
+    });
 });
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

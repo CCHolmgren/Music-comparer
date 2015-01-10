@@ -1,43 +1,5 @@
 {% extends "layout.html" %}
 {% block content %}
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-    <style>
-        .docs-header {
-            text-transform: uppercase;
-            font-size: 1.4rem;
-            letter-spacing: .2rem;
-            font-weight: 600;
-        }
-
-        .box {
-            margin-top: 1.5rem;
-            border: 1px solid #E1E1E1;
-            padding: 2.5rem 3rem;
-            border-radius: 4px;
-            margin-bottom: 1.5rem;
-        }
-
-        .controllers {
-            padding-top: 30px;
-        }
-
-        canvas:not(#popularity_canvas) {
-            width: 50%;
-        }
-
-        .bar-legend li span {
-            display: block;
-            width: 15px;
-            height: 15px;
-        }
-
-        .search-data {
-            display: none;
-        }
-        #latestsearches div {
-            text-align:center;
-        }
-    </style>
     <div id="latestsearches">
         {% for search in latestsearches %}
             <div>
