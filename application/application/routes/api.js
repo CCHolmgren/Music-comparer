@@ -16,7 +16,7 @@ var store = new RedisStore({
 });
 
 var bruteforce = new ExpressBrute(store, {
-    freeRetries: 100
+    freeRetries: 1000
 });
 
 
@@ -42,6 +42,12 @@ var send_bad_request_response = function (res, message) {
 };
 router.use(bruteforce.prevent);
 
+router.get("/tags/:artist", function(req, res){
+    LastFM.artist.getTopTags(req.params.artist).then(function(result){
+        res.json(JSON.parse(result));
+    });
+});
+
 router.get('/latestsearches', function (req, res) {
     console.log("Going into latestsearches");
     Q.ninvoke(client, 'lrange', ["latestsearches", -5, -1]).then(function (result) {
@@ -64,10 +70,6 @@ router.post('/search2', function (req, res) {
     Q.longStackSupport = true;
 
     console.log("body:", query_string);
-
-    process.nextTick(function () {
-        client.lpush("latestsearches", req.body.query, redis.print);
-    });
 
     Q.ninvoke(client, "get", "artist:" + query_string).
         then(function (data) {
@@ -108,6 +110,10 @@ router.post('/search2', function (req, res) {
             }]];//.then(function(result){
         }).
         spread(function (cached_data, retrieved_data) {
+            function getName(spotify_data, lastfm_data) {
+                return spotify_data.value.name || lastfm_data.value.artist.name;
+            }
+
             //console.log("Inside the next step");
             if (cached_data.length) {
                 //console.log("Rendering the cached data");
@@ -141,13 +147,25 @@ router.post('/search2', function (req, res) {
                     process.nextTick(function () {
                         client.set("artist:" + query_string, JSON.stringify(retrieved_data), redis.print);
                         client.expire("artist:" + query_string, data_expiry_time, redis.print);
-                        if (retrieved_data[0].value && retrieved_data[0].value.followers && retrieved_data[0].value.total && retrieved_data[1].value && retrieved_data[1].value.artist && retrieved_data[1].value.artist.stats && retrieved_data[1].value.artist.stats.playcount) {
-
+                        client.rpush("latestsearches", getName(retrieved_data[0], retrieved_data[1]), redis.print);
+                        //Behold my ugly checking
+                        /*if (retrieved_data[0].value && retrieved_data[0].value.followers && retrieved_data[0].value.total && retrieved_data[1].value && retrieved_data[1].value.artist && retrieved_data[1].value.artist.stats && retrieved_data[1].value.artist.stats.playcount) {
                             var x = (+retrieved_data[1].value.artist.stats.playcount / +retrieved_data[0].value.followers.total);
                             if (x > 60) {
                                 client.zadd("highpf", x, JSON.stringify(retrieved_data), redis.print);
                             }
-
+                        }*/
+                        //Better
+                        try {
+                            var x = (+retrieved_data[1].value.artist.stats.playcount / +retrieved_data[0].value.followers.total);
+                            if (x > 60 && retrieved_data[0].value.followers.total > 10000) {
+                                client.zadd("highpf", x, JSON.stringify(retrieved_data), redis.print);
+                            }
+                        } catch (e) {
+                            if (e instanceof TypeError) {
+                            } else {
+                                throw e;
+                            }
                         }
                     });
                 });

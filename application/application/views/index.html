@@ -1,26 +1,30 @@
 {% extends "layout.html" %}
 {% block content %}
+    <style>[name=query1], [name=query2] {
+            text-align: center;
+        }</style>
     <div id="latestsearches">
         {% for search in latestsearches %}
             <div>
                 <span>{{ search }}</span>
+
                 <div>
-                    <button class="btn">Box 1</button>
-                    <button class="btn">Box 2</button>
+                    <button class="btn" data-textbox="query1" data-query="{{ search }}">Box 1</button>
+                    <button class="btn" data-textbox="query2" data-query="{{ search }}">Box 2</button>
                 </div>
             </div>
         {% endfor %}
     </div>
     <div class="row controllers" id="search">
         <div class="five columns">
-            <input type="text" name="query1" placeholder="Text" id="query1"/>
+            <input type="text" name="query1" placeholder="Box 1" id="query1"/>
             <i class="fa fa-spinner fa-spin" style="display:none" id="spinner1"></i>
         </div>
         <div class="two columns">
             <input class="btn" id="compare" type="submit" value="Compare!"/>
         </div>
         <div class="five columns">
-            <input class="u-pull-right" type="text" name="query2" placeholder="Text" id="query2"/>
+            <input class="u-pull-right" type="text" name="query2" placeholder="Box 2" id="query2"/>
             <i class="fa fa-spinner fa-spin" style="display:none" id="spinner2"></i>
         </div>
     </div>
@@ -55,15 +59,15 @@
         </div>
         <div class="row">
             <div class="twelve columns">
-                <button data-target=".twelve.columns table">Hide table</button>
+                <button id="table-button" data-target=".twelve.columns table">Hide table</button>
                 <table class="u-full-width">
                     <thead>
                     <tr>
                         <th>Artist name</th>
-                        <th>Followers</th>
-                        <th>Playcount</th>
-                        <th>Listeners</th>
-                        <th>Popularity</th>
+                        <th>Spotify Followers</th>
+                        <th>LastFM Playcount</th>
+                        <th>LastFM Listeners</th>
+                        <th>Popularity on Spotify</th>
                         <th>P/F <i class="fa fa-question-circle"
                                    title="Playcount per followers, based on data from Spotify"></i></th>
                         <th>P/L <i class="fa fa-question-circle"
@@ -73,6 +77,11 @@
                     <tbody id="tbody_data">
                     </tbody>
                 </table>
+            </div>
+        </div>
+        <div class="row">
+            <div class="twelve columns">
+                <div id="matchingtags"></div>
             </div>
         </div>
         <div class="row">
@@ -92,6 +101,8 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="/javascripts/please.min.js"></script>
     <script>
+        var tags = [];
+        var intersecting_tags;
         var searchCount = 0;
         function addCommas(nStr) {
             nStr += '';
@@ -107,6 +118,9 @@
         function search(query, type, callback, spinner, target) {
             searchCount += 1;
             query = query.trim().toLowerCase();
+            if (query === "") {
+                return;
+            }
             console.log(query);
             if (localStorage.getItem(query)) {
                 console.log("Got item from storage");
@@ -181,7 +195,7 @@
         }
         window.onload = function () {
             var button_state = 0;
-            $(".twelve.columns button").on("click", function (event) {
+            $("#table-button").on("click", function (event) {
                 $($(this).data("target")).toggle();
                 if (button_state % 2 == 0)
                     $(this).text("Show table");
@@ -222,8 +236,8 @@
                     search(query2_textbox.val(), "artist", handleData.bind(undefined, "#result2", 1), "#spinner2", "#query2_loading");
                 }
             });
-            $("input[type=text]").keypress(function(e){
-                if(e.which == "13"){
+            $("input[type=text]").keypress(function (e) {
+                if (e.which == "13") {
                     $("#compare").trigger("click");
                 }
             });
@@ -313,9 +327,9 @@
             var listeners_canvas = document.getElementById("listeners_canvas");
             var playcount_canvas = document.getElementById("playcount_canvas");
             var popularity_canvas = document.getElementById("popularity_canvas");
-
-            spotify_data.followers = spotify_data.followers || {};
-            spotify_data.followers.total = spotify_data.followers.total || 0;
+            spotify_data = spotify_data || {followers: {total: 0}, popularity: 0};
+            //spotify_data.followers = spotify_data.followers || {};
+            //spotify_data.followers.total = spotify_data.followers.total || 0;
 
             console.log(JSON.stringify(data));
             console.log($(target));
@@ -325,58 +339,77 @@
             console.log("Target", target);
             console.log("Arguments", arguments);
             console.log("Got data", data);
-                $("#tbody_data").append("<tr><td>"
-                + (lastfm_data.artist.name || spotify_data.name)
-                + "</td><td>"
-                + (addCommas(spotify_data.followers.total || 0))
-                + "</td><td>"
-                + (addCommas(lastfm_data.artist.stats.playcount || 0))
-                + "</td><td>"
-                + (addCommas(lastfm_data.artist.stats.listeners || 0))
-                + "</td><td>"
-                + (spotify_data.popularity)
-                + "</td><td>"
-                + ((lastfm_data.artist.stats.playcount / spotify_data.followers.total).toFixed(1) || 0)
-                + "</td><td>"
-                + ((lastfm_data.artist.stats.playcount / lastfm_data.artist.stats.listeners).toFixed(1) || 0)
-                + "</td></tr>");
-                console.log(offset);
-                console.log(follower_chart);
-                follower_chart.datasets[offset].label = lastfm_data.artist.name;
+            $("#tbody_data").append("<tr><td>"
+            + (lastfm_data.artist.name || spotify_data.name)
+            + "</td><td>"
+            + (addCommas(spotify_data.followers.total || 0))
+            + "</td><td>"
+            + (addCommas(lastfm_data.artist.stats.playcount || 0))
+            + "</td><td>"
+            + (addCommas(lastfm_data.artist.stats.listeners || 0))
+            + "</td><td>"
+            + (spotify_data.popularity)
+            + "</td><td>"
+            + ((lastfm_data.artist.stats.playcount / spotify_data.followers.total).toFixed(1) || 0)
+            + "</td><td>"
+            + ((lastfm_data.artist.stats.playcount / lastfm_data.artist.stats.listeners).toFixed(1) || 0)
+            + "</td></tr>");
+            console.log(offset);
+            console.log(follower_chart);
+            follower_chart.datasets[offset].label = lastfm_data.artist.name;
 
-                $("#legend_location").html(follower_chart.generateLegend());
+            $("#legend_location").html(follower_chart.generateLegend());
 
-                console.log(retrieved_from_cache);
-                if (retrieved_from_cache) {
-                    var retrieved_from = $("#query" + (offset + 1) + "_from");
-                    console.log("Adding stuff to ", retrieved_from);
-                    retrieved_from.text("Retrieved " + lastfm_data.artist.name + " from cache");
+            console.log(retrieved_from_cache);
+            var retrieved_from = $("#query" + (offset + 1) + "_from");
+            console.log("Adding stuff to ", retrieved_from);
+            retrieved_from.text("Retrieved " + lastfm_data.artist.name + (retrieved_from_cache ? " from the cache." : " from the server."));
+
+            //Set the charts datasets to the values that we got
+            //Charts.js doesn't really provide any easy way to add values without previously
+            //presetting the datasets and then change the bars in the datasets, which is really ugly, but it works
+            follower_chart.datasets[offset].bars[0].value = spotify_data.followers.total || 0;
+            listeners_chart.datasets[offset].bars[0].value = lastfm_data.artist.stats.listeners || 0;
+            playcount_chart.datasets[offset].bars[0].value = lastfm_data.artist.stats.playcount || 0;
+            popularity_chart.addData(
+                    {
+                        value: spotify_data.popularity || 0,
+                        color: colors[offset],
+                        highlight: Please.make_color({
+                            base_color: offset === 0 ? "orangered" : "cyan",
+                            saturation: 0.4,
+                            value: 0.6
+                        }),
+                        label: "Popularity"
+                    });
+
+            //console.log("Or here?");
+            //Update the charts to display the changed values
+            follower_chart.update();
+            listeners_chart.update();
+            playcount_chart.update();
+            popularity_chart.update();
+            $.get("/api/tags/"+lastfm_data.artist.name).done(function(result){
+                tags[offset] = result.toptags.tag.map(function(item){
+                    return item.name;
+                });
+                if(tags.length == 2){
+                    intersecting_tags = tags[0].filter(function(n){
+                        return tags[1].indexOf(n) != -1;
+                    });
+                    console.log(intersecting_tags.toString());
+                    $("#matchingtags").empty();
+                    $("#matchingtags").html("<h6>These are the matching tags</h6>");
+                    for(var i = 0, j = intersecting_tags.length; i<j; i++){
+                        $("#matchingtags").append("<p>" + intersecting_tags[i][0].toUpperCase() + intersecting_tags[i].slice(1) +"</p>");
+                    }
+
+                    $("#matchingtags").append("<p>A total of " + intersecting_tags.length + " of "+tags[offset].length+" tags. Or "+(intersecting_tags.length/tags[offset].length)*100+"%.</p>");
+
                 }
+            });
 
-                //Set the charts datasets to the values that we got
-                //Charts.js doesn't really provide any easy way to add values without previously
-                //presetting the datasets and then change the bars in the datasets, which is really ugly, but it works
-                follower_chart.datasets[offset].bars[0].value = spotify_data.followers.total || 0;
-                listeners_chart.datasets[offset].bars[0].value = lastfm_data.artist.stats.listeners || 0;
-                playcount_chart.datasets[offset].bars[0].value = lastfm_data.artist.stats.playcount || 0;
-                popularity_chart.addData(
-                        {
-                            value: spotify_data.popularity || 0,
-                            color: colors[offset],
-                            highlight: Please.make_color({
-                                base_color: offset === 0 ? "orangered" : "cyan",
-                                saturation: 0.4,
-                                value: 0.6
-                            }),
-                            label: "Popularity"
-                        });
 
-                //console.log("Or here?");
-                //Update the charts to display the changed values
-                follower_chart.update();
-                listeners_chart.update();
-                playcount_chart.update();
-                popularity_chart.update();
         }
     </script>
 {% endblock %}

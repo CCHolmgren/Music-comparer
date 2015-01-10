@@ -203,7 +203,7 @@ var LastFM = {
                             reject(error);
                         }
                     });
-            })
+            });
         },
         getTopAlbums: function (artist_name) {
             return Q.Promise(function (resolve, reject, notify) {
