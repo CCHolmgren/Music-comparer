@@ -59,17 +59,15 @@ router.get('/latestsearches', function (req, res) {
 router.post('/search2', function (req, res) {
     var data_expiry_time = 10000,
         query_string = req.body.query.toLowerCase().trim();
+    console.log("Going into the search2 function");
+    console.log("body:", query_string);
 
     if (query_string === "") {
         send_bad_request_response("The query must contain something, it can't be empty");
         return;
     }
 
-    console.log("Going into the search2 function");
-
     Q.longStackSupport = true;
-
-    console.log("body:", query_string);
 
     Q.ninvoke(client, "get", "artist:" + query_string).
         then(function (data) {
@@ -100,9 +98,13 @@ router.post('/search2', function (req, res) {
             //console.log("result: ",result.slice(0, 100));
             //return [[], [, {state:"fulfilled", value: result}]];
             //});
-        }, function () {
+        }, function (error) {
             console.log("Error");
             console.log(arguments);
+            if(error.code === "ENOTFOUND"){
+                res.status(500);
+                res.json(error);
+            }
             console.log(LastFM.artist.get_info(query_string).inspect())
             return [[], [{state: "rejected", value: ""}, {
                 state: "fulfilled",
@@ -163,6 +165,7 @@ router.post('/search2', function (req, res) {
                             }
                         } catch (e) {
                             if (e instanceof TypeError) {
+                                "";
                             } else {
                                 throw e;
                             }

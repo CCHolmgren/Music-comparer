@@ -104,6 +104,72 @@
         var tags = [];
         var intersecting_tags;
         var searchCount = 0;
+        var first_color;
+        var second_color;
+        var follower_chart;
+        var listeners_chart;
+        var playcount_chart;
+        var popularity_chart;
+        var charts;
+
+        window.addEventListener("offline", function (e) {
+            $("#online").text("You are currently offline. As such you will not be able to do any searches that you haven't already cached. Sorry for the inconvenience.");
+        });
+        window.addEventListener("online", function (e) {
+            $("#online").text("You are currently online. You may do any search that you like.");
+        });
+        window.onload = function () {
+            var button_state = 0;
+            initializeCharts();
+            getLatestSearches();
+            $("#table-button").on("click", function (event) {
+                var that = $(this);
+                $(that.data("target")).toggle();
+                if (button_state % 2 == 0)
+                    that.text("Show table");
+                else
+                    that.text("Hide table");
+                button_state += 1;
+            });
+            $("#latestsearches").delegate("button", "click", function (event) {
+                console.log(arguments);
+                var that = $(this);
+                var that_data = that.data("textbox");
+                var that_selector = "#" + that_data;
+
+                console.log(that.data("textbox"));
+                console.log($(that_selector)[0]);
+
+                $(that_selector)[0].value = decodeURI(that.data("query"));
+            });
+
+            if (!navigator.onLine) {
+                $("#online").text("You are currently offline");
+            }
+            console.log("Adding eventlistener");
+            $("#compare").on("click", function (e) {
+                e.preventDefault();
+
+                location.hash = "#spacer";
+                popularity_chart.segments = [];
+                $("#tbody_data").empty();
+
+                var query1_textbox = $("#query1");
+                var query2_textbox = $("#query2");
+
+                if (query1_textbox.val() != "") {
+                    search(query1_textbox.val(), "artist", handleData.bind(undefined, "#result", 0), "#spinner1", "#query1_loading");
+                }
+                if (query2_textbox) {
+                    search(query2_textbox.val(), "artist", handleData.bind(undefined, "#result2", 1), "#spinner2", "#query2_loading");
+                }
+            });
+            $("input[type=text]").keypress(function (e) {
+                if (e.which == "13") {
+                    $("#compare").trigger("click");
+                }
+            });
+        };
         function addCommas(nStr) {
             nStr += '';
             var x = nStr.split('.');
@@ -115,13 +181,20 @@
             }
             return x1 + x2;
         }
+        function showSearchInfo(spinner, target, query) {
+            $(spinner).show();
+            $(target).text("Searching for " + query);
+        }
+        function removeSearchInfo(spinner, target) {
+            $(spinner).hide();
+            $(target).text("");
+        }
         function search(query, type, callback, spinner, target) {
-            searchCount += 1;
             query = query.trim().toLowerCase();
+
             if (query === "") {
                 return;
             }
-            console.log(query);
             if (localStorage.getItem(query)) {
                 console.log("Got item from storage");
                 console.log(JSON.parse(localStorage.getItem(query)));
@@ -132,13 +205,20 @@
                 return;
             }
             type = type || "artist";
-            $(spinner).show();
-            $(target).text("Searching for " + query);
+            showSearchInfo(spinner, target, query);
+            //$(spinner).show();
+            //$(target).text("Searching for " + query);
             $.ajax({
                 method: "post",
                 url: "/api/search2",
                 data: {query: query, type: type},
                 error: function (x, y, z) {
+                    console.log("The api errored out");
+
+                    removeSearchInfo(spinner, target);
+                    //$(spinner).hide();
+                    //$(target).text("");
+
                     console.log(arguments);
                     console.log(x);
                     $("#loading").text(x.responseJSON.message);
@@ -147,23 +227,19 @@
                 console.log(arguments);
                 console.log(data);
 
-                $(spinner).hide();
-                $(target).text("");
+                removeSearchInfo(spinner, target);
+                //$(spinner).hide();
+                //$(target).text("");
 
                 localStorage.setItem(query, JSON.stringify(data));
 
+                callback(data, false);
+
                 console.log("Showing data");
                 $(".search-data").show();
-
-                callback(data, false);
             });
         }
-        window.addEventListener("offline", function (e) {
-            $("#online").text("You are currently offline. As such you will not be able to do any searches that you haven't already cached. Sorry for the inconvenience.");
-        });
-        window.addEventListener("online", function (e) {
-            $("#online").text("You are currently online. You may do any search that you like.");
-        });
+
         function putInSearchBox(text) {
             console.log(arguments);
             text = decodeURI(text);
@@ -193,55 +269,7 @@
                 console.log(arguments);
             });
         }
-        window.onload = function () {
-            var button_state = 0;
-            $("#table-button").on("click", function (event) {
-                $($(this).data("target")).toggle();
-                if (button_state % 2 == 0)
-                    $(this).text("Show table");
-                else
-                    $(this).text("Hide table");
-                button_state += 1;
-            });
-            $("#latestsearches").delegate("button", "click", function (event) {
-                console.log(arguments);
-                var element = $(this);
-                var textbox_data = element.data("textbox");
-                console.log(element.data("textbox"));
-                console.log($("#" + textbox_data)[0]);
-                $("#" + textbox_data)[0].value = decodeURI(element.data("query"));
-            });
-            initializeCharts();
-            getLatestSearches();
-            //alert(navigator.onLine);
-            if (!navigator.onLine) {
-                $("#online").text("You are currently offline");
-                //$("#online").text(navigator.onLine);
-            }
-            console.log("Adding eventlistener");
-            document.getElementById("compare").addEventListener("click", function (e) {
-                e.preventDefault();
 
-                location.hash = "#spacer";
-                popularity_chart.segments = [];
-                $("#tbody_data").empty();
-
-                var query1_textbox = $("[name=query1]");
-                var query2_textbox = $("[name=query2]");
-
-                if (query1_textbox.val() != "") {
-                    search(query1_textbox.val(), "artist", handleData.bind(undefined, "#result", 0), "#spinner1", "#query1_loading");
-                }
-                if (query2_textbox) {
-                    search(query2_textbox.val(), "artist", handleData.bind(undefined, "#result2", 1), "#spinner2", "#query2_loading");
-                }
-            });
-            $("input[type=text]").keypress(function (e) {
-                if (e.which == "13") {
-                    $("#compare").trigger("click");
-                }
-            });
-        };
         function initializeCharts() {
             first_color = Please.make_color({
                 base_color: "orangered",
@@ -315,62 +343,75 @@
             listeners_chart = new Chart(listeners_ctx).Bar(listeners_data);
             playcount_chart = new Chart(playcount_ctx).Bar(playcount_data);
             popularity_chart = new Chart(popularity_ctx).Doughnut();
+            charts = [follower_chart, listeners_chart, playcount_chart, popularity_chart];
         }
         function handleData(target, offset, data, retrieved_from_cache) {
             "use strict";
             var colors = [first_color, second_color];
-            var spotify_data = data.data[0].value;
+            var spotify_data = data.data[0].value || {
+                        followers: {
+                            total: 0
+                        },
+                        popularity: 0
+                    };
             var spotify_state = data.data[0].state;
-            var lastfm_data = data.data[1].value;
+            var lastfm_data = data.data[1].value || {
+                        artist: {
+                            name: "",
+                            stats: {
+                                listeners: 0,
+                                playcount: 0
+                            }
+                        }
+                    };
             var lastfm_state = data.data[1].state;
             var follower_canvas = document.getElementById("follower_canvas");
             var listeners_canvas = document.getElementById("listeners_canvas");
             var playcount_canvas = document.getElementById("playcount_canvas");
             var popularity_canvas = document.getElementById("popularity_canvas");
-            spotify_data = spotify_data || {followers: {total: 0}, popularity: 0};
-            //spotify_data.followers = spotify_data.followers || {};
-            //spotify_data.followers.total = spotify_data.followers.total || 0;
 
-            console.log(JSON.stringify(data));
-            console.log($(target));
-            console.log("<pre><code>" + JSON.stringify(data, undefined, 2) + "</code></pre>");
+
             $(target).html("<pre><code>" + JSON.stringify(data, undefined, 2) + "</code></pre>");
 
             console.log("Target", target);
+            console.log("Target: ", $(target));
             console.log("Arguments", arguments);
             console.log("Got data", data);
+            console.log(offset);
+            console.log(follower_chart);
+
             $("#tbody_data").append("<tr><td>"
             + (lastfm_data.artist.name || spotify_data.name)
             + "</td><td>"
-            + (addCommas(spotify_data.followers.total || 0))
+            + addCommas(spotify_data.followers.total)
             + "</td><td>"
-            + (addCommas(lastfm_data.artist.stats.playcount || 0))
+            + addCommas(lastfm_data.artist.stats.playcount)
             + "</td><td>"
-            + (addCommas(lastfm_data.artist.stats.listeners || 0))
+            + addCommas(lastfm_data.artist.stats.listeners)
             + "</td><td>"
-            + (spotify_data.popularity)
+            + spotify_data.popularity
             + "</td><td>"
-            + ((lastfm_data.artist.stats.playcount / spotify_data.followers.total).toFixed(1) || 0)
+            + (lastfm_data.artist.stats.playcount / spotify_data.followers.total).toFixed(1)
             + "</td><td>"
-            + ((lastfm_data.artist.stats.playcount / lastfm_data.artist.stats.listeners).toFixed(1) || 0)
+            + (lastfm_data.artist.stats.playcount / lastfm_data.artist.stats.listeners).toFixed(1)
             + "</td></tr>");
-            console.log(offset);
-            console.log(follower_chart);
-            follower_chart.datasets[offset].label = lastfm_data.artist.name;
 
             $("#legend_location").html(follower_chart.generateLegend());
 
-            console.log(retrieved_from_cache);
-            var retrieved_from = $("#query" + (offset + 1) + "_from");
+            console.log("Retrieved_from_cache: ", retrieved_from_cache);
             console.log("Adding stuff to ", retrieved_from);
+
+            var retrieved_from = $("#query" + (offset + 1) + "_from");
             retrieved_from.text("Retrieved " + lastfm_data.artist.name + (retrieved_from_cache ? " from the cache." : " from the server."));
 
             //Set the charts datasets to the values that we got
             //Charts.js doesn't really provide any easy way to add values without previously
             //presetting the datasets and then change the bars in the datasets, which is really ugly, but it works
-            follower_chart.datasets[offset].bars[0].value = spotify_data.followers.total || 0;
-            listeners_chart.datasets[offset].bars[0].value = lastfm_data.artist.stats.listeners || 0;
-            playcount_chart.datasets[offset].bars[0].value = lastfm_data.artist.stats.playcount || 0;
+            follower_chart.datasets[offset].label = lastfm_data.artist.name;
+            follower_chart.datasets[offset].bars[0].value = spotify_data.followers.total;
+            listeners_chart.datasets[offset].bars[0].value = lastfm_data.artist.stats.listeners;
+            playcount_chart.datasets[offset].bars[0].value = lastfm_data.artist.stats.playcount;
+
             popularity_chart.addData(
                     {
                         value: spotify_data.popularity || 0,
@@ -385,31 +426,45 @@
 
             //console.log("Or here?");
             //Update the charts to display the changed values
-            follower_chart.update();
-            listeners_chart.update();
-            playcount_chart.update();
-            popularity_chart.update();
-            $.get("/api/tags/"+lastfm_data.artist.name).done(function(result){
-                tags[offset] = result.toptags.tag.map(function(item){
+            charts.map(function (chart) {
+                chart.update();
+            });
+            //follower_chart.update();
+            //listeners_chart.update();
+            //playcount_chart.update();
+            //popularity_chart.update();
+
+            $.get("/api/tags/" + lastfm_data.artist.name).done(function (result) {
+                var matching_tags = $("#matchingtags");
+                tags[offset] = result.toptags.tag.map(function (item) {
                     return item.name;
                 });
-                if(tags.length == 2){
-                    intersecting_tags = tags[0].filter(function(n){
+
+                if (tags.length == 2) {
+                    intersecting_tags = tags[0].filter(function (n) {
                         return tags[1].indexOf(n) != -1;
                     });
                     console.log(intersecting_tags.toString());
-                    $("#matchingtags").empty();
-                    $("#matchingtags").html("<h6>These are the matching tags</h6>");
-                    for(var i = 0, j = intersecting_tags.length; i<j; i++){
-                        $("#matchingtags").append("<p>" + intersecting_tags[i][0].toUpperCase() + intersecting_tags[i].slice(1) +"</p>");
+
+                    matching_tags.empty();
+                    matching_tags.html("<h6>These are the matching tags</h6>");
+                    var tag_result = "<p>";
+                    tag_result += intersecting_tags[0][0].toUpperCase() + intersecting_tags[0].slice(1) + (intersecting_tags.length > 1 ? ", " : "");
+                    for (var i = 1, j = intersecting_tags.length; i < j; i++) {
+                        tag_result += intersecting_tags[i] + ", ";
+                        //tag_result += intersecting_tags[i][0].toUpperCase() + intersecting_tags[i].slice(1) + " ";
                     }
-
-                    $("#matchingtags").append("<p>A total of " + intersecting_tags.length + " of "+tags[offset].length+" tags. Or "+(intersecting_tags.length/tags[offset].length)*100+"%.</p>");
-
+                    tag_result += "</p>";
+                    matching_tags.append(tag_result);
+                    matching_tags.append("<p>A total of "
+                    + intersecting_tags.length
+                    + " of "
+                    + tags[offset].length
+                    + " tags. Or ~"
+                    + ((intersecting_tags.length / tags[offset].length) * 100).toPrecision(2)
+                    + "%.</p>");
                 }
             });
-
-
         }
     </script>
 {% endblock %}
