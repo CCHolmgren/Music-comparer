@@ -396,8 +396,6 @@
             + (lastfm_data.artist.stats.playcount / lastfm_data.artist.stats.listeners).toFixed(1)
             + "</td></tr>");
 
-            $("#legend_location").html(follower_chart.generateLegend());
-
             console.log("Retrieved_from_cache: ", retrieved_from_cache);
             console.log("Adding stuff to ", retrieved_from);
 
@@ -411,6 +409,8 @@
             follower_chart.datasets[offset].bars[0].value = spotify_data.followers.total;
             listeners_chart.datasets[offset].bars[0].value = lastfm_data.artist.stats.listeners;
             playcount_chart.datasets[offset].bars[0].value = lastfm_data.artist.stats.playcount;
+
+            $("#legend_location").html(follower_chart.generateLegend());
 
             popularity_chart.addData(
                     {
