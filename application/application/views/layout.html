@@ -63,16 +63,22 @@
 </head>
 <body class="has-docked-nav">
 <section class="header" style="border-bottom: 1px solid #E1E1E1;">
-    <h1 class="title">{{ title }}</h1>
+    <div class="row">
+        <div class="eight columns offset-by-two">
+            <h1 class="title">{{ title }}</h1>
 
-    <p>Welcome to {{ title }}!</p>
+            <p>Welcome to {{ title }}!</p>
+            <p>In this application you can search for artists and compare them against each other. How many listens they got, how many followers, how popular they are and so on.</p>
 
-    <p id="online">You are currently online. You may do any search that you like.</p>
-    {% if not authenticated %}
-        <a href="/login">Login</a><!--<a href="http://www.last.fm/api/auth/?api_key=88608a3b670729c1f85fe44b231aff72">Login with Last.fm</a>-->
-    {% else %}
-        <p>You are authenticated as {{ username }}</p>
-    {% endif %}
+            <p id="online">You are currently online. You may do any search that you like.</p>
+            {% if not authenticated %}
+                <p>You can login in the right corner</p><!--<a href="http://www.last.fm/api/auth/?api_key=88608a3b670729c1f85fe44b231aff72">Login with Last.fm</a>-->
+            {% else %}
+                <p>You are authenticated as {{ username }}</p>
+            {% endif %}
+        </div>
+    </div>
+
 </section>
 <div class="navbar-spacer" id="spacer"></div>
 <nav class="navbar">
@@ -83,11 +89,13 @@
             <li class="navbar-item"><a class="navbar-link" href="/application">Application</a></li>
             {% endif %}
         </ul>
+        <ul class="navbar-list u-pull-right">
         {% if authenticated %}
-        <ul class="navbar-list pull-right">
                 <li class="navbar-item"><a class="navbar-link" href="/logout">Logout</a></li>
-        </ul>
+        {% else %}
+            <li class="navbar-item"><a class="navbar-link" href="/login">Login</a></li>
         {% endif %}
+        </ul>
     </div>
 </nav>
 <div class="container">

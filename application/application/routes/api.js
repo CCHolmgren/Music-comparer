@@ -42,8 +42,8 @@ var send_bad_request_response = function (res, message) {
 };
 router.use(bruteforce.prevent);
 
-router.get("/tags/:artist", function(req, res){
-    LastFM.artist.getTopTags(req.params.artist).then(function(result){
+router.get("/tags/:artist", function (req, res) {
+    LastFM.artist.getTopTags(req.params.artist).then(function (result) {
         res.json(JSON.parse(result));
     });
 });
@@ -101,15 +101,17 @@ router.post('/search2', function (req, res) {
         }, function (error) {
             console.log("Error");
             console.log(arguments);
-            if(error.code === "ENOTFOUND"){
+            if (error.code === "ENOTFOUND") {
                 res.status(500);
                 res.json(error);
             }
-            console.log(LastFM.artist.get_info(query_string).inspect())
+
+            console.log(LastFM.artist.get_info(query_string).inspect());
+
             return [[], [{state: "rejected", value: ""}, {
                 state: "fulfilled",
                 value: LastFM.artist.get_info(query_string)
-            }]];//.then(function(result){
+            }]];
         }).
         spread(function (cached_data, retrieved_data) {
             function getName(spotify_data, lastfm_data) {
@@ -134,12 +136,10 @@ router.post('/search2', function (req, res) {
                 //so we need to parse them to get usable values
 
                 if (retrieved_data[0].state === "fulfilled") {
-                    //console.log("Did it throw here?");
                     retrieved_data[0].value = JSON.parse(retrieved_data[0].value);
                 }
                 retrieved_data[1].value.then(function (result) {
                     if (retrieved_data[1].state === "fulfilled") {
-                        //console.log("Or here?");
                         retrieved_data[1].value = JSON.parse(retrieved_data[1].value.valueOf());
                     }
 
@@ -152,11 +152,11 @@ router.post('/search2', function (req, res) {
                         client.rpush("latestsearches", getName(retrieved_data[0], retrieved_data[1]), redis.print);
                         //Behold my ugly checking
                         /*if (retrieved_data[0].value && retrieved_data[0].value.followers && retrieved_data[0].value.total && retrieved_data[1].value && retrieved_data[1].value.artist && retrieved_data[1].value.artist.stats && retrieved_data[1].value.artist.stats.playcount) {
-                            var x = (+retrieved_data[1].value.artist.stats.playcount / +retrieved_data[0].value.followers.total);
-                            if (x > 60) {
-                                client.zadd("highpf", x, JSON.stringify(retrieved_data), redis.print);
-                            }
-                        }*/
+                         var x = (+retrieved_data[1].value.artist.stats.playcount / +retrieved_data[0].value.followers.total);
+                         if (x > 60) {
+                         client.zadd("highpf", x, JSON.stringify(retrieved_data), redis.print);
+                         }
+                         }*/
                         //Better
                         try {
                             var x = (+retrieved_data[1].value.artist.stats.playcount / +retrieved_data[0].value.followers.total);
