@@ -28,19 +28,19 @@ block content
 	script.
 		window.onload = function () {
 			console.log("Adding eventlistener");
-			document.getElementById("compare").addEventListener("click", function(e){
+			document.getElementById("compare").addEventListener("click", function (e) {
 				e.preventDefault();
 				$.ajax({
 					method: "post",
 					url: "http://localhost:3000/search",
-					data: {query1: $("[name=query1]")[0].value, query2:$("[name=query2]")[0].value, type: "artist"}
+					data: {query1: $("[name=query1]")[0].value, query2: $("[name=query2]")[0].value, type: "artist"}
 				}).done(function (data) {
 					handleData(data);
 				});
 			});
 
 		}
-		function handleData(data){
+		function handleData(data) {
 			$("#result").html(data);
 		}
 	script(src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js")

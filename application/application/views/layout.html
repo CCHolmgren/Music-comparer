@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html manifest="cache.manifest">
 <head lang="en">
     <meta charset="UTF-8">
     <title>{{ title||'Something else' }}</title>
@@ -25,7 +25,9 @@
                 {% endif %}
             </ul>
             <ul class="navbar-list u-pull-right">
-                <li class="navbar-item"><span class="navbar-link" id="online" title="You are currently online. You may do any search that you like.">Connection: Online</span></li>
+                <li class="navbar-item"><span class="navbar-link" id="online"
+                                              title="You are currently online. You may do any search that you like.">Connection: Online</span>
+                </li>
                 {% if authenticated %}
                     <li class="navbar-item"><a class="navbar-link" href="/logout">Logout</a></li>
                 {% else %}

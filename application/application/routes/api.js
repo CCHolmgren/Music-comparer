@@ -19,7 +19,6 @@ var bruteforce = new ExpressBrute(store, {
     freeRetries: 1000
 });
 
-
 var spotify = settings.Spotify;
 var LastFM = settings.LastFM;
 
@@ -103,6 +102,7 @@ router.post('/search2', function (req, res) {
             function getName(spotify_data, lastfm_data) {
                 return spotify_data.value.name || lastfm_data.value.artist.name;
             }
+
             if (cached_data.length) {
                 res.send({data: JSON.parse(cached_data)});
             } else {
@@ -137,10 +137,9 @@ router.post('/search2', function (req, res) {
                             }
                         } catch (e) {
                             if (e instanceof TypeError) {
-                                "";
-                            } else {
-                                throw e;
+                                return;
                             }
+                            throw e;
                         }
                     });
                 });
@@ -153,49 +152,6 @@ router.post('/search2', function (req, res) {
             console.log(error);
             console.log(error.stack());
         });
-});
-router.post('/search', function (req, res) {
-    Q.longStackSupport = true;
-    if (req.body.query1 === "" || req.body.query2 === "") {
-        res.status(400).send({
-            error: "400 Bad Request",
-            message: "You provided only 1 or even 0 of the required 2 names. As such we can't go on with the query."
-        });
-        return;
-    }
-    Q.spread([Q.ninvoke(client, "get", "artist:" + req.body.query1), Q.ninvoke(client, "get", "artist:" + req.body.query2)], function (query1, query2) {
-        //console.log(query1, query2);
-        return [[query1, query2], Q.all([spotify.artist.search(req.body.query1),
-            spotify.artist.search(req.body.query2)])];
-    }).spread(function (cached_data, spotify_search_results) {
-
-        //console.log(spotify_search_results);
-        spotify_search_results = [JSON.parse(spotify_search_results[0]), JSON.parse(spotify_search_results[1])];
-        //console.log(spotify_search_results);
-        //console.log("Do we get here?");
-
-        return [cached_data, Q.all([spotify.artist.get_details(spotify_search_results[0].artists.items[0].id),
-            spotify.artist.get_details(spotify_search_results[1].artists.items[0].id),
-            LastFM.artist.get_info(req.body.query1),
-            LastFM.artist.get_info(req.body.query2)])]
-    }).spread(function (cached_data, data1) {
-        spotify_details1 = JSON.parse(data1[0]);
-        spotify_details2 = JSON.parse(data1[1]);
-        lastfminfo1 = JSON.parse(data1[2]);
-        lastfminfo2 = JSON.parse(data1[3]);
-        //console.log(arguments);
-        //console.log("This is my other data:", cached_data);
-        //console.log("Or maybe this:", data1);
-        console.log("Is this where it fails?");
-        res.render("result", {
-            data1: cached_data[0] || spotify_details1,
-            data2: cached_data[1] || spotify_details2,
-            data3: lastfminfo1,
-            data4: lastfminfo2
-        });
-    }).fail(function (error) {
-        throw new Error(error);
-    }).done();
 });
 
 module.exports = router;

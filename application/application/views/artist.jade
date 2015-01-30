@@ -1,29 +1,29 @@
 //
-   Created by Chrille on 2014-12-18.
+	Created by Chrille on 2014-12-18.
 extends layout
 block content
-    pre
-        code= JSON.stringify(result)
-    style.
-        table.sortable th:not(.sorttable_sorted):not(.sorttable_sorted_reverse):not(.sorttable_nosort):after {
-            content: " \25B4\25BE"
-        }
-    //- Ugly checking
-    -if(result["artists"] && result["artists"]["items"])
-        p= result
-        table(class="sortable")
-            thead
-                tr
-                    th
-                    th Artist name
-                    th Popularity
-                    th URI
-            tbody
-                each artist, index in result.artists.items
-                    tr
-                        td= index + 1
-                        td= artist.name
-                        td= artist.popularity
-                        td
-                            a(href="#{artist.uri}") Link
-        script(src="../javascripts/sorttable.js")
+	pre
+		code= JSON.stringify(result)
+	style.
+		table.sortable th:not(.sorttable_sorted):not(.sorttable_sorted_reverse):not(.sorttable_nosort):after {
+			content: " \25B4\25BE"
+		}
+	//- Ugly checking
+	-if(result["artists"] && result["artists"]["items"])
+	p= result
+	table(class="sortable")
+		thead
+			tr
+				th
+				th Artist name
+				th Popularity
+				th URI
+		tbody
+			each artist, index in result.artists.items
+				tr
+					td= index + 1
+					td= artist.name
+					td= artist.popularity
+					td
+						a(href="#{artist.uri}") Link
+	script(src="../javascripts/sorttable.js")

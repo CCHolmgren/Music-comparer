@@ -32,10 +32,8 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'html');
 app.set("view cache", false);
 
-swig.setDefaults({cache: false});
-swig.setFilter("eval", function (input) {
-    return eval(input);
-});
+swig.setDefaults({cache: true});
+
 app.use(function (req, res, next) {
     res.header('Access-Control-Allow-Origin', '*');
     next();
@@ -97,19 +95,12 @@ app.get('/callback', function (req, res) {
             req.session.loggedin = true;
             req.session.username = key.session.name;
             req.session.token = key.session.key;
-            //req.session.hmac = crypto.createHash("md5").update(key.session.name + key.session.key, "utf8").digest("hex");
-            //res.cookie("username", key.session.name, {httpOnly: true});
-            //res.cookie("hmac", crypto.createHash("md5").update(key.session.name + key.session.key, "utf8").digest("hex"), {httpOnly: true});
             res.redirect("/application");
         });
     });
 });
 app.use('/application', routes);
 app.use('/api', api);
-app.use('/users', users);
-app.use('/artists', artists);
-app.use('/tracks', tracks);
-app.use('/albums', albums);
 
 app.use("/", function (req, res) {
     console.log(req.session);

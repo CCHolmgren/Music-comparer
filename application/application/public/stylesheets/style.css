@@ -1,11 +1,12 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    padding: 50px;
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
-  color: #00B7FF;
+    color: #00B7FF;
 }
+
 .navbar + .docs-section {
     border-top-width: 0;
 }
@@ -82,6 +83,7 @@ body {
     border-top: 1px solid #E1E1E1;
     padding-top: 10px;
 }
+
 .header {
     padding-bottom: 40px;
 }
@@ -122,12 +124,15 @@ canvas:not(#popularity_canvas) {
 #latestsearches div {
     text-align: center;
 }
+
 .welcome-text {
     text-align: center;
 }
+
 .main-content {
     margin-top: 10px;
 }
+
 [name=query1], [name=query2] {
     text-align: center;
 }

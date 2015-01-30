@@ -4,6 +4,14 @@ CACHE:
 /stylesheets/style.css
 /stylesheets/normalize.css
 /stylesheets/skeleton.css
+/stylesheets/custom.css
+/javascripts/chart.js
+/javascripts/clientside.js
+/javascripts/offline.js
+/javascripts/please.min.js
+/javascripts/sorttable.js
+/application
+/
 http://fonts.googleapis.com/css?family=Raleway:400,300,600
 http://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js
 NETWORK:

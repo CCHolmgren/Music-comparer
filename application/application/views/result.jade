@@ -14,13 +14,13 @@ table
 	tbody
 		tr
 			- if(data1.name)
-				td= data1.name
+			td= data1.name
 			-else
-				td= Missing
+			td= Missing
 			-if(data1.popularity)
-				td= data1.popularity
+			td= data1.popularity
 			-else
-				td= Missing
+			td= Missing
 			td= data1.uri
 			td= addCommas(data1.followers.total)
 			td= addCommas(data3.artist.stats.listeners)

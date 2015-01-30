@@ -48,19 +48,19 @@ router.get('/', function (req, res) {
                 }
             }
         ).then(function (result) {
-            render_index_page(res, 'Music Comparer', result, true, req.session.username);
-            /*res.render('index', {
-             title: 'Music comparer',
-             latestsearches: result,
-             authenticated: true,
-             username: req.cookies.username
-             });*/
-        }).catch(function (error) {
-            console.log(error);
-            delete req.session.username;//res.cookie("username", "", {expires: new Date(1), httpOnly: true});
-            delete req.session.hmac;//res.cookie("hmac", "", {expires: new Date(1), httpOnly: true});
-            res.render("error", {title: "Music Comparer", error: error, message: error.message});
-        });
+                render_index_page(res, 'Music Comparer', result, true, req.session.username);
+                /*res.render('index', {
+                 title: 'Music comparer',
+                 latestsearches: result,
+                 authenticated: true,
+                 username: req.cookies.username
+                 });*/
+            }).catch(function (error) {
+                console.log(error);
+                delete req.session.username;//res.cookie("username", "", {expires: new Date(1), httpOnly: true});
+                delete req.session.hmac;//res.cookie("hmac", "", {expires: new Date(1), httpOnly: true});
+                res.render("error", {title: "Music Comparer", error: error, message: error.message});
+            });
     } else {
         client.lrange("latestsearches", -5, -1, function (error, result) {
             console.log(arguments);

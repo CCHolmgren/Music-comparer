@@ -10,18 +10,18 @@ block content
 		}
 	//- Ugly checking
 	-if(result["items"])
-		p= result
-		table(class="sortable")
-			thead
+	p= result
+	table(class="sortable")
+		thead
+			tr
+				th
+				th Album name
+				th URI
+		tbody
+			each album, index in result.items
 				tr
-					th
-					th Album name
-					th URI
-			tbody
-				each album, index in result.items
-					tr
-						td= index + 1
-						td= album.name
-						td
-							a(href="#{album.uri}") Link
+					td= index + 1
+					td= album.name
+					td
+						a(href="#{album.uri}") Link
 	script(src="../javascripts/sorttable.js")
