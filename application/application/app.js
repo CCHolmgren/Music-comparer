@@ -45,10 +45,10 @@ app.use(compress);
 
 // uncomment after placing your favicon in /public
 app.use(favicon(__dirname + '/public/favicon.ico'));
-app.get("/manifest.manifest", function (req, res) {
+app.get("/cache.manifest", function (req, res) {
     res.header("Content-type", "text/cache-manifest");
     res.header("Cache-Control", "no-cache, no-store, must-revalidate");
-    res.sendFile(path.join(__dirname, "public", "manifest.manifest"));
+    res.sendFile(path.join(__dirname, "public", "cache.manifest"));
 });
 app.use(logger('dev'));
 app.use(bodyParser.json());

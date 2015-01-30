@@ -13,92 +13,46 @@
     <link rel='stylesheet' href='/stylesheets/style.css'>
     <link rel='stylesheet' href='/stylesheets/normalize.css'>
     <link rel='stylesheet' href='/stylesheets/skeleton.css'>
-    <style>
-        .footer {
-            border-top: 1px solid #E1E1E1;
-            padding-top: 10px;
-        }
-
-        .header {
-            padding-bottom: 40px;
-        }
-    </style>
-    <style>
-        .docs-header {
-            text-transform: uppercase;
-            font-size: 1.4rem;
-            letter-spacing: .2rem;
-            font-weight: 600;
-        }
-
-        .box {
-            margin-top: 1.5rem;
-            border: 1px solid #E1E1E1;
-            padding: 2.5rem 3rem;
-            border-radius: 4px;
-            margin-bottom: 1.5rem;
-        }
-
-        .controllers {
-            padding-top: 30px;
-        }
-
-        canvas:not(#popularity_canvas) {
-            width: 50%;
-        }
-
-        .bar-legend li span {
-            display: block;
-            width: 15px;
-            height: 15px;
-        }
-
-        .search-data {
-            display: none;
-        }
-        #latestsearches div {
-            text-align:center;
-        }
-    </style>
 </head>
 <body class="has-docked-nav">
-<section class="header" style="border-bottom: 1px solid #E1E1E1;">
-    <div class="row">
-        <div class="eight columns offset-by-two">
-            <h1 class="title">{{ title }}</h1>
-
-            <p>Welcome to {{ title }}!</p>
-            <p>In this application you can search for artists and compare them against each other. How many listens they got, how many followers, how popular they are and so on.</p>
-
-            <p id="online">You are currently online. You may do any search that you like.</p>
-            {% if not authenticated %}
-                <p>You can login in the right corner</p><!--<a href="http://www.last.fm/api/auth/?api_key=88608a3b670729c1f85fe44b231aff72">Login with Last.fm</a>-->
-            {% else %}
-                <p>You are authenticated as {{ username }}</p>
-            {% endif %}
+<section class="header">
+    <nav class="navbar">
+        <div class="container">
+            <ul class="navbar-list">
+                <li class="navbar-item"><a class="navbar-link" href="/">Home</a></li>
+                {% if authenticated %}
+                    <li class="navbar-item"><a class="navbar-link" href="/application">Application</a></li>
+                {% endif %}
+            </ul>
+            <ul class="navbar-list u-pull-right">
+                <li class="navbar-item"><span class="navbar-link" id="online" title="You are currently online. You may do any search that you like.">Connection: Online</span></li>
+                {% if authenticated %}
+                    <li class="navbar-item"><a class="navbar-link" href="/logout">Logout</a></li>
+                {% else %}
+                    <li class="navbar-item"><a class="navbar-link" href="/login">Login</a></li>
+                {% endif %}
+            </ul>
         </div>
-    </div>
-
+    </nav>
 </section>
-<div class="navbar-spacer" id="spacer"></div>
-<nav class="navbar">
-    <div class="container">
-        <ul class="navbar-list">
-            <li class="navbar-item"><a class="navbar-link" href="/">Home</a></li>
-            {% if authenticated %}
-            <li class="navbar-item"><a class="navbar-link" href="/application">Application</a></li>
-            {% endif %}
-        </ul>
-        <ul class="navbar-list u-pull-right">
-        {% if authenticated %}
-                <li class="navbar-item"><a class="navbar-link" href="/logout">Logout</a></li>
+<div class="row welcome-text">
+    <div class="eight columns offset-by-two">
+        <h1 class="title">{{ title }}</h1>
+
+        <p>Welcome to {{ title }}!</p>
+
+        <p>In this application you can search for artists and compare them against each other. How many listens they
+            got, how many followers, how popular they are and so on.</p>
+        {% if not authenticated %}
+            <p>You can login in the right
+                corner</p><!--<a href="http://www.last.fm/api/auth/?api_key=88608a3b670729c1f85fe44b231aff72">Login with Last.fm</a>-->
         {% else %}
-            <li class="navbar-item"><a class="navbar-link" href="/login">Login</a></li>
+            <p>You are authenticated as {{ username }}</p>
         {% endif %}
-        </ul>
     </div>
-</nav>
-<div class="container">
+</div>
+<div class="navbar-spacer" id="spacer"></div>
+<div class="container main-content">
     <div class="row">
         <div class="twelve columns">
             {% block content %}
@@ -119,6 +73,11 @@
 
     </div>
 </div>
+<script src="/javascripts/chart.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="/javascripts/please.min.js"></script>
+<script src="/javascripts/offline.js">
+</script>
 </body>
 </html>
 
