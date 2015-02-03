@@ -1,12 +1,9 @@
 CACHE MANIFEST
-# Version 0.1.1
+# Version 0.1.2
 CACHE:
-/stylesheets/style.css
-/stylesheets/normalize.css
-/stylesheets/skeleton.css
-/stylesheets/custom.css
-/javascripts/chart.js
-/javascripts/clientside.js
+/stylesheets/all.min.css
+/javascripts/chart.min.js
+/javascripts/clientside.min.js
 /javascripts/offline.js
 /javascripts/please.min.js
 /javascripts/sorttable.js

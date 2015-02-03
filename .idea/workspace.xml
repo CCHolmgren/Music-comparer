@@ -1,22 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2cfafd9f-7b76-4276-a344-7ed42a435949" name="Default" comment="Formatting all code.&#10;&#10;- Added the cache.manifest to the layout page again.">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/images/Schema.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Rapport.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/application/public/stylesheets/all.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/application/public/javascripts/chart.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/application/public/javascripts/clientside.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/application/public/stylesheets/custom.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/application/public/stylesheets/normalize.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/application/public/stylesheets/skeleton.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/application/public/stylesheets/style.min.css" />
+    <list default="true" id="2cfafd9f-7b76-4276-a344-7ed42a435949" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/redis" afterPath="$PROJECT_DIR$/redis" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/application/app.js" afterPath="$PROJECT_DIR$/application/application/app.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/application/public/cache.manifest" afterPath="$PROJECT_DIR$/application/application/public/cache.manifest" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/application/views/index.html" afterPath="$PROJECT_DIR$/application/application/views/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/application/views/layout.html" afterPath="$PROJECT_DIR$/application/application/views/layout.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/application/settings/settings.js" afterPath="$PROJECT_DIR$/application/application/settings/settings.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Webbteknik_II_projekt.iws" />
@@ -41,21 +28,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="layout.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="layout.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/application/views/layout.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.3375" vertical-offset="936" max-vertical-offset="1496">
-              <caret line="11" column="53" selection-start-line="11" selection-start-column="53" selection-end-line="11" selection-end-column="53" />
+            <state vertical-scroll-proportion="-17.615385" vertical-offset="936" max-vertical-offset="1496">
+              <caret line="82" column="0" selection-start-line="82" selection-start-column="0" selection-end-line="82" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="custom.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/application/public/stylesheets/custom.css">
+      <file leaf-file-name="cache.manifest" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/application/application/public/cache.manifest">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="3808" max-vertical-offset="5542">
-              <caret line="242" column="27" selection-start-line="0" selection-start-column="0" selection-end-line="320" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.2901024" vertical-offset="0" max-vertical-offset="586">
+              <caret line="10" column="15" selection-start-line="10" selection-start-column="15" selection-end-line="10" selection-end-column="15" />
               <folding />
             </state>
           </provider>
@@ -178,7 +165,6 @@
         <option value="$PROJECT_DIR$/application/application/views/result.html" />
         <option value="$PROJECT_DIR$/application/application/routes/api.js" />
         <option value="$PROJECT_DIR$/application/application/settings/settings.js" />
-        <option value="$PROJECT_DIR$/application/application/public/cache.manifest" />
         <option value="$PROJECT_DIR$/application/application/app.js" />
         <option value="$PROJECT_DIR$/application/application/routes/index.js" />
         <option value="$PROJECT_DIR$/Rapport.md" />
@@ -191,6 +177,7 @@
         <option value="$PROJECT_DIR$/application/application/public/stylesheets/style.min.css" />
         <option value="$PROJECT_DIR$/application/application/public/stylesheets/all.min.css" />
         <option value="$PROJECT_DIR$/application/application/views/layout.html" />
+        <option value="$PROJECT_DIR$/application/application/public/cache.manifest" />
       </list>
     </option>
   </component>
@@ -760,7 +747,13 @@
       <option name="project" value="LOCAL" />
       <updated>1422614737036</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="Adding minfied files.&#10;&#10;">
+      <created>1422970181755</created>
+      <option name="number" value="00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1422970181755</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -785,14 +778,15 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32900432" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32900432" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33549783" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32900432" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2528978" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2528978" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33766234" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32864866" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -801,7 +795,6 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32900432" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32900432" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -824,7 +817,6 @@
       <TodoPanelSettings />
     </option>
     <option name="SHORT_DIFF_EXTRA_LINES" value="4" />
-    <MESSAGE value="Working on the LastFM authentication.&#10;Got burned by having the getSignature api key name as apikey when it should be api_key. Damn.&#10;&#10;- getSession on the auth object allows us to get a session, but this needs to be stored somewhere. Will deal with that later. Also, need to get it to return json instead of XML." />
     <MESSAGE value="The LastFM api thingy now returns JSON instead of XML.&#10;&#10;- Send a &quot;Success!&quot; When we succeeded in getting data from the LastFM server, or not really.&#10;- Saved the result in the cache." />
     <MESSAGE value="Ugly checking if the user is authenticated properly. This should be extended later, but at this time it works as intended.&#10;&#10;- Displays the link to sign in, only if you aren't authenticated.&#10;- Set cookies of the username and hmac of username and key for later checking." />
     <MESSAGE value="Converted the router.get('/') route to a promise function instead. Makes it much more manageable, but it's a little difficult to create the actual promises. It's not nice when you get other errors, because they do not get reported as they should, they do not explode the stack.&#10;&#10;- Does all the functionality of the previous function, with way less code.&#10;" />
@@ -849,7 +841,8 @@
     <MESSAGE value="Moved the generation of legend to a better place." />
     <MESSAGE value="Moved javascript and css to separate files.&#10;&#10;- Moved Javascript and Css to separate files.&#10;- Removed comments and unused code that wasn't needed.&#10;" />
     <MESSAGE value="Formatting all code.&#10;&#10;- Added the cache.manifest to the layout page again." />
-    <option name="LAST_COMMIT_MESSAGE" value="Formatting all code.&#10;&#10;- Added the cache.manifest to the layout page again." />
+    <MESSAGE value="Adding minfied files.&#10;&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adding minfied files.&#10;&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1077,14 +1070,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/application/public/cache.manifest">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="374">
-          <caret line="11" column="25" selection-start-line="11" selection-start-column="25" selection-end-line="11" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/application/app.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2567">
@@ -1243,8 +1228,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/application/views/layout.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.3375" vertical-offset="936" max-vertical-offset="1496">
-          <caret line="11" column="53" selection-start-line="11" selection-start-column="53" selection-end-line="11" selection-end-column="53" />
+        <state vertical-scroll-proportion="-17.615385" vertical-offset="936" max-vertical-offset="1496">
+          <caret line="82" column="0" selection-start-line="82" selection-start-column="0" selection-end-line="82" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/application/public/cache.manifest">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.2901024" vertical-offset="0" max-vertical-offset="586">
+          <caret line="10" column="15" selection-start-line="10" selection-start-column="15" selection-end-line="10" selection-end-column="15" />
           <folding />
         </state>
       </provider>
