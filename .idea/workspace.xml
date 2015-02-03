@@ -1,37 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2cfafd9f-7b76-4276-a344-7ed42a435949" name="Default" comment="">
+    <list default="true" id="2cfafd9f-7b76-4276-a344-7ed42a435949" name="Default" comment="Formatting all code.&#10;&#10;- Added the cache.manifest to the layout page again.">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/images/Schema.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Rapport.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/application/public/stylesheets/all.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/application/public/javascripts/chart.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/application/public/javascripts/clientside.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/application/public/stylesheets/custom.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/application/public/stylesheets/normalize.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/application/public/stylesheets/skeleton.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/application/public/stylesheets/style.min.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/redis" afterPath="$PROJECT_DIR$/redis" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/application/views/album.jade" afterPath="$PROJECT_DIR$/application/application/views/album.jade" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/application/routes/albums.js" afterPath="$PROJECT_DIR$/application/application/routes/albums.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/application/routes/api.js" afterPath="$PROJECT_DIR$/application/application/routes/api.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/application/app.js" afterPath="$PROJECT_DIR$/application/application/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/application/views/artist.jade" afterPath="$PROJECT_DIR$/application/application/views/artist.jade" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/application/views/artist_album_simple.jade" afterPath="$PROJECT_DIR$/application/application/views/artist_album_simple.jade" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/application/public/cache.manifest" afterPath="$PROJECT_DIR$/application/application/public/cache.manifest" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/application/public/javascripts/chart.js" afterPath="$PROJECT_DIR$/application/application/public/javascripts/chart.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/application/public/stylesheets/custom.css" afterPath="$PROJECT_DIR$/application/application/public/stylesheets/custom.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/application/views/error.html" afterPath="$PROJECT_DIR$/application/application/views/error.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/application/views/error.jade" afterPath="$PROJECT_DIR$/application/application/views/error.jade" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/application/views/index.jade" afterPath="$PROJECT_DIR$/application/application/views/index.jade" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/application/routes/index.js" afterPath="$PROJECT_DIR$/application/application/routes/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/application/views/index.html" afterPath="$PROJECT_DIR$/application/application/views/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/application/views/layout.html" afterPath="$PROJECT_DIR$/application/application/views/layout.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/application/views/layout.jade" afterPath="$PROJECT_DIR$/application/application/views/layout.jade" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/application/views/login.html" afterPath="$PROJECT_DIR$/application/application/views/login.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/application/public/stylesheets/normalize.css" afterPath="$PROJECT_DIR$/application/application/public/stylesheets/normalize.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/application/public/javascripts/please.min.js" afterPath="$PROJECT_DIR$/application/application/public/javascripts/please.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/application/views/result.html" afterPath="$PROJECT_DIR$/application/application/views/result.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/application/views/result.jade" afterPath="$PROJECT_DIR$/application/application/views/result.jade" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/application/settings/settings.js" afterPath="$PROJECT_DIR$/application/application/settings/settings.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/application/public/stylesheets/skeleton.css" afterPath="$PROJECT_DIR$/application/application/public/stylesheets/skeleton.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/application/public/javascripts/sorttable.js" afterPath="$PROJECT_DIR$/application/application/public/javascripts/sorttable.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/application/public/stylesheets/style.css" afterPath="$PROJECT_DIR$/application/application/public/stylesheets/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/application/views/track.jade" afterPath="$PROJECT_DIR$/application/application/views/track.jade" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/application/routes/tracks.js" afterPath="$PROJECT_DIR$/application/application/routes/tracks.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/application/routes/users.js" afterPath="$PROJECT_DIR$/application/application/routes/users.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/application/bin/www" afterPath="$PROJECT_DIR$/application/application/bin/www" />
     </list>
     <ignored path="Webbteknik_II_projekt.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -55,105 +41,101 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="layout.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="layout.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/application/views/layout.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.65384614" vertical-offset="0" max-vertical-offset="1547">
-              <caret line="1" column="30" selection-start-line="1" selection-start-column="30" selection-end-line="1" selection-end-column="30" />
+            <state vertical-scroll-proportion="-1.3375" vertical-offset="936" max-vertical-offset="1496">
+              <caret line="11" column="53" selection-start-line="11" selection-start-column="53" selection-end-line="11" selection-end-column="53" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="cache.manifest" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/application/public/cache.manifest">
+      <file leaf-file-name="custom.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/application/public/stylesheets/custom.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="391">
-              <caret line="13" column="1" selection-start-line="13" selection-start-column="1" selection-end-line="13" selection-end-column="1" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="3808" max-vertical-offset="5542">
+              <caret line="242" column="27" selection-start-line="0" selection-start-column="0" selection-end-line="320" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="api.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/application/routes/api.js">
+      <file leaf-file-name="custom.min.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/application/public/stylesheets/custom.min.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2720">
-              <caret line="141" column="29" selection-start-line="141" selection-start-column="29" selection-end-line="141" selection-end-column="29" />
-              <folding>
-                <element signature="e#0#44#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="app.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/application/application/app.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5168919" vertical-offset="1428" max-vertical-offset="2567">
-              <caret line="102" column="21" selection-start-line="102" selection-start-column="21" selection-end-line="102" selection-end-column="21" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="102">
+              <caret line="0" column="3731" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="3878" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="result.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/application/views/result.html">
+      <file leaf-file-name="normalize.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/application/public/stylesheets/normalize.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-17.346153" vertical-offset="93" max-vertical-offset="646">
-              <caret line="32" column="8" selection-start-line="32" selection-start-column="8" selection-end-line="32" selection-end-column="8" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="7344">
+              <caret line="17" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="426" selection-end-column="1" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="albums.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/application/routes/albums.js">
+      <file leaf-file-name="normalize.min.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/application/public/stylesheets/normalize.min.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="255">
-              <caret line="8" column="24" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="24" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="102">
+              <caret line="0" column="1845" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="1981" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="artists.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/application/routes/artists.js">
+      <file leaf-file-name="skeleton.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/application/public/stylesheets/skeleton.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="153" max-vertical-offset="1479">
-              <caret line="12" column="3" selection-start-line="12" selection-start-column="3" selection-end-line="12" selection-end-column="3" />
-              <folding>
-                <element signature="e#0#44#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="settings.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/application/settings/settings.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="2957" max-vertical-offset="3536">
-              <caret line="165" column="54" selection-start-line="165" selection-start-column="54" selection-end-line="165" selection-end-column="54" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="3757" max-vertical-offset="10438">
+              <caret line="239" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="608" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="api_keys.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/application/settings/api_keys.js">
+      <file leaf-file-name="skeleton.min.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/application/public/stylesheets/skeleton.min.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="476">
-              <caret line="15" column="22" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="22" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="102">
+              <caret line="0" column="5675" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="5816" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="users.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/application/routes/users.js">
+      <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/application/public/stylesheets/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="255">
-              <caret line="8" column="24" selection-start-line="0" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="1233" max-vertical-offset="2431">
+              <caret line="126" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="137" selection-end-column="1" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="style.min.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/application/public/stylesheets/style.min.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="102">
+              <caret line="0" column="1185" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="1347" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="all.min.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/application/public/stylesheets/all.min.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="102">
+              <caret line="0" column="12647" selection-start-line="0" selection-start-column="12647" selection-end-line="0" selection-end-column="12647" />
               <folding />
             </state>
           </provider>
@@ -187,20 +169,28 @@
         <option value="$PROJECT_DIR$/application/application/public/javascripts/chart.js" />
         <option value="$PROJECT_DIR$/application/application/public/javascripts/please.min.js" />
         <option value="$PROJECT_DIR$/application/application/views/dsad.js" />
-        <option value="$PROJECT_DIR$/application/application/routes/index.js" />
         <option value="$PROJECT_DIR$/application/application/views/login.html" />
         <option value="$PROJECT_DIR$/application/application/public/manifest.manifest" />
         <option value="$PROJECT_DIR$/application/application/public/stylesheets/custom.css" />
         <option value="$PROJECT_DIR$/application/application/public/javascripts/offline.js" />
         <option value="$PROJECT_DIR$/application/application/public/javascripts/clientside.js" />
         <option value="$PROJECT_DIR$/application/application/public/stylesheets/style.css" />
-        <option value="$PROJECT_DIR$/application/application/views/index.html" />
         <option value="$PROJECT_DIR$/application/application/views/result.html" />
-        <option value="$PROJECT_DIR$/application/application/settings/settings.js" />
         <option value="$PROJECT_DIR$/application/application/routes/api.js" />
-        <option value="$PROJECT_DIR$/application/application/views/layout.html" />
+        <option value="$PROJECT_DIR$/application/application/settings/settings.js" />
         <option value="$PROJECT_DIR$/application/application/public/cache.manifest" />
         <option value="$PROJECT_DIR$/application/application/app.js" />
+        <option value="$PROJECT_DIR$/application/application/routes/index.js" />
+        <option value="$PROJECT_DIR$/Rapport.md" />
+        <option value="$PROJECT_DIR$/application/application/public/javascripts/clientside.min.js" />
+        <option value="$PROJECT_DIR$/application/application/public/javascripts/chart.min.js" />
+        <option value="$PROJECT_DIR$/application/application/views/index.html" />
+        <option value="$PROJECT_DIR$/application/application/public/stylesheets/custom.min.css" />
+        <option value="$PROJECT_DIR$/application/application/public/stylesheets/normalize.min.css" />
+        <option value="$PROJECT_DIR$/application/application/public/stylesheets/skeleton.min.css" />
+        <option value="$PROJECT_DIR$/application/application/public/stylesheets/style.min.css" />
+        <option value="$PROJECT_DIR$/application/application/public/stylesheets/all.min.css" />
+        <option value="$PROJECT_DIR$/application/application/views/layout.html" />
       </list>
     </option>
   </component>
@@ -308,6 +298,24 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="images" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Webbteknik_II_projekt" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Webbteknik_II_projekt" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="application" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -331,50 +339,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Webbteknik_II_projekt" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Webbteknik_II_projekt" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="application" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="application" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="settings" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Webbteknik_II_projekt" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Webbteknik_II_projekt" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="application" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="application" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="routes" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -452,28 +416,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Webbteknik_II_projekt" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Webbteknik_II_projekt" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="application" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="application" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
     </panes>
@@ -488,12 +430,17 @@
     <property name="DefaultHtmlFileTemplate" value="Html5" />
     <property name="LayoutCode.rearrangeEntriesHTML" value="false" />
     <property name="LayoutCode.rearrangeEntriesJavaScript 1.5" value="false" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
   </component>
   <component name="RunManager">
+    <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
+      <method />
+    </configuration>
     <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
       <method />
     </configuration>
-    <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
+    <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma" config-file="">
+      <envs />
       <method />
     </configuration>
     <configuration default="true" type="JSTestDriver:ConfigurationType" factoryName="JsTestDriver">
@@ -501,10 +448,6 @@
       <setting name="settingsFile" value="" />
       <setting name="serverType" value="INTERNAL" />
       <setting name="preferredDebugBrowser" value="Chrome" />
-      <method />
-    </configuration>
-    <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma" config-file="">
-      <envs />
       <method />
     </configuration>
     <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
@@ -811,7 +754,13 @@
       <option name="project" value="LOCAL" />
       <updated>1422614301313</updated>
     </task>
-    <option name="localTasksCounter" value="46" />
+    <task id="LOCAL-00046" summary="Formatting all code.&#10;&#10;- Added the cache.manifest to the layout page again.">
+      <created>1422614737036</created>
+      <option name="number" value="00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1422614737036</updated>
+    </task>
+    <option name="localTasksCounter" value="47" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -836,27 +785,27 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32900432" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32900432" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3362162" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33549783" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32900432" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32900432" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2528978" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2528978" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33766234" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32864866" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32900432" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32900432" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -875,7 +824,6 @@
       <TodoPanelSettings />
     </option>
     <option name="SHORT_DIFF_EXTRA_LINES" value="4" />
-    <MESSAGE value="Moved the API stuff to another file called api.js. This helps separate the routes from the other files in a better way.&#10;&#10;- The indexpage will now get the latest searches, five of them, and render them on page load.&#10;- Changed the title to Music comparer.&#10;- Things didn't work out with the Last.FM api since it was using a &amp; instead of a ? so it gave a wrong id error.&#10;- Styling, rendering of searches, moved stuff to functions, added more text, and so on in the index.html view.&#10;" />
     <MESSAGE value="Working on the LastFM authentication.&#10;Got burned by having the getSignature api key name as apikey when it should be api_key. Damn.&#10;&#10;- getSession on the auth object allows us to get a session, but this needs to be stored somewhere. Will deal with that later. Also, need to get it to return json instead of XML." />
     <MESSAGE value="The LastFM api thingy now returns JSON instead of XML.&#10;&#10;- Send a &quot;Success!&quot; When we succeeded in getting data from the LastFM server, or not really.&#10;- Saved the result in the cache." />
     <MESSAGE value="Ugly checking if the user is authenticated properly. This should be extended later, but at this time it works as intended.&#10;&#10;- Displays the link to sign in, only if you aren't authenticated.&#10;- Set cookies of the username and hmac of username and key for later checking." />
@@ -900,7 +848,8 @@
     <MESSAGE value="Well yes.&#10;" />
     <MESSAGE value="Moved the generation of legend to a better place." />
     <MESSAGE value="Moved javascript and css to separate files.&#10;&#10;- Moved Javascript and Css to separate files.&#10;- Removed comments and unused code that wasn't needed.&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="Moved javascript and css to separate files.&#10;&#10;- Moved Javascript and Css to separate files.&#10;- Removed comments and unused code that wasn't needed.&#10;" />
+    <MESSAGE value="Formatting all code.&#10;&#10;- Added the cache.manifest to the layout page again." />
+    <option name="LAST_COMMIT_MESSAGE" value="Formatting all code.&#10;&#10;- Added the cache.manifest to the layout page again." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -909,80 +858,10 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/application/application/views/error.jade">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="204">
-          <caret line="6" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/application/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1122">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/application/node_modules/express/lib/response.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1379" max-vertical-offset="16541">
-          <caret line="207" column="20" selection-start-line="207" selection-start-column="20" selection-end-line="207" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/application/node_modules/body-parser/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="85" max-vertical-offset="1462">
-          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/application/node_modules/body-parser/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1530">
-          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/application/node_modules/debug/debug.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3451">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/application/node_modules/debug/node.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2295">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/application/bin/www">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="255">
-          <caret line="4" column="30" selection-start-line="4" selection-start-column="30" selection-end-line="4" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/application/node_modules/redis/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="16339" max-vertical-offset="21930">
-          <caret line="978" column="76" selection-start-line="978" selection-start-column="68" selection-end-line="978" selection-end-column="76" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/application/node_modules/request/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="2306" max-vertical-offset="2890">
           <caret line="23" column="48" selection-start-line="23" selection-start-column="48" selection-end-line="23" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/application/public/stylesheets/skeleton.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="3468" max-vertical-offset="7225">
-          <caret line="222" column="26" selection-start-line="222" selection-start-column="26" selection-end-line="222" selection-end-column="26" />
         </state>
       </provider>
     </entry>
@@ -1030,13 +909,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="23167" max-vertical-offset="81617">
           <caret line="1370" column="0" selection-start-line="1370" selection-start-column="0" selection-end-line="1370" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/application/public/javascripts/chart.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="153">
-          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -1141,65 +1013,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/application/routes/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="714" max-vertical-offset="1428">
-          <caret line="57" column="35" selection-start-line="57" selection-start-column="35" selection-end-line="57" selection-end-column="35" />
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/application/public/stylesheets/custom.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="3335" max-vertical-offset="3927">
-          <caret line="225" column="0" selection-start-line="225" selection-start-column="0" selection-end-line="225" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/application/public/javascripts/offline.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="255">
-          <caret line="11" column="3" selection-start-line="11" selection-start-column="3" selection-end-line="11" selection-end-column="3" />
-          <folding>
-            <element signature="e#0#44#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/application/public/javascripts/clientside.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="5579" max-vertical-offset="6239">
-          <caret line="361" column="1" selection-start-line="361" selection-start-column="1" selection-end-line="361" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/application/public/stylesheets/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1703" max-vertical-offset="2346">
-          <caret line="132" column="1" selection-start-line="132" selection-start-column="1" selection-end-line="132" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/application/views/layout.jade">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="306" max-vertical-offset="408">
           <caret line="18" column="23" selection-start-line="0" selection-start-column="0" selection-end-line="18" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/application/views/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.65384614" vertical-offset="0" max-vertical-offset="1768">
-          <caret line="1" column="19" selection-start-line="1" selection-start-column="19" selection-end-line="1" selection-end-column="19" />
-          <folding>
-            <marker date="1422613833346" expanded="true" signature="-1:-1" placeholder="{% block content ...%}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1207,7 +1024,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-1.9615384" vertical-offset="0" max-vertical-offset="170">
           <caret line="3" column="4" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="4" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1223,14 +1039,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="476">
           <caret line="15" column="22" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/application/settings/settings.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2957" max-vertical-offset="3536">
-          <caret line="165" column="54" selection-start-line="165" selection-start-column="54" selection-end-line="165" selection-end-column="54" />
           <folding />
         </state>
       </provider>
@@ -1261,6 +1069,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/application/application/settings/settings.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="2946" max-vertical-offset="3519">
+          <caret line="201" column="33" selection-start-line="201" selection-start-column="33" selection-end-line="201" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/application/public/cache.manifest">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="374">
+          <caret line="11" column="25" selection-start-line="11" selection-start-column="25" selection-end-line="11" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/application/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2567">
+          <caret line="41" column="18" selection-start-line="41" selection-start-column="18" selection-end-line="41" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/application/application/routes/api.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2720">
@@ -1271,26 +1103,148 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/application/application/routes/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="1428">
+          <caret line="21" column="27" selection-start-line="21" selection-start-column="27" selection-end-line="21" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Rapport.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-11.56" vertical-offset="255" max-vertical-offset="952">
+          <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/application/public/javascripts/clientside.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="5579" max-vertical-offset="6239">
+          <caret line="343" column="71" selection-start-line="0" selection-start-column="0" selection-end-line="361" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/application/public/javascripts/clientside.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="323">
+          <caret line="13" column="295" selection-start-line="13" selection-start-column="295" selection-end-line="13" selection-end-column="295" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/application/public/javascripts/chart.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.9633508" vertical-offset="1131" max-vertical-offset="1785">
+          <caret line="99" column="317" selection-start-line="99" selection-start-column="317" selection-end-line="99" selection-end-column="317" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/application/public/javascripts/chart.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="22015">
+          <caret line="18" column="26" selection-start-line="18" selection-start-column="26" selection-end-line="18" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/application/views/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-62.76923" vertical-offset="0" max-vertical-offset="1768">
+          <caret line="96" column="45" selection-start-line="96" selection-start-column="45" selection-end-line="96" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/application/public/javascripts/offline.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="255">
+          <caret line="11" column="3" selection-start-line="11" selection-start-column="3" selection-end-line="11" selection-end-column="3" />
+          <folding>
+            <element signature="e#0#44#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/application/public/stylesheets/custom.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="3808" max-vertical-offset="5542">
+          <caret line="242" column="27" selection-start-line="0" selection-start-column="0" selection-end-line="320" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/application/public/stylesheets/normalize.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="7344">
+          <caret line="17" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="426" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/application/public/stylesheets/skeleton.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="3757" max-vertical-offset="10438">
+          <caret line="239" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="608" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/application/public/stylesheets/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1233" max-vertical-offset="2431">
+          <caret line="126" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="137" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/application/public/stylesheets/custom.min.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="102">
+          <caret line="0" column="3731" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="3878" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/application/public/stylesheets/normalize.min.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="102">
+          <caret line="0" column="1845" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="1981" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/application/public/stylesheets/skeleton.min.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="102">
+          <caret line="0" column="5675" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="5816" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/application/public/stylesheets/style.min.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="102">
+          <caret line="0" column="1185" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="1347" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/application/public/stylesheets/all.min.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="573">
+          <caret line="0" column="12647" selection-start-line="0" selection-start-column="12647" selection-end-line="0" selection-end-column="12647" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/application/application/views/layout.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.65384614" vertical-offset="0" max-vertical-offset="1547">
-          <caret line="1" column="30" selection-start-line="1" selection-start-column="30" selection-end-line="1" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/application/public/cache.manifest">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="391">
-          <caret line="13" column="1" selection-start-line="13" selection-start-column="1" selection-end-line="13" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/application/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5168919" vertical-offset="1428" max-vertical-offset="2567">
-          <caret line="102" column="21" selection-start-line="102" selection-start-column="21" selection-end-line="102" selection-end-column="21" />
+        <state vertical-scroll-proportion="-1.3375" vertical-offset="936" max-vertical-offset="1496">
+          <caret line="11" column="53" selection-start-line="11" selection-start-column="53" selection-end-line="11" selection-end-column="53" />
           <folding />
         </state>
       </provider>

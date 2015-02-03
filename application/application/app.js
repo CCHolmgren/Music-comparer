@@ -32,7 +32,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'html');
 app.set("view cache", false);
 
-swig.setDefaults({cache: true});
+swig.setDefaults({cache: false});
 
 app.use(function (req, res, next) {
     res.header('Access-Control-Allow-Origin', '*');

@@ -200,4 +200,3 @@ function getSignature(api_key, method, token, secret) {
 
 module.exports.LastFM = LastFM;
 module.exports.Spotify = Spotify;
-module.exports._Spotify = _Spotify;
