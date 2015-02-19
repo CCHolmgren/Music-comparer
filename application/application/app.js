@@ -102,8 +102,7 @@ app.get('/callback', function (req, res) {
 app.use('/application', routes);
 app.use('/api', api);
 
-app.use("/", function (req, res) {
-    console.log(req.session);
+app.get("/", function (req, res) {
     res.render("layout", {
         title: "Music Comparer",
         authenticated: req.session.loggedin,

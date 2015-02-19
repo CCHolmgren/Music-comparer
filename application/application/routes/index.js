@@ -35,11 +35,9 @@ router.get('/', function (req, res) {
             function (result_username) {
                 console.log(result_username);
                 var json = JSON.parse(result_username);
-                //var hmac = crypto.createHash("md5").update(json.session.name + json.session.key, "utf8").digest("hex");
                 var token = json.session.key;
 
                 console.log(req.session);
-                //console.log(hmac);
 
                 if (token === req.session.token) {
                     return Q.ninvoke(client, "lrange", "latestsearches", -5, -1);
@@ -49,28 +47,15 @@ router.get('/', function (req, res) {
             }
         ).then(function (result) {
                 render_index_page(res, 'Music Comparer', result, true, req.session.username);
-                /*res.render('index', {
-                 title: 'Music comparer',
-                 latestsearches: result,
-                 authenticated: true,
-                 username: req.cookies.username
-                 });*/
             }).catch(function (error) {
                 console.log(error);
-                delete req.session.username;//res.cookie("username", "", {expires: new Date(1), httpOnly: true});
-                delete req.session.hmac;//res.cookie("hmac", "", {expires: new Date(1), httpOnly: true});
+                delete req.session.username;
                 res.render("error", {title: "Music Comparer", error: error, message: error.message});
             });
     } else {
         client.lrange("latestsearches", -5, -1, function (error, result) {
             console.log(arguments);
             render_index_page(res, 'Music Comparer', result, false, null);
-            /*res.render('index', {
-             title: 'Music comparer',
-             latestsearches: result,
-             authenticated: false,
-             username: null
-             });*/
         });
     }
 });
