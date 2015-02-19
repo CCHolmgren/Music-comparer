@@ -8,6 +8,7 @@ Schematisk bild
 ![Schema](/application/images/Schema.png)
 
 Video: https://www.youtube.com/watch?v=pm8oFxz4xrw
+Länk till applikationen: http://node.christofferholmgren.se/
 
 En snabb beskrivning av applikationen:
 1. Klienten kollar först om artisten som den vill söka efter finns i LocalStorage. Om den gör det så använder den datan som finns där och kontaktar inte servern något.
